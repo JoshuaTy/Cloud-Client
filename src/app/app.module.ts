@@ -1,24 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {UserService} from './services/user.service';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { AppComponent } from './app.component';
-import { UseExistingWebDriver } from 'protractor/built/driverProviders';
-import { UserComponent } from './user/user.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NbThemeModule, NbLayoutModule } from "@nebular/theme";
+import { LoginComponent } from "./components/login/login.component";
+import { NebularModule } from "./modules/nebular/nebular.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UserComponent
-  ],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    FormsModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NbThemeModule.forRoot({ name: "default" }),
+    NbLayoutModule,
+    NebularModule
   ],
-  providers: [UserService],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
