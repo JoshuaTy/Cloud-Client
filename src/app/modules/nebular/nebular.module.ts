@@ -4,13 +4,15 @@ import {
   NbLayoutModule,
   NbSidebarModule,
   NbSidebarService,
-  NbCardModule
+  NbCardModule,
+  NbInputModule,
+  NbButtonModule,
 } from "@nebular/theme";
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, NbLayoutModule, NbSidebarModule, NbCardModule],
-  exports: [CommonModule, NbLayoutModule, NbSidebarModule, NbCardModule],
+  imports: [CommonModule, NbLayoutModule, NbSidebarModule, NbCardModule,NbInputModule,NbButtonModule],
+  exports: [CommonModule, NbLayoutModule, NbSidebarModule, NbCardModule,NbInputModule, NbButtonModule],
   providers: [NbSidebarService]
 })
 export class NebularModule {}
