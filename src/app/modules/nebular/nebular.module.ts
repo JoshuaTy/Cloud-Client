@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { Ng2SmartTableModule } from "ng2-smart-table";
 import {
   NbLayoutModule,
   NbSidebarModule,
@@ -21,7 +22,8 @@ import {
     NbInputModule,
     NbActionsModule,
     NbButtonModule,
-    NbTabsetModule
+    NbTabsetModule,
+    Ng2SmartTableModule
   ],
   exports: [
     CommonModule,
@@ -31,7 +33,8 @@ import {
     NbInputModule,
     NbActionsModule,
     NbButtonModule,
-    NbTabsetModule
+    NbTabsetModule,
+    Ng2SmartTableModule
   ],
   providers: [NbSidebarService]
 })
