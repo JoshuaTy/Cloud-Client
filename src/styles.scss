@@ -1,10 +1,10 @@
-@import 'themes';
+@import "themes";
 
-@import '~@nebular/theme/styles/globals';
+@import "~@nebular/theme/styles/globals";
 
 @include nb-install() {
   @include nb-theme-global();
-};
+}
 /* You can add global styles to this file, and also import other style files */
 
 .s1 {
@@ -30,4 +30,8 @@
 }
 .s8 {
   flex: 8 !important;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> dc00290c20e7e0f84af40dde5462037698ebdfe5
