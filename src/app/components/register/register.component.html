@@ -1,6 +1,6 @@
 <div class="form-body">
   <h1 class="text-1">Welcome to Our Health Care App!</h1>
-  <h2 class="text-1">Please log in..</h2>
+  <h2 class="text-1">Please register..</h2>
   <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div class="form-container">
     <div class="s3"></div>
@@ -12,48 +12,76 @@
             type="text"
             nbInput
             fullWidth  
-            formControlName="firtName" 
+            formControlName="firstName" 
             [ngClass]="{ 'is-invalid': submitted && f.firstName.errors}"  
             placeholder="First Name"
           />
-          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-              <div *ngIf="f.username.errors.required">Username is required</div>
-          </div>
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+              <div *ngIf="f.firstName.errors.required">First Name is required</div>
+          </div>
       </div>
-      
-      Last Name:
-      <input
-        class="lastname"
-        type="text"
-        nbInput
-        fullWidth          
-        placeholder="Last Name"
-      />
-      Email address:
-      <input
-        class="email"
-        type="text"
-        nbInput
-        fullWidth          
-        placeholder="Email address"
-      />
-      User Name:
-      <input
-        class="username"
-        type="text"
-        nbInput
-        fullWidth         
-        placeholder="User Name"
-      />
-      Password:
-      <input
-        class="password"
-        type="password"
-        nbInput
-        fullWidth          
-        placeholder="Password"
-      />
-
+      <div class="form-group"> 
+        Last Name:
+        <input
+          class="lastname"
+          type="text"
+          formControlName="lastName"
+          nbInput
+          fullWidth          
+          [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+          placeholder="Last Name"
+        />
+        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+        </div>
+      </div>
+     <div class="form-group">
+        Email address:
+        <input
+          class="email"
+          type="text"
+          formControlName="email"
+          nbInput
+          fullWidth  
+          [ngClass]="{ 'is-invalid': submitted && f.email.errors }"        
+          placeholder="Email address"
+        />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+          </div>
+     </div>
+     <div class="form-group">
+        User Name:
+        <input
+          class="username"
+          type="text"
+          formControlName="username"
+          nbInput
+          fullWidth         
+          [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+          placeholder="User Name"
+        />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+     </div>
+     <div class="form-group">
+        Password:
+        <input
+          class="password"
+          type="password"
+          formControlName="password"
+          nbInput
+          fullWidth          
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+          placeholder="Password"
+        />
+       <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div> 
+     </div>
+     
       <button class="form-submit" nbButton fullWidth status="success">
         Register
       </button>

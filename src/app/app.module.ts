@@ -10,9 +10,14 @@ import { NebularModule } from "./modules/nebular/nebular.module";
 import { EntryComponent } from './components/entry/entry.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RegisterComponent } from "./components/register/register.component";
+import { UserService } from "./_services/user.service";
+import { HttpClientModule } from "@angular/common/http";
+import { AlertComponent } from './_directives/alert.component';
+import { AlertService } from "./_services/alert.service";
+import { AuthenticationService } from "./_services/authentication.service";
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, EntryComponent, RegisterComponent],
+  declarations: [AppComponent, LoginComponent, EntryComponent, RegisterComponent, AlertComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,8 +27,9 @@ import { RegisterComponent } from "./components/register/register.component";
     NbThemeModule.forRoot({ name: "cosmic" }),
     NbLayoutModule,
     NebularModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [UserService, AlertService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
