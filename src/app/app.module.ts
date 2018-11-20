@@ -19,6 +19,7 @@ import { RegisterComponent } from "./components/register/register.component";
 import { AdminComponent } from "./components/admin/admin.component";
 import { UsernameComponent } from './components/login/username/username.component';
 import { PasswordComponent } from './components/login/password/password.component';
+import { AuthGuard } from "./_guards/auth.guard";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { PasswordComponent } from './components/login/password/password.componen
     NebularModule,
     HttpClientModule
   ],
-  providers: [UserService, AlertService, AuthenticationService],
+  providers: [AuthGuard,UserService, AlertService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
