@@ -1,18 +1,26 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NbThemeModule, NbLayoutModule } from "@nebular/theme";
-import { LoginComponent } from "./components/login/login.component";
 import { NebularModule } from "./modules/nebular/nebular.module";
-import { EntryComponent } from './components/entry/entry.component';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
+import { LoginComponent } from "./components/login/login.component";
+import { EntryComponent } from "./components/entry/entry.component";
 import { RegisterComponent } from "./components/register/register.component";
+import { AdminComponent } from "./components/admin/admin.component";
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, EntryComponent, RegisterComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    EntryComponent,
+    RegisterComponent,
+    AdminComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,7 +29,7 @@ import { RegisterComponent } from "./components/register/register.component";
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: "cosmic" }),
     NbLayoutModule,
-    NebularModule,
+    NebularModule
   ],
   providers: [],
   bootstrap: [AppComponent]
