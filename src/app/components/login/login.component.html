@@ -4,35 +4,9 @@
   <div class="form-container">
     <div class="s3"></div>
     <div class="s3">
-      Username:
-      <input
-        class="username"
-        type="text"
-        nbInput
-        fullWidth
-        fieldSize="medium"
-        placeholder="Username"
-      />
-      <!--
-        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-          <div *ngIf="f.username.errors.required">Username is required</div>
-        </div>
-      -->
+      <app-username></app-username>
+      <app-password></app-password>
 
-      Password:
-      <input
-        class="password"
-        type="password"
-        nbInput
-        fullWidth
-        fieldSize="medium"
-        placeholder="Password"
-      />
-      <!--
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-          <div *ngIf="f.password.errors.required">Password is required</div>
-        </div>
-      -->
       <!-- change this button to link to AUTH -->
       <a
         routerLink="/admin"
