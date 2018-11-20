@@ -2,28 +2,7 @@
   margin: 20px;
 }
 
-.text-1 {
-  text-align: center;
-}
-
-.form-container {
-  display: flex;
-  flex-flow: row;
-}
-
-.firstname,
-.lastname,
-.email,
-.username,
-.password {
-  margin-top: 3px;
-  margin-bottom: 10px;
-}
-
-.form-submit {
-  margin-top: 20px;
-}
-
 .invalid-feedback {
   color: #ff386a;
+  margin: 0px;
 }

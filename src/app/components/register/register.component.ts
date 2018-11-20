@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { first } from "rxjs/operators";
+import { UserService } from "src/app/_services/user.service";
+import { AlertService } from "src/app/_services/alert.service";
 
 @Component({
   selector: "app-register",
@@ -13,7 +15,12 @@ export class RegisterComponent implements OnInit {
   loading = false;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private userService: UserService,
+    private alertService: AlertService
+  ) {}
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -36,5 +43,17 @@ export class RegisterComponent implements OnInit {
       return;
     }
     this.loading = true;
+    this.userService
+      .register(this.registerForm.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.alertService.success("Registration successful", true);
+        },
+        error => {
+          this.alertService.error(error);
+          this.loading = false;
+        }
+      );
   }
 }

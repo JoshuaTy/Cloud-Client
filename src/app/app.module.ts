@@ -7,11 +7,18 @@ import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NbThemeModule, NbLayoutModule } from "@nebular/theme";
 import { NebularModule } from "./modules/nebular/nebular.module";
+import { UserService } from "./_services/user.service";
+import { HttpClientModule } from "@angular/common/http";
+import { AlertComponent } from "./_directives/alert.component";
+import { AlertService } from "./_services/alert.service";
+import { AuthenticationService } from "./_services/authentication.service";
 
 import { LoginComponent } from "./components/login/login.component";
 import { EntryComponent } from "./components/entry/entry.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { AdminComponent } from "./components/admin/admin.component";
+import { UsernameComponent } from './components/login/username/username.component';
+import { PasswordComponent } from './components/login/password/password.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +26,10 @@ import { AdminComponent } from "./components/admin/admin.component";
     LoginComponent,
     EntryComponent,
     RegisterComponent,
-    AdminComponent
+    AdminComponent,
+    AlertComponent,
+    UsernameComponent,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +39,10 @@ import { AdminComponent } from "./components/admin/admin.component";
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: "cosmic" }),
     NbLayoutModule,
-    NebularModule
+    NebularModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserService, AlertService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
