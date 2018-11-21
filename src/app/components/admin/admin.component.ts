@@ -14,5 +14,6 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     this.userName=this.currentUser.username;
+    
   }
 }
