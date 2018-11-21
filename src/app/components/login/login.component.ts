@@ -13,7 +13,7 @@ import { AlertService } from "src/app/_services/alert.service";
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  loading = false;
+  
   submitted = false;
   returnUrl: string;
   constructor(
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.logout();
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/admin';
   }
    // convenience getter for easy access to form fields
    get f() { return this.loginForm.controls; }
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
            return;
        }
 
-       this.loading = true;
+       
        this.authenticationService.login(this.loginForm.value)
            .pipe(first())
            .subscribe(
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
                },
                error => {
                    this.alertService.error(error);
-                   this.loading = false;
+                   
                });
    }
 }

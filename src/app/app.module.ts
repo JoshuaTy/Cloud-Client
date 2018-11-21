@@ -8,16 +8,16 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NbThemeModule, NbLayoutModule } from "@nebular/theme";
 import { NebularModule } from "./modules/nebular/nebular.module";
 import { UserService } from "./_services/user.service";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AlertComponent } from "./_directives/alert.component";
 import { AlertService } from "./_services/alert.service";
 import { AuthenticationService } from "./_services/authentication.service";
 import { AuthGuard } from "./_guards/auth.guard";
+import { JwtInterceptor } from "./_helpers/jwt.interceptor";
+import { ErrorInterceptor } from "./_helpers/error.interceptor";
 
 import { EntryComponent } from "./components/entry/entry.component";
 import { LoginComponent } from "./components/login/login.component";
-import { UsernameComponent } from "./components/login/username/username.component";
-import { PasswordComponent } from "./components/login/password/password.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { AdminComponent } from "./components/admin/admin.component";
 import { DiseaseComponent } from "./components/admin/disease/disease.component";
@@ -32,8 +32,6 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
     RegisterComponent,
     AdminComponent,
     AlertComponent,
-    UsernameComponent,
-    PasswordComponent,
     DiseaseComponent,
     MedicineComponent,
     NotFoundComponent
@@ -49,7 +47,14 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
     NebularModule,
     HttpClientModule
   ],
-  providers: [AuthGuard, UserService, AlertService, AuthenticationService],
+  providers: [
+    AuthGuard,
+    UserService,
+    AlertService,
+    AuthenticationService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
