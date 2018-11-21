@@ -1,24 +1,52 @@
 <div class="form-body">
   <h1 class="text-1">Welcome to Our Health Care App!</h1>
   <h2 class="text-1">Please log in..</h2>
-  <div class="form-container">
-    <div class="s3"></div>
-    <div class="s3">
-      <app-username></app-username>
-      <app-password></app-password>
-
-      <!-- change this button to link to AUTH -->
-      <a
-        routerLink="/admin"
-        class="form-submit"
-        nbButton
-        fullWidth
-        status="success"
-      >
-        LOG IN
-      </a>
-      <!-- change this button to link to AUTH -->
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-container">
+      <div class="s3"></div>
+      <div class="s3">
+        <!-- Adding router outlet for username and password will not work... Form values will be in
+        separated components -->
+          <div class="form-group">
+              Username:
+              <input
+                class="username"
+                type="text"
+                nbInput
+                fullWidth
+                fieldSize="medium"
+                formControlName="username"
+                [ngClass]= "{ 'is-invalid': submitted && f.username.errors }"
+                placeholder="Username"
+              />
+            
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                  <div *ngIf="f.username.errors.required">Username is required</div>
+                </div>
+            </div>
+        <div class="form-group">
+            Password:
+            <input
+              class="password"
+              type="password"
+              nbInput
+              fullWidth
+              fieldSize="medium"
+              formControlName="password"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+              placeholder="Password"
+            />
+          
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+              </div>
+          </div>
+          
+        <button class="form-submit" nbButton fullWidth status="success">
+          Login
+        </button>
+      </div>
+      <div class="s3"></div>
     </div>
-    <div class="s3"></div>
-  </div>
+  </form>
 </div>

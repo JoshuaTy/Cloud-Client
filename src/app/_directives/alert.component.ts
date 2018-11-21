@@ -8,7 +8,7 @@ import { AlertService } from '../_services/alert.service';
   templateUrl: './alert.component.html',
   styleUrls: []
 })
-export class AlertComponent implements OnInit {
+export class AlertComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
     message: any;
