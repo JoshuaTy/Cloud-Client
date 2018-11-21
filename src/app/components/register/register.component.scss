@@ -21,18 +21,13 @@
   margin-top: 20px;
 }
 
-.invalid-feedback {
-  color: #ff386a;
-  margin: 0px;
-}
-
 .form-container {
   display: flex;
   flex-flow: row;
 }
 
 .username,
-.password {
+.password, .email, .firstname, .lastname {
   margin-top: 3px;
   margin-bottom: 10px;
 }
@@ -40,3 +35,7 @@
 .form-submit {
   margin-top: 20px;
 }
+
+// .invalid-feedback {
+//   color: #ff386a;
+// }
