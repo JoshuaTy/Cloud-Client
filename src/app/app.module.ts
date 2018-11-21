@@ -12,14 +12,17 @@ import { HttpClientModule } from "@angular/common/http";
 import { AlertComponent } from "./_directives/alert.component";
 import { AlertService } from "./_services/alert.service";
 import { AuthenticationService } from "./_services/authentication.service";
+import { AuthGuard } from "./_guards/auth.guard";
 
-import { LoginComponent } from "./components/login/login.component";
 import { EntryComponent } from "./components/entry/entry.component";
+import { LoginComponent } from "./components/login/login.component";
+import { UsernameComponent } from "./components/login/username/username.component";
+import { PasswordComponent } from "./components/login/password/password.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { AdminComponent } from "./components/admin/admin.component";
-import { UsernameComponent } from './components/login/username/username.component';
-import { PasswordComponent } from './components/login/password/password.component';
-import { AuthGuard } from "./_guards/auth.guard";
+import { DiseaseComponent } from "./components/admin/disease/disease.component";
+import { MedicineComponent } from "./components/admin/medicine/medicine.component";
+import { NotFoundComponent } from "./components/not-found/not-found.component";
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { AuthGuard } from "./_guards/auth.guard";
     AdminComponent,
     AlertComponent,
     UsernameComponent,
-    PasswordComponent
+    PasswordComponent,
+    DiseaseComponent,
+    MedicineComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,7 @@ import { AuthGuard } from "./_guards/auth.guard";
     NebularModule,
     HttpClientModule
   ],
-  providers: [AuthGuard,UserService, AlertService, AuthenticationService],
+  providers: [AuthGuard, UserService, AlertService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
