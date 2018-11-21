@@ -1,33 +1,9 @@
-<!--
-  <div class="form-body">
-    <h1 class="text-center">Welcome to Our Health Care App!</h1>
-    <h2 class="text-center">Please log in..</h2>
-    <div class="form-container">
-      <div class="s3"></div>
-      <div class="s3">
-        <app-username></app-username>
-        <app-password></app-password>
-        <a
-          routerLink="/admin"
-          class="form-submit"
-          nbButton
-          fullWidth
-          status="success"
-        >
-          LOG IN
-        </a>
-      </div>
-      <div class="s3"></div>
-    </div>
-  </div>
--->
-
 <div class="form-body">
   <h1 class="text-center">Welcome to Our Health Care App!</h1>
   <h2 class="text-center">Please log in..</h2>
   <div class="form-container">
     <div class="s3"></div>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form class="s3" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="login-username">Username:</label>
         <input
@@ -42,7 +18,10 @@
           formControlName="username"
           [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
         />
-        <div class="alert alert-danger" *ngIf="f.username.touched && !f.username.valid">
+        <div
+          class="alert alert-danger"
+          *ngIf="f.username.touched && !f.username.valid"
+        >
           <div *ngIf="f.username.errors.required">Username invalid!</div>
           <div *ngIf="f.username.errors.minlength">
             Username should at least be 4 characters long
@@ -64,7 +43,10 @@
           formControlName="password"
           [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
         />
-        <div class="alert alert-danger" *ngIf="f.password.touched && !f.password.valid">
+        <div
+          class="alert alert-danger"
+          *ngIf="f.password.touched && !f.password.valid"
+        >
           <div *ngIf="f.password.errors.required">Password is Invalid!</div>
           <div *ngIf="f.password.errors.minlength">
             Password should at least be 4 characters long!
