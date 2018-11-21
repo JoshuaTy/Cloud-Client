@@ -12,6 +12,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AlertComponent } from "./_directives/alert.component";
 import { AlertService } from "./_services/alert.service";
 import { AuthenticationService } from "./_services/authentication.service";
+import { AuthGuard } from "./_guards/auth.guard";
 
 import { EntryComponent } from "./components/entry/entry.component";
 import { LoginComponent } from "./components/login/login.component";
@@ -48,7 +49,7 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
     NebularModule,
     HttpClientModule
   ],
-  providers: [UserService, AlertService, AuthenticationService],
+  providers: [AuthGuard, UserService, AlertService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
