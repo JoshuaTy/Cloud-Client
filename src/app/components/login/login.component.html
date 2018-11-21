@@ -3,18 +3,61 @@
   <h2 class="text-center">Please log in..</h2>
   <div class="form-container">
     <div class="s3"></div>
-    <form class="s3">
-      <app-username></app-username>
-      <app-password></app-password>
-      <button
-        routerLink="/admin"
-        class="form-submit"
-        nbButton
-        fullWidth
-        status="success"
-      >
-        LOG IN
-      </button>
+    <form class="s3" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="login-username">Username:</label>
+        <input
+          required
+          minlength="4"
+          maxlength="10"
+          type="text"
+          id="login-username"
+          nbInput
+          fullWidth
+          placeholder="User Name"
+          formControlName="username"
+          [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="f.username.touched && !f.username.valid"
+        >
+          <div *ngIf="f.username.errors.required">Username invalid!</div>
+          <div *ngIf="f.username.errors.minlength">
+            Username should at least be 4 characters long
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password:</label>
+        <input
+          required
+          minlength="4"
+          maxlength="10"
+          type="password"
+          id="login-password"
+          nbInput
+          fullWidth
+          fieldSize="medium"
+          placeholder="Password"
+          formControlName="password"
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="f.password.touched && !f.password.valid"
+        >
+          <div *ngIf="f.password.errors.required">Password is Invalid!</div>
+          <div *ngIf="f.password.errors.minlength">
+            Password should at least be 4 characters long!
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="form-submit" nbButton fullWidth status="success">
+          Login
+        </button>
+      </div>
     </form>
     <div class="s3"></div>
   </div>
