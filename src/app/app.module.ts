@@ -13,12 +13,15 @@ import { AlertComponent } from "./_directives/alert.component";
 import { AlertService } from "./_services/alert.service";
 import { AuthenticationService } from "./_services/authentication.service";
 
-import { LoginComponent } from "./components/login/login.component";
 import { EntryComponent } from "./components/entry/entry.component";
+import { LoginComponent } from "./components/login/login.component";
+import { UsernameComponent } from "./components/login/username/username.component";
+import { PasswordComponent } from "./components/login/password/password.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { AdminComponent } from "./components/admin/admin.component";
-import { UsernameComponent } from './components/login/username/username.component';
-import { PasswordComponent } from './components/login/password/password.component';
+import { DiseaseComponent } from "./components/admin/disease/disease.component";
+import { MedicineComponent } from "./components/admin/medicine/medicine.component";
+import { NotFoundComponent } from "./components/not-found/not-found.component";
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { PasswordComponent } from './components/login/password/password.componen
     AdminComponent,
     AlertComponent,
     UsernameComponent,
-    PasswordComponent
+    PasswordComponent,
+    DiseaseComponent,
+    MedicineComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

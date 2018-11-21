@@ -1,5 +1,12 @@
 <nb-card>
   <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+    <nb-tabset fullWidth>
+      <nb-tab tabTitle="Disease" class="m-20">
+        <app-disease></app-disease>
+      </nb-tab>
+      <nb-tab tabTitle="Medicine" class="m-20">
+        <app-medicine></app-medicine>
+      </nb-tab>
+    </nb-tabset>
   </nb-card-body>
 </nb-card>

@@ -1,11 +1,15 @@
 @import "themes";
 
 @import "~@nebular/theme/styles/globals";
-
+@import "~bootstrap/scss/bootstrap";
 @include nb-install() {
   @include nb-theme-global();
 }
 /* You can add global styles to this file, and also import other style files */
+
+.text-center {
+  text-align: center;
+}
 
 .s1 {
   flex: 1 !important;
@@ -30,4 +34,14 @@
 }
 .s8 {
   flex: 8 !important;
+}
+
+.m-10 {
+  margin: 10px !important;
+}
+.m-20 {
+  margin: 20px !important;
+}
+.m-30 {
+  margin: 30px !important;
 }
