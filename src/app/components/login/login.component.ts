@@ -13,6 +13,7 @@ import { AlertService } from "src/app/_services/alert.service";
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  user: any;
 
   submitted = false;
   returnUrl: string;
@@ -34,7 +35,8 @@ export class LoginComponent implements OnInit {
     this.authenticationService.resetAll();
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/admin";
+    // this.returnUrl =
+    this.route.snapshot.queryParams["returnUrl"] || "/dashboard";
   }
   // convenience getter for easy access to form fields
   get f() {
@@ -51,9 +53,12 @@ export class LoginComponent implements OnInit {
         .pipe(first())
         .subscribe(
           data => {
-            console.log("Redirecting to", this.returnUrl);
-            //must add optional parameters here
-            this.router.navigate([this.returnUrl]);
+            this.user = JSON.parse(localStorage.getItem("currentUser"));
+            if (this.user) {
+              this.returnUrl = "/dashboard/" + this.user.usertype;
+              console.log("Redirecting to", this.returnUrl);
+              this.router.navigate([this.returnUrl]);
+            }
           },
           error => {
             console.log(error);

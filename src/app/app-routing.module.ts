@@ -1,15 +1,19 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { EntryComponent } from "./components/entry/entry.component";
-import { AdminComponent } from "./components/admin/admin.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { AuthGuard } from "./_guards/auth.guard";
-import { DoctorComponent } from "./components/doctor/doctor.component";
+import { LoginComponent } from "./components/login/login.component";
+import { DashboardComponent } from "./components/dashboard/pages/dashboard.component";
+import { DASHBOARD_ROUTES } from "./components/dashboard/routing";
 
 const routes: Routes = [
-  { path: "login", component: EntryComponent },
-  { path: "admin", component: AdminComponent, canActivate: [AuthGuard] },
-  { path: "doctor", component: DoctorComponent },
+  { path: "login", component: LoginComponent },
+  {
+    path: "dashboard",
+    component: DashboardComponent,
+    children: DASHBOARD_ROUTES,
+    canActivate: [AuthGuard]
+  },
   { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "**", component: NotFoundComponent }
 ];
