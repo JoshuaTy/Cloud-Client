@@ -2,10 +2,11 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { config } from "../_config/config";
+import { Router } from "@angular/router";
 
 @Injectable()
 export class AuthenticationService {
-  constructor(private http: HttpClient) {}
+  constructor(private R: Router, private http: HttpClient) {}
 
   login(login) {
     return this.http
@@ -29,6 +30,7 @@ export class AuthenticationService {
     // remove user from local storage to log user out
     console.log("Logging out");
     this.resetAll();
+    this.R.navigate(["/login"]);
   }
 
   resetAll() {

@@ -1,8 +1,33 @@
-<nb-card>
-  <nb-card-body>
-    <nb-tabset fullWidth>
-      <nb-tab tabTitle="Login"><app-login></app-login></nb-tab>
-      <nb-tab tabTitle="Register"><app-register></app-register></nb-tab>
-    </nb-tabset>
-  </nb-card-body>
-</nb-card>
+<!--
+  <nb-card>
+    <nb-card-body>
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Login"><app-login></app-login></nb-tab>
+        <nb-tab tabTitle="Register">
+          <app-register></app-register>
+          <img
+            src="http://bar.waveridersobx.com/wp-content/uploads/facebook_event_1825359487729046.jpg"
+          />
+        </nb-tab>
+      </nb-tabset>
+    </nb-card-body>
+  </nb-card>
+-->
+
+<nb-flip-card>
+  <nb-card-front>
+    <nb-card>
+      <nb-card-body> <app-login></app-login> </nb-card-body>
+      <!-- <nb-card-footer>Flip for information about us</nb-card-footer> -->
+    </nb-card>
+  </nb-card-front>
+  <nb-card-back>
+    <nb-card>
+      <nb-card-body>
+        <img
+          src="http://bar.waveridersobx.com/wp-content/uploads/facebook_event_1825359487729046.jpg"
+        />
+      </nb-card-body>
+    </nb-card>
+  </nb-card-back>
+</nb-flip-card>

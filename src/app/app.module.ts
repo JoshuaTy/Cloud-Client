@@ -23,7 +23,9 @@ import { AdminComponent } from "./components/admin/admin.component";
 import { DiseaseComponent } from "./components/admin/disease/disease.component";
 import { MedicineComponent } from "./components/admin/medicine/medicine.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
-import { DocotorComponent } from "./components/docotor/docotor.component";
+import { DoctorsComponent } from "./components/admin/doctors/doctors.component";
+import { DoctorComponent } from './components/doctor/doctor.component';
+import { HeaderMenuComponent } from './components/header-menu/header-menu.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { DocotorComponent } from "./components/docotor/docotor.component";
     DiseaseComponent,
     MedicineComponent,
     NotFoundComponent,
-    DocotorComponent
+    DoctorsComponent,
+    DoctorComponent,
+    HeaderMenuComponent
   ],
   imports: [
     BrowserModule,
