@@ -9,11 +9,14 @@ export class AuthenticationService {
 
     login(login) {
         return this.http.post<any>(`${config.apiUrl}/users/authenticate`,login)
-            .pipe(map(user => {
+            .pipe(map(user => {            
                 // login successful if there's a jwt token in the response
                 if (user) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify(user));
+                    console.log("Loggin in",user);
+                }else{
+                    console.log("ERROR: user object is", user);
                 }
 
                 return user;

@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NbThemeModule, NbLayoutModule } from "@nebular/theme";
+import { NbThemeModule, NbLayoutModule, NbAlertComponent } from "@nebular/theme";
 import { NebularModule } from "./modules/nebular/nebular.module";
 import { UserService } from "./_services/user.service";
 import { HttpClientModule,HTTP_INTERCEPTORS } from "@angular/common/http";
@@ -49,7 +49,7 @@ import { ErrorInterceptor } from "./_helpers/error.interceptor";
     NbThemeModule.forRoot({ name: "cosmic" }),
     NbLayoutModule,
     NebularModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     AuthGuard, 
