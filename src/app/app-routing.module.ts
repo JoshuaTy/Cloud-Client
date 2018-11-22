@@ -7,10 +7,10 @@ import { AuthGuard } from "./_guards/auth.guard";
 import { DocotorComponent } from "./components/docotor/docotor.component";
 
 const routes: Routes = [
-  { path: "start", component: EntryComponent },
+  { path: "login", component: EntryComponent },
   { path: "admin", component: AdminComponent, canActivate: [AuthGuard] },
   { path: "doctor", component: DocotorComponent },
-  { path: "", redirectTo: "start", pathMatch: "full" },
+  { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "**", component: NotFoundComponent }
 ];
 

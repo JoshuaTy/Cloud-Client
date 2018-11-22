@@ -10,14 +10,19 @@ import {
 export class AuthGuard implements CanActivate {
   constructor(private router: Router) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
     if (localStorage.getItem("currentUser")) {
       // logged in so return true
+      console.log("Access authorized", localStorage.getItem("currentUser"));
       return true;
     }
 
     // not logged in so redirect to login page with the return url
-    this.router.navigate(["/start"], { queryParams: { returnUrl: state.url } });
+    console.log("ERROR: Access denied!");
+    this.router.navigate(["/login"], { queryParams: { returnUrl: state.url } });
     return false;
   }
 }

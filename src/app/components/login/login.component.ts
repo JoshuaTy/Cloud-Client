@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     });
 
     // reset login status
-    this.authenticationService.logout();
+    this.authenticationService.resetAll();
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/admin";
@@ -43,22 +43,23 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
-      return;
+    //checks for credential validity
+    if (!this.loginForm.invalid) {
+      console.log("Login credentials:", this.loginForm.value);
+      this.authenticationService
+        .login(this.loginForm.value)
+        .pipe(first())
+        .subscribe(
+          data => {
+            console.log("Redirecting to", this.returnUrl);
+            //must add optional parameters here
+            this.router.navigate([this.returnUrl]);
+          },
+          error => {
+            console.log(error);
+            this.alertService.error(error);
+          }
+        );
     }
-
-    this.authenticationService
-      .login(this.loginForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.router.navigate([this.returnUrl]);
-        },
-        error => {
-          this.alertService.error(error);
-        }
-      );
   }
 }
