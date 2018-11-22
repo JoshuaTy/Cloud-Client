@@ -23,6 +23,7 @@ import { AdminComponent } from "./components/admin/admin.component";
 import { DiseaseComponent } from "./components/admin/disease/disease.component";
 import { MedicineComponent } from "./components/admin/medicine/medicine.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
+import { DocotorComponent } from './components/docotor/docotor.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
     AlertComponent,
     DiseaseComponent,
     MedicineComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DocotorComponent
   ],
   imports: [
     BrowserModule,

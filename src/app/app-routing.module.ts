@@ -3,11 +3,14 @@ import { Routes, RouterModule } from "@angular/router";
 import { EntryComponent } from "./components/entry/entry.component";
 import { AdminComponent } from "./components/admin/admin.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
-import {AuthGuard} from './_guards/auth.guard';
+import { AuthGuard } from "./_guards/auth.guard";
+import { DocotorComponent } from "./components/docotor/docotor.component";
 
 const routes: Routes = [
-  { path: "", component: EntryComponent },
-  { path: "admin", component: AdminComponent, canActivate: [AuthGuard]},
+  { path: "start", component: EntryComponent },
+  { path: "admin", component: AdminComponent, canActivate: [AuthGuard] },
+  { path: "doctor", component: DocotorComponent },
+  { path: "", redirectTo: "start", pathMatch: "full" },
   { path: "**", component: NotFoundComponent }
 ];
 
