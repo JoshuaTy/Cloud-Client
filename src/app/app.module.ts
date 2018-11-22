@@ -3,7 +3,6 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NbThemeModule, NbLayoutModule, NbAlertComponent } from "@nebular/theme";
 import { NebularModule } from "./modules/nebular/nebular.module";
@@ -16,6 +15,7 @@ import { AuthGuard } from "./_guards/auth.guard";
 import { JwtInterceptor } from "./_helpers/jwt.interceptor";
 import { ErrorInterceptor } from "./_helpers/error.interceptor";
 
+import { AppComponent } from "./app.component";
 import { EntryComponent } from "./components/entry/entry.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
@@ -29,7 +29,6 @@ import { DoctorComponent } from "./components/doctor/doctor.component";
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     EntryComponent,
     RegisterComponent,
     AdminComponent,
@@ -37,7 +36,9 @@ import { DoctorComponent } from "./components/doctor/doctor.component";
     DiseaseComponent,
     MedicineComponent,
     NotFoundComponent,
+    DoctorsComponent,
     DoctorComponent,
+    HeaderMenuComponent
   ],
   imports: [
     BrowserModule,
