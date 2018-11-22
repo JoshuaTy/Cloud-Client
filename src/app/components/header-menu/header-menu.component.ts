@@ -14,7 +14,11 @@ export class HeaderMenuComponent implements OnInit {
   constructor(private AS: AuthenticationService) {}
 
   ngOnInit() {
-    this.userName = this.currentUser.firstName;
+    if (this.currentUser) {
+      this.userName = this.currentUser.firstName;
+    } else {
+      this.userName = "";
+    }
   }
 
   logout() {

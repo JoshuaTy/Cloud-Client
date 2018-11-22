@@ -16,13 +16,13 @@ export class AuthGuard implements CanActivate {
   ): boolean {
     if (localStorage.getItem("currentUser")) {
       // logged in so return true
-      console.log("Access authorized", localStorage.getItem("currentUser"));
+      console.log("Access authorized");
       return true;
     }
 
     // not logged in so redirect to login page with the return url
     console.log("ERROR: Access denied!");
-    this.router.navigate(["/login"], { queryParams: { returnUrl: state.url } });
+    this.router.navigate(["/login"]);
     return false;
   }
 }
