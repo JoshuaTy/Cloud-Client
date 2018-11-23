@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
-import { AuthenticationService } from "src/app/_services/authentication.service";
-
+import {AuthenticationService} from "src/app/_services/authentication.service";
 @Component({
   selector: "app-header-menu",
   templateUrl: "./header-menu.component.html",
