@@ -13,7 +13,7 @@ export class DiseaseComponent implements OnInit {
   settings = {
     columns: {
       name: {
-        title: "Disease Name"
+        title: "Name"
       },
       description: {
         title: "Description"

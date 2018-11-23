@@ -10,4 +10,26 @@ export class DoctorsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  settings = {
+    columns: {
+      name: {
+        title: "Name"
+      },
+      description: {
+        title: "Position"
+      }
+    }
+  };
+
+  data = [
+    {
+      name: "Daniel",
+      description: "Physician."
+    },
+    {
+      name: "Ezekiel",
+      description: "Surgeon."
+    }
+  ];
 }

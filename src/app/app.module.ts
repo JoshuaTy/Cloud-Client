@@ -4,7 +4,11 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NbThemeModule, NbLayoutModule, NbAlertComponent } from "@nebular/theme";
+import {
+  NbThemeModule,
+  NbLayoutModule,
+  NbAlertComponent
+} from "@nebular/theme";
 import { NebularModule } from "./modules/nebular/nebular.module";
 import { UserService } from "./_services/user.service";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
@@ -16,31 +20,21 @@ import { JwtInterceptor } from "./_helpers/jwt.interceptor";
 import { ErrorInterceptor } from "./_helpers/error.interceptor";
 
 import { AppComponent } from "./app.component";
-import { EntryComponent } from "./components/entry/entry.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
-import { AdminComponent } from "./components/admin/admin.component";
-import { DiseaseComponent } from "./components/admin/disease/disease.component";
-import { MedicineComponent } from "./components/admin/medicine/medicine.component";
-import { NotFoundComponent } from "./components/not-found/not-found.component";
-import { DoctorComponent } from "./components/doctor/doctor.component";
-import { DoctorsComponent } from "./components/admin/doctors/doctors.component";
+import { DashboardComponent } from "./components/dashboard/pages/dashboard.component";
 import { HeaderMenuComponent } from "./components/header-menu/header-menu.component";
+import { NotFoundComponent } from "./components/not-found/not-found.component";
+import { DashboardModule } from "./components/dashboard/dashboard.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    EntryComponent,
-    RegisterComponent,
-    AdminComponent,
-    AlertComponent,
-    DiseaseComponent,
-    MedicineComponent,
-    NotFoundComponent,
-    DoctorsComponent,
-    DoctorComponent,
-    HeaderMenuComponent,
+    NbAlertComponent,
     LoginComponent,
+    RegisterComponent,
+    HeaderMenuComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +46,7 @@ import { HeaderMenuComponent } from "./components/header-menu/header-menu.compon
     NbLayoutModule,
     NebularModule,
     HttpClientModule,
+    DashboardModule
   ],
   providers: [
     AuthGuard,
