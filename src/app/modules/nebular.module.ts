@@ -7,9 +7,9 @@ import {
   NbSidebarService,
   NbCardModule,
   NbInputModule,
-  NbActionsModule,
   NbButtonModule,
-  NbTabsetModule
+  NbTabsetModule,
+  NbActionsModule
 } from "@nebular/theme";
 
 @NgModule({
@@ -20,10 +20,10 @@ import {
     NbSidebarModule,
     NbCardModule,
     NbInputModule,
-    NbActionsModule,
     NbButtonModule,
     NbTabsetModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    NbActionsModule
   ],
   exports: [
     CommonModule,
@@ -31,10 +31,10 @@ import {
     NbSidebarModule,
     NbCardModule,
     NbInputModule,
-    NbActionsModule,
     NbButtonModule,
     NbTabsetModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    NbActionsModule
   ],
   providers: [NbSidebarService]
 })

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import { Component, ChangeDetectionStrategy, OnInit } from "@angular/core";
 import { AuthenticationService } from "src/app/_services/authentication.service";
 
 @Component({
@@ -8,18 +8,9 @@ import { AuthenticationService } from "src/app/_services/authentication.service"
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderMenuComponent implements OnInit {
-  currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  userName: string;
-
   constructor(private AS: AuthenticationService) {}
 
-  ngOnInit() {
-    if (this.currentUser) {
-      this.userName = this.currentUser.firstName;
-    } else {
-      this.userName = "";
-    }
-  }
+  ngOnInit() {}
 
   logout() {
     this.AS.logout();
