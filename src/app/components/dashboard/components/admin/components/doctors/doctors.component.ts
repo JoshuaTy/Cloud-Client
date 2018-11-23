@@ -1,10 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-doctors",
   templateUrl: "./doctors.component.html",
-  styleUrls: ["./doctors.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ["./doctors.component.scss"]
 })
 export class DoctorsComponent implements OnInit {
   constructor() {}
@@ -16,7 +15,10 @@ export class DoctorsComponent implements OnInit {
       name: {
         title: "Name"
       },
-      description: {
+      email: {
+        title: "Email"
+      },
+      position: {
         title: "Position"
       }
     }
@@ -25,11 +27,13 @@ export class DoctorsComponent implements OnInit {
   data = [
     {
       name: "Daniel",
-      description: "Physician."
+      email: "asdsad@asdas.com",
+      position: "Physician"
     },
     {
       name: "Ezekiel",
-      description: "Surgeon."
+      email: "xx22@sad.org",
+      position: "Surgeon"
     }
   ];
 }
