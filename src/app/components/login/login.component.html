@@ -1,64 +1,78 @@
-<div class="form-body">
-  <h1 class="text-center">Welcome to Our Health Care App!</h1>
-  <h2 class="text-center">Please log in..</h2>
-  <div class="form-container">
-    <div class="s3"></div>
-    <form class="s3" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="login-username">Username:</label>
-        <input
-          required
-          minlength="4"
-          maxlength="10"
-          type="text"
-          id="login-username"
-          nbInput
-          fullWidth
-          placeholder="User Name"
-          formControlName="username"
-          [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
-        />
-        <div
-          class="alert alert-danger"
-          *ngIf="f.username.touched && !f.username.valid"
-        >
-          <div *ngIf="f.username.errors.required">Username invalid!</div>
-          <div *ngIf="f.username.errors.minlength">
-            Username should at least be 4 characters long
+<nb-layout>
+  <nb-layout-header fixed>
+    <div class="header-title">Health Care App</div>
+  </nb-layout-header>
+
+  <nb-layout-column>
+    <div class="form-body">
+      <h1 class="text-center">Welcome to Our Health Care App!</h1>
+      <h2 [ngClass]="{ 'text-center': true, 'alert-danger': isError }">
+        {{ message }}
+      </h2>
+      <div class="form-container">
+        <div class="s3"></div>
+        <form class="s3" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="login-username">Username:</label>
+            <div
+              class="alert-danger"
+              *ngIf="f.username.touched && !f.username.valid"
+            >
+              <div *ngIf="f.username.errors.required">Invalid!</div>
+              <div *ngIf="f.username.errors.minlength">
+                Should at least be 4 characters long
+              </div>
+            </div>
+            <input
+              required
+              minlength="4"
+              maxlength="10"
+              type="text"
+              id="login-username"
+              nbInput
+              fullWidth
+              placeholder="Username"
+              formControlName="username"
+              [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+            />
           </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="login-password">Password:</label>
-        <input
-          required
-          minlength="4"
-          maxlength="10"
-          type="password"
-          id="login-password"
-          nbInput
-          fullWidth
-          fieldSize="medium"
-          placeholder="Password"
-          formControlName="password"
-          [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
-        />
-        <div
-          class="alert alert-danger"
-          *ngIf="f.password.touched && !f.password.valid"
-        >
-          <div *ngIf="f.password.errors.required">Password is Invalid!</div>
-          <div *ngIf="f.password.errors.minlength">
-            Password should at least be 4 characters long!
+          <div class="form-group">
+            <label for="login-password">Password:</label>
+            <div
+              class="alert-danger"
+              *ngIf="f.password.touched && !f.password.valid"
+            >
+              <div *ngIf="f.password.errors.required">Invalid!</div>
+              <div *ngIf="f.password.errors.minlength">
+                Should at least be 4 characters long!
+              </div>
+            </div>
+            <input
+              required
+              minlength="4"
+              maxlength="10"
+              type="password"
+              id="login-password"
+              nbInput
+              fullWidth
+              fieldSize="medium"
+              placeholder="Password"
+              formControlName="password"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+            />
           </div>
-        </div>
+          <div class="form-group">
+            <button class="form-submit" nbButton fullWidth status="success">
+              Login
+            </button>
+          </div>
+        </form>
+        <div class="s3"></div>
       </div>
-      <div class="form-group">
-        <button class="form-submit" nbButton fullWidth status="success">
-          Login
-        </button>
-      </div>
-    </form>
-    <div class="s3"></div>
-  </div>
-</div>
+    </div>
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    Developed by the UNO Brothers (El Mucho Suave)
+  </nb-layout-footer>
+</nb-layout>

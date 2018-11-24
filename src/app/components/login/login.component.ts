@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { first } from "rxjs/operators";
@@ -8,12 +8,13 @@ import { AlertService } from "src/app/_services/alert.service";
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   user: any;
+  message: String;
+  isError: boolean;
 
   submitted = false;
   returnUrl: string;
@@ -26,6 +27,9 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.message = "Please log in..";
+    this.isError = false;
+
     this.loginForm = this.formBuilder.group({
       username: ["", Validators.required],
       password: ["", Validators.required]
@@ -55,9 +59,17 @@ export class LoginComponent implements OnInit {
           data => {
             this.user = JSON.parse(localStorage.getItem("currentUser"));
             if (this.user) {
-              this.returnUrl = "/dashboard/" + this.user.usertype;
+              if (this.user.usertype == "Admin") {
+                this.returnUrl = "dashboard/admin/list";
+              } else {
+                this.returnUrl = "dashboard/doctor";
+              }
               console.log("Redirecting to", this.returnUrl);
               this.router.navigate([this.returnUrl]);
+            } else {
+              // alert("Username or password is incorrect!\nTry again.");
+              this.message = "Username or password is incorrect!";
+              this.isError = true;
             }
           },
           error => {

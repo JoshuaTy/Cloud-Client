@@ -1,0 +1,50 @@
+<nb-card>
+  <nb-card-body>
+    <nb-tabset fullWidth>
+      <nb-tab tabTitle="Diseases" class="m-20">
+        <button
+          nbButton
+          fullWidth
+          status="success"
+          (click)="toRegister('disease')"
+        >
+          Register
+        </button>
+        <app-disease></app-disease>
+      </nb-tab>
+      <nb-tab tabTitle="Medicines" class="m-20">
+        <button
+          nbButton
+          fullWidth
+          status="success"
+          (click)="toRegister('medicine')"
+        >
+          Register
+        </button>
+        <app-medicine></app-medicine>
+      </nb-tab>
+      <nb-tab tabTitle="Doctors" class="m-20">
+        <button
+          nbButton
+          fullWidth
+          status="success"
+          (click)="toRegister('doctor')"
+        >
+          Register
+        </button>
+        <app-doctors></app-doctors>
+      </nb-tab>
+      <nb-tab tabTitle="Admins" class="m-20">
+        <button
+          nbButton
+          fullWidth
+          status="success"
+          (click)="toRegister('admin')"
+        >
+          Register
+        </button>
+        <app-admins></app-admins>
+      </nb-tab>
+    </nb-tabset>
+  </nb-card-body>
+</nb-card>

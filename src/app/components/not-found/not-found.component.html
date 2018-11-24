@@ -1,10 +1,21 @@
-<nb-card>
-  <nb-card-body>
-    <h1 class="text-center">Error 404:</h1>
-    <h2 class="text-center">Page not found!</h2>
-    <br /><br />
-    <button nbButton fullWidth status="danger" (click)="toLogin()">
-      Get me out of here!
-    </button>
-  </nb-card-body>
-</nb-card>
+<nb-layout>
+  <nb-layout-header fixed>
+    <div class="header-title">Health Care App</div>
+  </nb-layout-header>
+
+  <nb-layout-column>
+    <nb-card>
+      <nb-card-body>
+        <h1 class="text-center">Error 404:</h1>
+        <h2 class="text-center">Page not found!</h2>
+        <br /><br />
+        <button nbButton fullWidth status="danger" (click)="toLogin()">
+          Get me out of here!
+        </button>
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+  <nb-layout-footer fixed>
+    Developed by the UNO Brothers (El Mucho Suave)
+  </nb-layout-footer>
+</nb-layout>
