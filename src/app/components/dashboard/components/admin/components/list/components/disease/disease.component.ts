@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { EditButtonComponent } from "../edit-button/edit-button.component";
 import { DeleteButtonComponent } from "../delete-button/delete-button.component";
-import { Router } from "@angular/router";
 
 @Component({
   selector: "app-disease",
@@ -9,13 +8,9 @@ import { Router } from "@angular/router";
   styleUrls: ["./disease.component.scss"]
 })
 export class DiseaseComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor() {}
 
   ngOnInit() {}
-
-  openDialog() {
-    this.router.navigate(["dashboard/admin/register"]);
-  }
 
   settings = {
     columns: {
