@@ -1,4 +1,3 @@
-//This service retrieves data from back-end, reformats the data received, then returns it to calling method
 import { Injectable } from "@angular/core";
 
 @Injectable()
@@ -50,6 +49,10 @@ export class DataHubService {
   ];
 
   //methods for returning requested data
+  getAdmins() {
+    //reformatting method here
+    return this.admins;
+  }
   getMedicines() {
     //reformatting method here
     return this.medicines;
@@ -62,8 +65,21 @@ export class DataHubService {
     //reformatting method here
     return this.doctors;
   }
-  getAdmins() {
+  get_1_Admin() {
     //reformatting method here
-    return this.admins;
+    //return an entity object
+  }
+
+  get_1_Medicine() {
+    //reformatting method here
+    //return an entity object
+  }
+  get_1_Disease() {
+    //reformatting method here
+    //return an entity object
+  }
+  get_1_Doctor() {
+    //reformatting method here
+    //return an entity object
   }
 }
