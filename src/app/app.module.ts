@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, InjectionToken } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -7,7 +7,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {
   NbThemeModule,
   NbLayoutModule,
-  NbAlertComponent
+  NbAlertComponent,
+  NbDatepickerAdapter,
+  NbDatepicker,
+  NbDatepickerModule
 } from "@nebular/theme";
 import { NebularModule } from "./modules/nebular/nebular.module";
 import { UserService } from "./_services/user.service";
@@ -26,6 +29,8 @@ import { DashboardComponent } from "./components/dashboard/pages/dashboard.compo
 import { HeaderMenuComponent } from "./components/header-menu/header-menu.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { DashboardModule } from "./components/dashboard/dashboard.module";
+import { MedicalRecordComponent } from "./components/dashboard/components/doctor/components/medical-record/medical-record.component";
+
 
 @NgModule({
   declarations: [
@@ -34,7 +39,7 @@ import { DashboardModule } from "./components/dashboard/dashboard.module";
     LoginComponent,
     RegisterComponent,
     HeaderMenuComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ import { DashboardModule } from "./components/dashboard/dashboard.module";
     NbLayoutModule,
     NebularModule,
     HttpClientModule,
-    DashboardModule
+    DashboardModule,
+    NbDatepickerModule.forRoot(),
   ],
   providers: [
     AuthGuard,
@@ -54,7 +60,7 @@ import { DashboardModule } from "./components/dashboard/dashboard.module";
     AlertService,
     AuthenticationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

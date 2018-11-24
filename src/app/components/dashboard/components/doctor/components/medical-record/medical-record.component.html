@@ -1,0 +1,127 @@
+<div class="form-body"> 
+  <form [formGroup]="medicalRecordForm" (ngSubmit)="onSubmit()">
+      <div class="form-container">
+        <div class="s3"></div>
+          <div class="s3">
+    
+              <div class="form-group">
+                <label for="patientname">Patient Name:</label>
+                <input
+                  required
+                  class="patientname"
+                  minlength="4"
+                  maxlength="254"
+                  type="text"
+                  nbInput
+                  fullWidth
+                  formControlName="patientName"
+                  [ngClass]="{ 'is-invalid': submitted && f.patientName.errors }"
+                  placeholder="Patient Name"
+                />
+                <div *ngIf="submitted && f.firstName.errors" class="alert alert-danger">
+                  <div *ngIf="f.patientName.errors.required">
+                    Patient Name is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="sex">Sex:</label>           
+                <nb-radio-group [(ngModel)]="option">
+                    <nb-radio
+                      *ngFor="let option of options"
+                      [value]="option.value">
+                      {{ option.label }}
+                    </nb-radio>
+                  </nb-radio-group>
+
+                  
+              </div>
+
+
+              <div class="form-group">
+                  <label for="birthday">Birthday:</label>           
+                  <input 
+                  required
+                  fullWidth
+                  nbInput 
+                  placeholder="Birthday"
+                  [nbDatepicker]="formpicker"
+                  formControlName="birthday"
+                  [ngClass]="{ 'is-invalid': submitted && f.birthday.errors }"
+                  >
+                  <nb-datepicker  #formpicker></nb-datepicker >
+                  
+              </div>
+              <div class="form-group">
+                  <label for="admissionDate">Admission Date:</label>           
+                  <input 
+                  required
+                  fullWidth
+                  nbInput 
+                  placeholder="Admission Date"
+                  [nbDatepicker]="formpicker2"
+                  formControlName="admissionDate"
+                  [ngClass]="{ 'is-invalid': submitted && f.admissionDate.errors }"
+                  >
+                  <nb-datepicker  #formpicker2></nb-datepicker >
+                  
+              </div>
+
+              <div class="form-group">
+                  <label for="dischargeDate">Discharge Date:</label>           
+                  <input 
+                  required
+                  fullWidth
+                  nbInput 
+                  placeholder="Discharge Date"
+                  [nbDatepicker]="formpicker3"
+                  formControlName="dischargeDate"
+                  [ngClass]="{ 'is-invalid': submitted && f.dischargeDate.errors }"
+                  >
+                  <nb-datepicker  #formpicker3></nb-datepicker >
+                  
+              </div>
+              
+              <div class="form-group">
+                  <label for="diseases">Diseases:</label>           
+                  <!-- <input 
+                  required
+                  fullWidth
+                  nbInput 
+                  placeholder="Diseases"                
+                  formControlName="diseases"
+                  [ngClass]="{ 'is-invalid': submitted && f.diseases.errors }"
+                  > -->
+                  <nb-select multiple placeholder="...">
+                      <nb-option value="1">Option 1</nb-option>
+                      <nb-option value="2">Option 2</nb-option>
+                      <nb-option value="3">Option 3</nb-option>
+                      <nb-option value="4">Option 4</nb-option>
+                    </nb-select>
+                  
+              </div>
+              
+              <div class="form-group">
+                  <label for="totalBill">Total Bill:</label>       
+                  <input 
+                  disabled 
+                  nbInput 
+                  type="number"
+                  fullWidth
+                  placeholder="Total Bill"
+                  >
+                  <button nbButton status="info" (click)="computeTotalBill()">Compute</button>    
+                </div>
+
+              <div class="form-group">
+                  <button class="form-submit" nbButton fullWidth status="success">
+                    Register
+                  </button>
+              </div>
+
+          </div>           
+        <div class="s3"></div>
+      </div>
+    </form>
+</div> 

@@ -9,7 +9,15 @@ import {
   NbInputModule,
   NbActionsModule,
   NbButtonModule,
-  NbTabsetModule
+  NbTabsetModule,
+  NbDatepickerModule,
+  NbNativeDateService,
+  NbDatepickerAdapter,
+  NbDatepickerDirective,
+  NbDateService,
+  NbDatepicker,
+  NbRadioModule,
+  NbSelectModule
 } from "@nebular/theme";
 
 @NgModule({
@@ -23,7 +31,10 @@ import {
     NbActionsModule,
     NbButtonModule,
     NbTabsetModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    NbDatepickerModule,
+    NbRadioModule,
+    NbSelectModule,
   ],
   exports: [
     CommonModule,
@@ -34,8 +45,11 @@ import {
     NbActionsModule,
     NbButtonModule,
     NbTabsetModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    NbDatepickerModule,
+    NbRadioModule,
+    NbSelectModule,
   ],
-  providers: [NbSidebarService]
+  providers: [NbSidebarService,NbDatepickerDirective]
 })
 export class NebularModule {}
