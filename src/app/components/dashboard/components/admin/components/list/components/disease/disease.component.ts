@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { EditButtonComponent } from "../edit-button/edit-button.component";
 import { DeleteButtonComponent } from "../delete-button/delete-button.component";
+import { DropDownComponent } from "../drop-down/drop-down.component";
 import { DataHubService } from "src/app/_services/datahub.service";
 
 @Component({
@@ -21,7 +22,11 @@ export class DiseaseComponent implements OnInit {
         title: "Name"
       },
       medication: {
-        title: "Medication"
+        title: "Medication",
+        type: "custom",
+        renderComponent: DropDownComponent,
+        width: "10%",
+        filter: false
       },
       edit: {
         title: "Edit",
