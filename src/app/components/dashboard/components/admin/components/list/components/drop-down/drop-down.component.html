@@ -1,0 +1,6 @@
+
+<select id="multiselect" multiple="multiple" (click)="getValues()"  [(ngModel)]="selectedOption">
+  <option *ngFor="let prf of allProfiles">
+    {{ prf.value }}
+  </option>
+</select>
