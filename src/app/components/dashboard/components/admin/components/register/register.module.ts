@@ -12,6 +12,7 @@ import {
   ControlContainer,
   FormsModule
 } from "@angular/forms";
+import { NbCheckboxComponent } from "@nebular/theme";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {
     RegisterDiseaseComponent,
     RegisterMedicineComponent,
     RegisterDoctorComponent,
-    RegisterAdminComponent
+    RegisterAdminComponent,
+    NbCheckboxComponent
   ],
   imports: [
     CommonModule,
