@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { EditButtonComponent } from "../edit-button/edit-button.component";
-import { DeleteButtonComponent } from "../delete-button/delete-button.component";
+import { DataHubService } from "src/app/_services/datahub.service";
 
 @Component({
   selector: "app-admins",
@@ -8,9 +7,12 @@ import { DeleteButtonComponent } from "../delete-button/delete-button.component"
   styleUrls: ["./admins.component.scss"]
 })
 export class AdminsComponent implements OnInit {
-  constructor() {}
+  constructor(private DHS: DataHubService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.data = this.DHS.getAdmins();
+  }
+
   settings = {
     columns: {
       name: {
@@ -28,14 +30,5 @@ export class AdminsComponent implements OnInit {
     }
   };
 
-  data = [
-    {
-      name: "Daniel",
-      email: "asdsad@asdas.com"
-    },
-    {
-      name: "Ezekiel",
-      email: "xx22@sad.org"
-    }
-  ];
+  data = [];
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { EditButtonComponent } from "../edit-button/edit-button.component";
 import { DeleteButtonComponent } from "../delete-button/delete-button.component";
+import { DataHubService } from "src/app/_services/datahub.service";
 
 @Component({
   selector: "app-medicine",
@@ -8,17 +9,16 @@ import { DeleteButtonComponent } from "../delete-button/delete-button.component"
   styleUrls: ["./medicine.component.scss"]
 })
 export class MedicineComponent implements OnInit {
-  constructor() {}
+  constructor(private DHS: DataHubService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.data = this.DHS.getMedicines();
+  }
 
   settings = {
     columns: {
       name: {
         title: "Name"
-      },
-      description: {
-        title: "Description"
       },
       price: {
         title: "Price"
@@ -45,16 +45,5 @@ export class MedicineComponent implements OnInit {
     }
   };
 
-  data = [
-    {
-      name: "Paracetamol",
-      description: "Relieves head aches.",
-      price: 2
-    },
-    {
-      name: "Antibiotics",
-      description: "Prevents infection.",
-      price: 20
-    }
-  ];
+  data = [];
 }

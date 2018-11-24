@@ -3,7 +3,6 @@ import { CommonModule } from "@angular/common";
 import { AdminModule } from "./components/admin/admin.module";
 import { NebularModule } from "src/app/modules/nebular.module";
 import { RouterModule } from "@angular/router";
-import { DASHBOARD_ROUTES } from "./routing";
 
 import { DashboardComponent } from "./pages/dashboard.component";
 import { DoctorComponent } from "./components/doctor/doctor.component";
