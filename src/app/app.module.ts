@@ -16,17 +16,11 @@ import { ErrorInterceptor } from "./_helpers/error.interceptor";
 
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
-import { RegisterComponent } from "./components/register/register.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { DashboardModule } from "./components/dashboard/dashboard.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    NotFoundComponent
-  ],
+  declarations: [AppComponent, LoginComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

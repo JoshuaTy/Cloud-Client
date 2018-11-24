@@ -1,9 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, TemplateRef } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { first } from "rxjs/operators";
 import { UserService } from "src/app/_services/user.service";
 import { AlertService } from "src/app/_services/alert.service";
+import { first } from "rxjs/operators";
 
 @Component({
   selector: "app-register",

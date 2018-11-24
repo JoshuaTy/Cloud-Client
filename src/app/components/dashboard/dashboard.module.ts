@@ -11,12 +11,7 @@ import { HeaderMenuComponent } from "./components/header-menu/header-menu.compon
 
 @NgModule({
   declarations: [DoctorComponent, DashboardComponent, HeaderMenuComponent],
-  imports: [
-    CommonModule,
-    AdminModule,
-    NebularModule,
-    RouterModule.forRoot(DASHBOARD_ROUTES)
-  ],
+  imports: [CommonModule, AdminModule, NebularModule, RouterModule],
   exports: [CommonModule, AdminModule]
 })
 export class DashboardModule {}
