@@ -10,6 +10,7 @@ import { EditButtonComponent } from "./components/edit-button/edit-button.compon
 import { NebularModule } from "src/app/modules/nebular.module";
 import { DataHubService } from "src/app/_services/datahub.service";
 import { DropDownComponent } from './components/drop-down/drop-down.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { DropDownComponent } from './components/drop-down/drop-down.component';
     DeleteButtonComponent,
     DropDownComponent
   ],
-  imports: [CommonModule, NebularModule],
+  imports: [CommonModule, NebularModule,FormsModule],
   entryComponents: [EditButtonComponent, DeleteButtonComponent, DropDownComponent],
   providers: [DataHubService]
 })
