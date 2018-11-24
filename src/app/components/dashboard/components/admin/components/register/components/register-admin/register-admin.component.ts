@@ -1,16 +1,16 @@
 import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { first } from "rxjs/operators";
 import { UserService } from "src/app/_services/user.service";
 import { AlertService } from "src/app/_services/alert.service";
+import { first } from "rxjs/operators";
 
 @Component({
-  selector: "app-register",
-  templateUrl: "./register.component.html",
-  styleUrls: ["./register.component.scss"]
+  selector: "app-register-admin",
+  templateUrl: "./register-admin.component.html",
+  styleUrls: ["./register-admin.component.scss"]
 })
-export class RegisterComponent implements OnInit {
+export class RegisterAdminComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+<<<<<<< HEAD
 import {
   NbThemeModule,
   NbLayoutModule,
@@ -13,9 +14,12 @@ import {
   NbDatepickerModule
 } from "@nebular/theme";
 import { NebularModule } from "./modules/nebular/nebular.module";
+=======
+import { NbThemeModule, NbLayoutModule } from "@nebular/theme";
+import { NebularModule } from "./modules/nebular.module";
+>>>>>>> a1228e87e49cfe8ba528303d1d74189f13597d01
 import { UserService } from "./_services/user.service";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { AlertComponent } from "./_directives/alert.component";
 import { AlertService } from "./_services/alert.service";
 import { AuthenticationService } from "./_services/authentication.service";
 import { AuthGuard } from "./_guards/auth.guard";
@@ -24,29 +28,19 @@ import { ErrorInterceptor } from "./_helpers/error.interceptor";
 
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
-import { RegisterComponent } from "./components/register/register.component";
-import { DashboardComponent } from "./components/dashboard/pages/dashboard.component";
-import { HeaderMenuComponent } from "./components/header-menu/header-menu.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { DashboardModule } from "./components/dashboard/dashboard.module";
 import { MedicalRecordComponent } from "./components/dashboard/components/doctor/components/medical-record/medical-record.component";
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NbAlertComponent,
-    LoginComponent,
-    RegisterComponent,
-    HeaderMenuComponent,
-    NotFoundComponent,
-  ],
+  declarations: [AppComponent, LoginComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     NbThemeModule.forRoot({ name: "cosmic" }),
     NbLayoutModule,
     NebularModule,

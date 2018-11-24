@@ -1,10 +1,8 @@
 <div class="form-body">
-  <h1 class="text-center">Welcome to Our Health Care App!</h1>
-  <h2 class="text-center">Please register..</h2>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-container">
       <div class="s3"></div>
-      <div class="s3">
+      <div class="s4">
         <div class="form-group">
           <label for="firstname">First Name:</label>
           <input
@@ -16,7 +14,10 @@
             [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
             placeholder="First Name"
           />
-          <div *ngIf="submitted && f.firstName.errors" class="alert alert-danger">
+          <div
+            *ngIf="submitted && f.firstName.errors"
+            class="alert alert-danger"
+          >
             <div *ngIf="f.firstName.errors.required">
               First Name is required
             </div>
@@ -33,7 +34,10 @@
             [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
             placeholder="Last Name"
           />
-          <div *ngIf="submitted && f.lastName.errors" class="alert alert-danger">
+          <div
+            *ngIf="submitted && f.lastName.errors"
+            class="alert alert-danger"
+          >
             <div *ngIf="f.lastName.errors.required">Last Name is required</div>
           </div>
         </div>
@@ -63,7 +67,10 @@
             [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
             placeholder="User Name"
           />
-          <div *ngIf="submitted && f.username.errors" class="alert alert-danger">
+          <div
+            *ngIf="submitted && f.username.errors"
+            class="alert alert-danger"
+          >
             <div *ngIf="f.username.errors.required">Username is required</div>
           </div>
         </div>
@@ -78,7 +85,10 @@
             [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
             placeholder="Password"
           />
-          <div class="alert alert-danger" *ngIf="submitted && f.password.errors" >
+          <div
+            class="alert alert-danger"
+            *ngIf="submitted && f.password.errors"
+          >
             <div *ngIf="f.password.errors.required">Password is required</div>
             <div *ngIf="f.password.errors.minlength">
               Password must be at least 6 characters
