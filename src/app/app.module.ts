@@ -4,20 +4,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-<<<<<<< HEAD
-import {
-  NbThemeModule,
-  NbLayoutModule,
-  NbAlertComponent,
-  NbDatepickerAdapter,
-  NbDatepicker,
-  NbDatepickerModule
-} from "@nebular/theme";
-import { NebularModule } from "./modules/nebular/nebular.module";
-=======
-import { NbThemeModule, NbLayoutModule } from "@nebular/theme";
+import { NbThemeModule, NbLayoutModule, NbDatepickerModule } from "@nebular/theme";
 import { NebularModule } from "./modules/nebular.module";
->>>>>>> a1228e87e49cfe8ba528303d1d74189f13597d01
 import { UserService } from "./_services/user.service";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AlertService } from "./_services/alert.service";
@@ -31,7 +19,6 @@ import { LoginComponent } from "./components/login/login.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { DashboardModule } from "./components/dashboard/dashboard.module";
 import { MedicalRecordComponent } from "./components/dashboard/components/doctor/components/medical-record/medical-record.component";
-
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, NotFoundComponent],
