@@ -28,7 +28,8 @@ export class RegisterDoctorComponent implements OnInit {
       lastName: ["", Validators.required],
       email: ["", [Validators.required, Validators.maxLength(30)]],
       username: ["", Validators.required],
-      password: ["", [Validators.required, Validators.minLength(6)]]
+      password: ["", [Validators.required, Validators.minLength(6)]],
+      userType: ["doctor", [Validators.required]]
     });
   }
 
@@ -44,16 +45,16 @@ export class RegisterDoctorComponent implements OnInit {
     }
     this.loading = true;
     this.userService
-      .register(this.registerForm.value)
+      .addDoctor(this.registerForm.value)
       .pipe(first())
       .subscribe(
-        data => {
-          this.alertService.success("Registration successful", true);
-        },
+        data => {},
         error => {
           this.alertService.error(error);
           this.loading = false;
         }
       );
+    console.log("Registered", this.registerForm.value);
+    this.router.navigate(["dashboard/admin/list"]);
   }
 }

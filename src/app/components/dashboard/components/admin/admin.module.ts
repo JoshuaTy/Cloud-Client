@@ -5,6 +5,7 @@ import { NebularModule } from "src/app/modules/nebular.module";
 import { RouterModule } from "@angular/router";
 import { AdminListModule } from "./components/list/list.module";
 import { RegisterModule } from "./components/register/register.module";
+import { UpdateModule } from "./components/update/update.module";
 
 @NgModule({
   declarations: [AdminComponent],
@@ -13,7 +14,8 @@ import { RegisterModule } from "./components/register/register.module";
     NebularModule,
     AdminListModule,
     RouterModule,
-    RegisterModule
+    RegisterModule,
+    UpdateModule
   ]
 })
 export class AdminModule {}

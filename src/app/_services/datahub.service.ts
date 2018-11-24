@@ -3,16 +3,6 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class DataHubService {
   //dummy BD
-  private medicines: any = [
-    {
-      name: "Paracetamol",
-      price: 2
-    },
-    {
-      name: "Antibiotics",
-      price: 20
-    }
-  ];
   private diseases: any = [
     {
       name: "Common Cold",
@@ -52,10 +42,6 @@ export class DataHubService {
   getAdmins() {
     //reformatting method here
     return this.admins;
-  }
-  getMedicines() {
-    //reformatting method here
-    return this.medicines;
   }
   getDiseases() {
     //reformatting method here

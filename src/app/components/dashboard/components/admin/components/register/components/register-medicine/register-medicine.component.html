@@ -4,95 +4,43 @@
       <div class="s3"></div>
       <div class="s4">
         <div class="form-group">
-          <label for="firstname">First Name:</label>
+          <label for="medicineName">Medicine Name:</label>
           <input
-            class="firstname"
             type="text"
             nbInput
             fullWidth
-            formControlName="firstName"
-            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
-            placeholder="First Name"
+            formControlName="medicineName"
+            [ngClass]="{
+              'is-invalid': submitted && f.medicineName.errors,
+              medicineName: true
+            }"
+            placeholder="Medicine Name"
           />
           <div
-            *ngIf="submitted && f.firstName.errors"
+            *ngIf="submitted && f.medicineName.errors"
             class="alert alert-danger"
           >
-            <div *ngIf="f.firstName.errors.required">
-              First Name is required
+            <div *ngIf="f.medicineName.errors.required">
+              Medicine Name is required
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="lastname">Last Name:</label>
+          <label for="price">Price:</label>
           <input
-            class="lastname"
-            type="text"
-            formControlName="lastName"
+            type="number"
+            step="0.01"
+            formControlName="price"
             nbInput
             fullWidth
-            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
-            placeholder="Last Name"
+            [ngClass]="{
+              'is-invalid': submitted && f.price.errors,
+              price: true
+            }"
+            placeholder="Price"
           />
-          <div
-            *ngIf="submitted && f.lastName.errors"
-            class="alert alert-danger"
-          >
-            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email address:</label>
-          <input
-            class="email"
-            type="text"
-            formControlName="email"
-            nbInput
-            fullWidth
-            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
-            placeholder="Email address"
-          />
-          <div *ngIf="submitted && f.email.errors" class="alert alert-danger">
-            <div *ngIf="f.email.errors.required">Email is required</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="username">User Name:</label>
-          <input
-            class="username"
-            type="text"
-            formControlName="username"
-            nbInput
-            fullWidth
-            [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
-            placeholder="User Name"
-          />
-          <div
-            *ngIf="submitted && f.username.errors"
-            class="alert alert-danger"
-          >
-            <div *ngIf="f.username.errors.required">Username is required</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input
-            class="password"
-            type="password"
-            formControlName="password"
-            nbInput
-            fullWidth
-            [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
-            placeholder="Password"
-          />
-          <div
-            class="alert alert-danger"
-            *ngIf="submitted && f.password.errors"
-          >
-            <div *ngIf="f.password.errors.required">Password is required</div>
-            <div *ngIf="f.password.errors.minlength">
-              Password must be at least 6 characters
-            </div>
+          <div *ngIf="submitted && f.price.errors" class="alert alert-danger">
+            <div *ngIf="f.price.errors.required">Price is required</div>
           </div>
         </div>
         <div class="form-group">

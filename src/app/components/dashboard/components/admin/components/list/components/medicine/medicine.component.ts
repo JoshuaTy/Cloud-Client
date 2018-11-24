@@ -1,10 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { EditButtonComponent } from "../edit-button/edit-button.component";
 import { DeleteButtonComponent } from "../delete-button/delete-button.component";
-import { DataHubService } from "src/app/_services/datahub.service";
 import { HttpClient } from "@angular/common/http";
-import { MedicineModel } from "src/app/_services/_models/medicine.model";
 import { config } from "src/app/_config/config";
+import { MedicineModel } from "src/app/_models/medicine.model";
 
 @Component({
   selector: "app-medicine",
@@ -12,18 +11,14 @@ import { config } from "src/app/_config/config";
   styleUrls: ["./medicine.component.scss"]
 })
 export class MedicineComponent implements OnInit {
-
   medicineData: MedicineModel[];
-
-  constructor(private DHS: DataHubService, private http: HttpClient){
+  constructor(private http: HttpClient) {
     this.http.get(`${config.apiUrl}/medicines/findAll`).subscribe(data => {
-      this.medicineData = (<any>data).map(x => Object.assign({}, x))
-    })
+      this.medicineData = (<any>data).map(x => Object.assign({}, x));
+    });
   }
 
-  ngOnInit() {
-    this.data = this.DHS.getMedicines();
-  }
+  ngOnInit() {}
 
   settings = {
     columns: {
@@ -54,7 +49,4 @@ export class MedicineComponent implements OnInit {
       delete: false
     }
   };
-
-  data = [];
-  dataM = [];
 }
