@@ -8,6 +8,7 @@ import { DoctorsComponent } from "./components/doctors/doctors.component";
 import { MedicineComponent } from "./components/medicine/medicine.component";
 import { EditButtonComponent } from "./components/edit-button/edit-button.component";
 import { NebularModule } from "src/app/modules/nebular.module";
+import { DataHubService } from "src/app/_services/datahub.service";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NebularModule } from "src/app/modules/nebular.module";
     DeleteButtonComponent
   ],
   imports: [CommonModule, NebularModule],
-  entryComponents: [EditButtonComponent, DeleteButtonComponent]
+  entryComponents: [EditButtonComponent, DeleteButtonComponent],
+  providers: [DataHubService]
 })
 export class AdminListModule {}
