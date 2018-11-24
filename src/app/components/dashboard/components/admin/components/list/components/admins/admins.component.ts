@@ -13,7 +13,6 @@ export class AdminsComponent implements OnInit {
   constructor(private http: HttpClient) {
     this.http.get(`${config.apiUrl}/users/getAll/admin`).subscribe(data => {
       this.adminData = (<any>data).map(x => Object.assign({}, x));
-      console.log("admin", this.adminData);
     });
   }
 

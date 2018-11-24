@@ -20,8 +20,8 @@ import { NbCheckboxComponent } from "@nebular/theme";
     RegisterDiseaseComponent,
     RegisterMedicineComponent,
     RegisterDoctorComponent,
-    RegisterAdminComponent,
-    NbCheckboxComponent
+    RegisterAdminComponent
+    // NbCheckboxComponent
   ],
   imports: [
     CommonModule,

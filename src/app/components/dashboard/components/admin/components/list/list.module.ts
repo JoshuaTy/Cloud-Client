@@ -9,8 +9,9 @@ import { MedicineComponent } from "./components/medicine/medicine.component";
 import { EditButtonComponent } from "./components/edit-button/edit-button.component";
 import { NebularModule } from "src/app/modules/nebular.module";
 import { DataHubService } from "src/app/_services/datahub.service";
-import { DropDownComponent } from './components/drop-down/drop-down.component';
-import { FormsModule } from '@angular/forms';
+import { DropDownComponent } from "./components/drop-down/drop-down.component";
+import { FormsModule } from "@angular/forms";
+import { NbSelectModule } from "@nebular/theme";
 
 @NgModule({
   declarations: [
@@ -23,8 +24,12 @@ import { FormsModule } from '@angular/forms';
     DeleteButtonComponent,
     DropDownComponent
   ],
-  imports: [CommonModule, NebularModule,FormsModule],
-  entryComponents: [EditButtonComponent, DeleteButtonComponent, DropDownComponent],
+  imports: [CommonModule, NebularModule, FormsModule, NbSelectModule],
+  entryComponents: [
+    EditButtonComponent,
+    DeleteButtonComponent,
+    DropDownComponent
+  ],
   providers: [DataHubService]
 })
 export class AdminListModule {}

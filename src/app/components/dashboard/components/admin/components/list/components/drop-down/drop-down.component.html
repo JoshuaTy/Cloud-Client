@@ -1,6 +1,13 @@
+<!--
+  <select id="multiselect" multiple="multiple" (click)="getValues()"  [(ngModel)]="selectedOption">
+    <option *ngFor="let prf of allProfiles">
+      {{ prf.value }}
+    </option>
+  </select>
+-->
 
-<select id="multiselect" multiple="multiple" (click)="getValues()"  [(ngModel)]="selectedOption">
-  <option *ngFor="let prf of allProfiles">
-    {{ prf.value }}
-  </option>
-</select>
+<nb-select multiple placeholder="Multiple Select">
+  <nb-option *ngFor="let x of medicineData" value="{{x.id}}">{{
+    x.medicineName
+  }}</nb-option>
+</nb-select>

@@ -15,7 +15,6 @@ export class MedicineComponent implements OnInit {
   constructor(private http: HttpClient) {
     this.http.get(`${config.apiUrl}/medicines/findAll`).subscribe(data => {
       this.medicineData = (<any>data).map(x => Object.assign({}, x));
-      console.log("medicine", this.medicineData);
     });
   }
 
