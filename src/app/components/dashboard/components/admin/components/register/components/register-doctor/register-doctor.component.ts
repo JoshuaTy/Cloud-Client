@@ -29,7 +29,7 @@ export class RegisterDoctorComponent implements OnInit {
       email: ["", [Validators.required, Validators.maxLength(30)]],
       username: ["", Validators.required],
       password: ["", [Validators.required, Validators.minLength(6)]],
-      userType: ["Doctor", [Validators.required]]
+      userType: ["doctor", [Validators.required]]
     });
   }
 
@@ -45,7 +45,7 @@ export class RegisterDoctorComponent implements OnInit {
     }
     this.loading = true;
     this.userService
-      .addUser(this.registerForm.value)
+      .addDoctor(this.registerForm.value)
       .pipe(first())
       .subscribe(
         data => {},

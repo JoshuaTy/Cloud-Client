@@ -24,8 +24,11 @@ export class RegisterAdminComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      diseaseName: ["", Validators.required],
-      medicineModel: [[{}], Validators.required]
+      firstName: ["", Validators.required],
+      lastName: ["", Validators.required],
+      email: ["", [Validators.required, Validators.maxLength(30)]],
+      username: ["", Validators.required],
+      password: ["", [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -41,7 +44,7 @@ export class RegisterAdminComponent implements OnInit {
     }
     this.loading = true;
     this.userService
-      .addUser(this.registerForm.value)
+      .addAdmin(this.registerForm.value)
       .pipe(first())
       .subscribe(
         data => {},

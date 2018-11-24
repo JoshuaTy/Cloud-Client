@@ -7,8 +7,11 @@ import { User } from "../_models/user";
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  addUser(x: User) {
-    return this.http.post(`${config.apiUrl}/users/register`, x);
+  addAdmin(x: User) {
+    return this.http.post(`${config.apiUrl}/users/register/admin`, x);
+  }
+  addDoctor(x: User) {
+    return this.http.post(`${config.apiUrl}/users/register/doctor`, x);
   }
   addMedicine(x: User) {
     return this.http.post(`${config.apiUrl}/medicines/add`, x);
