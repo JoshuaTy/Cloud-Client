@@ -42,12 +42,12 @@ export class DiseaseComponent implements OnInit {
         width: "20%",
         filter: false
       },
-      edit: {
-        type: "custom",
-        renderComponent: EditButtonComponent,
-        width: "10%",
-        filter: false
-      },
+      // edit: {
+      //   type: "custom",
+      //   renderComponent: EditButtonComponent,
+      //   width: "10%",
+      //   filter: false
+      // },
       delete: {
         type: "custom",
         renderComponent: DeleteButtonComponent,
