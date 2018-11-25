@@ -1,0 +1,12 @@
+<input
+  class="name"
+  maxlength="254"
+  type="text"
+  nbInput
+  fullWidth
+  placeholder="Patient Name"
+  [(ngModel)]="patient"
+  (keyup)="onKey($event)"
+/>
+
+<ng2-smart-table *ngIf="loaded" [settings]="settings" [source]="medicalData"></ng2-smart-table>

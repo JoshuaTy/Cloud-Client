@@ -1,36 +1,49 @@
 import { Component, OnInit } from "@angular/core";
 import { EditButtonComponent } from "../edit-button/edit-button.component";
 import { DeleteButtonComponent } from "../delete-button/delete-button.component";
-import { DoctorModel } from "src/app/_models/doctor.model";
 import { HttpClient } from "@angular/common/http";
 import { config } from "src/app/_config/config";
+import { DropDownComponent } from "../drop-down/drop-down.component";
+import { MedicalRecordModel } from "src/app/_models/medicalrecord.model";
 
 @Component({
-  selector: "app-doctors",
-  templateUrl: "./doctors.component.html",
-  styleUrls: ["./doctors.component.scss"]
+  selector: "app-medical",
+  templateUrl: "./medical-record.component.html",
+  styleUrls: ["./medical-record.component.scss"]
 })
-export class DoctorsComponent implements OnInit {
-  doctorData: DoctorModel[];
+export class MedicalComponent implements OnInit {
+  medicalData: MedicalRecordModel[];
+
   constructor(private http: HttpClient) {
-    this.http.get(`${config.apiUrl}/users/getAll/doctor`).subscribe(data => {
-      this.doctorData = (<any>data).map(x => Object.assign({}, x));
+    this.http.get(`${config.apiUrl}/mr/findAll`).subscribe(data => {
+      this.medicalData = (<any>data).map(x => Object.assign({}, x));
     });
   }
 
   ngOnInit() {}
 
+  get dData() {
+    return this.medicalData;
+  }
+
   settings = {
     columns: {
-      firstName: {
-        title: "FirstName"
+      name: {
+        title: "Patient Name"
       },
-      lastName: {
-        title: "LastName"
+      birthday: {
+        title: "Birthday"
       },
-      email: {
-        title: "Email"
+      sex: {
+        title: "Sex"
       },
+      admissionDate: {
+        title: "Admission Date"
+      },
+      dischargeDate: {
+        title: "Discharge Date"
+      },
+      
       edit: {
         type: "custom",
         renderComponent: EditButtonComponent,
@@ -50,4 +63,6 @@ export class DoctorsComponent implements OnInit {
       delete: false
     }
   };
+
+  data = [];
 }

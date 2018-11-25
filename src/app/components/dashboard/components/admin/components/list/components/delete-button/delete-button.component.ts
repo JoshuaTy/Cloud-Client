@@ -3,6 +3,8 @@ import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { config } from "src/app/_config/config";
+import { DiseaseModel } from "src/app/_models/disease.model";
+import { rootRenderNodes } from "@angular/core/src/view";
 
 @Component({
   selector: "app-delete-button",
@@ -12,22 +14,28 @@ import { config } from "src/app/_config/config";
 export class DeleteButtonComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient) {}
   @Input() rowData: any;
+
+  diseaseData: DiseaseModel;
+
+  model: String;
   id: number;
   ngOnInit() {
     this.id = this.rowData.id;
   }
 
-  delete() {
-    console.log(
-      "deleting",
-      this.id,
-      `${config.apiUrl}/users/delete/${this.id}`
-    );
-    return this.http.post<any>(`${config.apiUrl}/users/delete`, this.id).pipe(
-      map(x => {
-        console.log(x);
-        return x;
-      })
-    );
+  delete = () => {
+    if(this.rowData.diseaseName){
+      this.model = "diseases";
+    } else if (this.rowData.medicineName){
+      this.model = "medicines";
+    } else if (this.rowData.username){
+      this.model = "users";
+    } else {
+      this.model = "mr";
+    }
+    return this.http.post(`${config.apiUrl}/${this.model}/delete/${this.id}`, this.id).subscribe(data => {
+      console.log(data);
+    });
+
   }
 }

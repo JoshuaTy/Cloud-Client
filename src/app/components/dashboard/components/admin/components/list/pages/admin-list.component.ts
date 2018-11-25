@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { NbDialogService } from '@nebular/theme';
-import { ShowcaseDialogComponent } from '../components/showcase-dialog/showcase-dialog.component';
+import { NbDialogService } from "@nebular/theme";
+import { ShowcaseDialogComponent } from "../components/showcase-dialog/showcase-dialog.component";
 
 @Component({
   selector: "app-admin-list",
@@ -21,11 +21,12 @@ export class AdminListComponent implements OnInit {
     this.router.navigate(["dashboard/admin/register/" + link]);
   }
 
-  open() {
+  open(i: number, s: string) {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
-        title: 'This is a title passed to the dialog component',
-      },
+        title: s,
+        type: i
+      }
     });
   }
 }

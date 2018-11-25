@@ -32,21 +32,19 @@ export class DiseaseComponent implements OnInit {
         title: "Name"
       },
       medication: {
-        title: "Medication",
+        title: "Medication/s",
         type: "custom",
         renderComponent: DropDownComponent,
         width: "20%",
         filter: false
       },
       edit: {
-        title: "Edit",
         type: "custom",
         renderComponent: EditButtonComponent,
         width: "10%",
         filter: false
       },
       delete: {
-        title: "Delete",
         type: "custom",
         renderComponent: DeleteButtonComponent,
         width: "10%",

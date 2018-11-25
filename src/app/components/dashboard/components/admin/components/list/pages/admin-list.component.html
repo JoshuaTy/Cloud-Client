@@ -1,56 +1,54 @@
 <nb-card>
   <nb-card-body>
     <nb-tabset fullWidth>
+      <nb-tab tabTitle="Medical Record" class="m-20">
+        <button nbButton fullWidth status="success" (click)="open(1)">
+          Register
+        </button>
+        <app-medical></app-medical>
+      </nb-tab>
       <nb-tab tabTitle="Diseases" class="m-20">
-        <!--
-          <button
-            nbButton
-            fullWidth
-            status="success"
-            (click)="toRegister('disease')"
-          >
-            Register
-          </button>
-        -->
-        <button nbButton fullWidth status="success" (click)="open()">
+        <button
+          nbButton
+          fullWidth
+          status="success"
+          (click)="open(2, 'Register Disease')"
+        >
           Register
         </button>
         <app-disease></app-disease>
       </nb-tab>
       <nb-tab tabTitle="Medicines" class="m-20">
-        <!-- <button
+        <button
           nbButton
           fullWidth
           status="success"
-          (click)="toRegister('medicine')"
+          (click)="open(3, 'Register Medicine')"
         >
           Register
-        </button> -->
-        <button nbButton fullWidth status="success" (click)="open()">Register</button>
+        </button>
         <app-medicine></app-medicine>
       </nb-tab>
       <nb-tab tabTitle="Doctors" class="m-20">
-        <!-- <button
+        <button
           nbButton
           fullWidth
           status="success"
-          (click)="toRegister('doctor')"
+          (click)="open(4, 'Register Doctor')"
         >
           Register
-        </button> -->
-        <button nbButton fullWidth status="success" (click)="open()">Register</button>
+        </button>
         <app-doctors></app-doctors>
       </nb-tab>
       <nb-tab tabTitle="Admins" class="m-20">
-        <!-- <button
+        <button
           nbButton
           fullWidth
           status="success"
-          (click)="toRegister('admin')"
+          (click)="open(5, 'Register Admin')"
         >
           Register
-        </button> -->
-        <button nbButton fullWidth status="success" (click)="open()">Register</button>
+        </button>
         <app-admins></app-admins>
       </nb-tab>
     </nb-tabset>
