@@ -51,16 +51,16 @@ export class RegisterDiseaseComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.userService
-      .addDisease(this.registerForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {},
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
-        }
-      );
+    // this.userService
+    //   .addDisease(this.registerForm.value)
+    //   .pipe(first())
+    //   .subscribe(
+    //     data => {},
+    //     error => {
+    //       this.alertService.error(error);
+    //       this.loading = false;
+    //     }
+    //   );
     console.log("Registered", this.registerForm.value);
   }
 }
