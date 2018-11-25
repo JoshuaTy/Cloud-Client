@@ -40,7 +40,7 @@ export class RegisterMedicineComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.userService
+    if(this.userService
       .addMedicine(this.registerForm.value)
       .pipe(first())
       .subscribe(
@@ -49,7 +49,9 @@ export class RegisterMedicineComponent implements OnInit {
           this.alertService.error(error);
           this.loading = false;
         }
-      );
-    console.log("Registered", this.registerForm.value);
+      )){
+        window.location.reload();
+        alert("Successful");
+      }
   }
 }

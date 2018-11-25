@@ -18,19 +18,23 @@ import { MedicineModel } from "src/app/_models/medicine.model";
   styleUrls: ["./medical-record.component.scss"]
 })
 export class MedicalRecordComponent implements OnInit {
+  bill: number = 0;
+  model: any = {
+    name: String,
+    birthday: Date,
+    sex: String,
+    admissionDate: Date,
+    dischargeDate: Date,
+    diseaseModels: [],
+    totalBill: this.bill
+  };
+
   diseaseData: DiseaseModel[];
   medicalRecordForm: FormGroup;
-  bill: number;
   submitted = false;
   sexes = [
     { value: "Male", label: "Male" },
     { value: "Female", label: "Female" }
-  ];
-  diseaseModels = [
-    {
-      diseaseName: "Fever",
-      medicines: "Paracetamol"
-    }
   ];
   selectedOption: [];
 
@@ -47,7 +51,6 @@ export class MedicalRecordComponent implements OnInit {
   ) {
     this.http.get(`${config.apiUrl}/diseases/findAll`).subscribe(data => {
       this.diseaseData = (<any>data).map(x => Object.assign({}, x));
-      console.log(this.diseaseData);
     });
   }
 
@@ -61,52 +64,58 @@ export class MedicalRecordComponent implements OnInit {
       birthday: ["", Validators.required],
       admissionDate: ["", Validators.required],
       dischargeDate: ["", Validators.required],
-      diseaseModels: ["", Validators.required],
-      totalBill: ["", Validators.required]
+      totalBill: ["", Validators.required],
+      diseaseModels: [{}]
     });
-  }
-
-  calculate(data: any) {
-    data.forEach(element => {
-      this.bill = +element.price;
-    });
-    console.log(this.bill);
   }
 
   onSubmit() {
-    this.submitted = true;
-
-    let diseaseModels: Disease[] = this.f.diseaseModels.value;
-
-    for (let x = 0; x < diseaseModels.length; x++) {
-      console.log(diseaseModels[x]);
-    }
-    let newAdmissionDate = this.f.admissionDate.value;
-    newAdmissionDate = moment(this.f.admissionDate.value).format("YYYY-MM-DD");
-
-    let newDischargeDate = this.f.dischargeDate.value;
-    newDischargeDate = moment(this.f.dischargeDate.value).format("YYYY-MM-DD");
-
-    let newBirthday = this.f.birthday.value;
-    newBirthday = moment(this.f.birthday.value).format("YYYY-MM-DD");
-
-    this.medicalRecordForm.patchValue({
-      birthday: newBirthday,
-      admissionDate: newAdmissionDate,
-      dischargeDate: newDischargeDate,
-      diseaseModels: this.diseaseIDs
+    console.log(
+      this.datePipe.transform(
+        this.medicalRecordForm.value.admissionDate,
+        "yyyy-MM-dd"
+      )
+    );
+    this.model.totalBill = 1231231.23;
+    this.model.name = this.medicalRecordForm.value.name;
+    this.model.sex = this.medicalRecordForm.value.sex;
+    this.model.birthday = this.datePipe.transform(
+      this.medicalRecordForm.value.birthday,
+      "yyyy-MM-dd"
+    );
+    this.model.admissionDate = this.datePipe.transform(
+      this.medicalRecordForm.value.admissionDate,
+      "yyyy-MM-dd"
+    );
+    this.model.dischargeDate = this.datePipe.transform(
+      this.medicalRecordForm.value.dischargeDate,
+      "yyyy-MM-dd"
+    );
+    this.medicalRecordForm.value.diseaseModels.forEach(element => {
+      this.model.diseaseModels.push({
+        id: element
+      });
     });
 
-    console.log(this.medicalRecordForm.value);
-
-    this.userService
-      .addMedicalRecord(this.medicalRecordForm.value)
+    this.model.diseaseModels.forEach(element => {
+      this.http.get(`${config.apiUrl}/diseases/${element.id}`).subscribe(data => {
+        (<any>data).medicinemodel.forEach(data=>{
+          this.model.totalBill += data.price;
+        })
+      });
+    })
+    this.model.totalBill +=1500;
+    if(this.userService
+      .addMedicalRecord(this.model)
       .pipe(first())
       .subscribe(
         data => {},
         error => {
           this.alertService.error(error);
         }
-      );
+      )){
+        window.location.reload();
+        alert("Successful");
+      }
   }
 }
