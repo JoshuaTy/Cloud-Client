@@ -1,0 +1,251 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:273), pid=16720, tid=0x0000000000005dd0
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_171-b11) (build 1.8.0_171-b11)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.171-b11 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000018d44000):  JavaThread "C1 CompilerThread2" daemon [_thread_in_native, id=24016, stack(0x00000000197d0000,0x00000000198d0000)]
+
+Stack: [0x00000000197d0000,0x00000000198d0000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C1:  15940   15       3       java.util.regex.Matcher::appendReplacement (571 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000018e80000 JavaThread "Service Thread" daemon [_thread_blocked, id=37292, stack(0x00000000198d0000,0x00000000199d0000)]
+=>0x0000000018d44000 JavaThread "C1 CompilerThread2" daemon [_thread_in_native, id=24016, stack(0x00000000197d0000,0x00000000198d0000)]
+  0x0000000018d2e800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=26952, stack(0x00000000196d0000,0x00000000197d0000)]
+  0x0000000018d39800 JavaThread "C2 CompilerThread0" daemon [_thread_in_vm, id=31156, stack(0x00000000195d0000,0x00000000196d0000)]
+  0x0000000018ce2000 JavaThread "Attach Listener" daemon [_thread_blocked, id=1580, stack(0x00000000194d0000,0x00000000195d0000)]
+  0x0000000018cdf000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=23508, stack(0x00000000193d0000,0x00000000194d0000)]
+  0x0000000018cdc800 JavaThread "Surrogate Locker Thread (Concurrent GC)" daemon [_thread_blocked, id=24328, stack(0x00000000192d0000,0x00000000193d0000)]
+  0x0000000018c6d800 JavaThread "Finalizer" daemon [_thread_blocked, id=19748, stack(0x00000000190e0000,0x00000000191e0000)]
+  0x0000000018c65800 JavaThread "Reference Handler" daemon [_thread_blocked, id=11040, stack(0x0000000018fe0000,0x00000000190e0000)]
+  0x0000000002ec3800 JavaThread "main" [_thread_in_native, id=1200, stack(0x0000000002cc0000,0x0000000002dc0000)]
+
+Other Threads:
+  0x0000000018c60800 VMThread [stack: 0x0000000018a00000,0x0000000018b00000] [id=29760]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ garbage-first heap   total 63488K, used 13312K [0x00000000c0000000, 0x00000000c01001f0, 0x0000000100000000)
+  region size 1024K, 14 young (14336K), 0 survivors (0K)
+ Metaspace       used 3184K, capacity 4720K, committed 4864K, reserved 1056768K
+  class space    used 354K, capacity 424K, committed 512K, reserved 1048576K
+
+Heap Regions: (Y=young(eden), SU=young(survivor), HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, TS=gc time stamp, PTAMS=previous top-at-mark-start, NTAMS=next top-at-mark-start)
+AC   0  F    TS     0 PTAMS 0x00000000c0000000 NTAMS 0x00000000c0000000 space 1024K,   0% used [0x00000000c0000000, 0x00000000c0100000)
+AC   0  F    TS     0 PTAMS 0x00000000c0100000 NTAMS 0x00000000c0100000 space 1024K,   0% used [0x00000000c0100000, 0x00000000c0200000)
+AC   0  F    TS     0 PTAMS 0x00000000c0200000 NTAMS 0x00000000c0200000 space 1024K,   0% used [0x00000000c0200000, 0x00000000c0300000)
+AC   0  F    TS     0 PTAMS 0x00000000c0300000 NTAMS 0x00000000c0300000 space 1024K,   0% used [0x00000000c0300000, 0x00000000c0400000)
+AC   0  F    TS     0 PTAMS 0x00000000c0400000 NTAMS 0x00000000c0400000 space 1024K,   0% used [0x00000000c0400000, 0x00000000c0500000)
+AC   0  F    TS     0 PTAMS 0x00000000c0500000 NTAMS 0x00000000c0500000 space 1024K,   0% used [0x00000000c0500000, 0x00000000c0600000)
+AC   0  F    TS     0 PTAMS 0x00000000c0600000 NTAMS 0x00000000c0600000 space 1024K,   0% used [0x00000000c0600000, 0x00000000c0700000)
+AC   0  F    TS     0 PTAMS 0x00000000c0700000 NTAMS 0x00000000c0700000 space 1024K,   0% used [0x00000000c0700000, 0x00000000c0800000)
+AC   0  F    TS     0 PTAMS 0x00000000c0800000 NTAMS 0x00000000c0800000 space 1024K,   0% used [0x00000000c0800000, 0x00000000c0900000)
+AC   0  F    TS     0 PTAMS 0x00000000c0900000 NTAMS 0x00000000c0900000 space 1024K,   0% used [0x00000000c0900000, 0x00000000c0a00000)
+AC   0  F    TS     0 PTAMS 0x00000000c0a00000 NTAMS 0x00000000c0a00000 space 1024K,   0% used [0x00000000c0a00000, 0x00000000c0b00000)
+AC   0  F    TS     0 PTAMS 0x00000000c0b00000 NTAMS 0x00000000c0b00000 space 1024K,   0% used [0x00000000c0b00000, 0x00000000c0c00000)
+AC   0  F    TS     0 PTAMS 0x00000000c0c00000 NTAMS 0x00000000c0c00000 space 1024K,   0% used [0x00000000c0c00000, 0x00000000c0d00000)
+AC   0  F    TS     0 PTAMS 0x00000000c0d00000 NTAMS 0x00000000c0d00000 space 1024K,   0% used [0x00000000c0d00000, 0x00000000c0e00000)
+AC   0  F    TS     0 PTAMS 0x00000000c0e00000 NTAMS 0x00000000c0e00000 space 1024K,   0% used [0x00000000c0e00000, 0x00000000c0f00000)
+AC   0  F    TS     0 PTAMS 0x00000000c0f00000 NTAMS 0x00000000c0f00000 space 1024K,   0% used [0x00000000c0f00000, 0x00000000c1000000)
+AC   0  F    TS     0 PTAMS 0x00000000c1000000 NTAMS 0x00000000c1000000 space 1024K,   0% used [0x00000000c1000000, 0x00000000c1100000)
+AC   0  F    TS     0 PTAMS 0x00000000c1100000 NTAMS 0x00000000c1100000 space 1024K,   0% used [0x00000000c1100000, 0x00000000c1200000)
+AC   0  F    TS     0 PTAMS 0x00000000c1200000 NTAMS 0x00000000c1200000 space 1024K,   0% used [0x00000000c1200000, 0x00000000c1300000)
+AC   0  F    TS     0 PTAMS 0x00000000c1300000 NTAMS 0x00000000c1300000 space 1024K,   0% used [0x00000000c1300000, 0x00000000c1400000)
+AC   0  F    TS     0 PTAMS 0x00000000c1400000 NTAMS 0x00000000c1400000 space 1024K,   0% used [0x00000000c1400000, 0x00000000c1500000)
+AC   0  F    TS     0 PTAMS 0x00000000c1500000 NTAMS 0x00000000c1500000 space 1024K,   0% used [0x00000000c1500000, 0x00000000c1600000)
+AC   0  F    TS     0 PTAMS 0x00000000c1600000 NTAMS 0x00000000c1600000 space 1024K,   0% used [0x00000000c1600000, 0x00000000c1700000)
+AC   0  F    TS     0 PTAMS 0x00000000c1700000 NTAMS 0x00000000c1700000 space 1024K,   0% used [0x00000000c1700000, 0x00000000c1800000)
+AC   0  F    TS     0 PTAMS 0x00000000c1800000 NTAMS 0x00000000c1800000 space 1024K,   0% used [0x00000000c1800000, 0x00000000c1900000)
+AC   0  F    TS     0 PTAMS 0x00000000c1900000 NTAMS 0x00000000c1900000 space 1024K,   0% used [0x00000000c1900000, 0x00000000c1a00000)
+AC   0  F    TS     0 PTAMS 0x00000000c1a00000 NTAMS 0x00000000c1a00000 space 1024K,   0% used [0x00000000c1a00000, 0x00000000c1b00000)
+AC   0  F    TS     0 PTAMS 0x00000000c1b00000 NTAMS 0x00000000c1b00000 space 1024K,   0% used [0x00000000c1b00000, 0x00000000c1c00000)
+AC   0  F    TS     0 PTAMS 0x00000000c1c00000 NTAMS 0x00000000c1c00000 space 1024K,   0% used [0x00000000c1c00000, 0x00000000c1d00000)
+AC   0  F    TS     0 PTAMS 0x00000000c1d00000 NTAMS 0x00000000c1d00000 space 1024K,   0% used [0x00000000c1d00000, 0x00000000c1e00000)
+AC   0  F    TS     0 PTAMS 0x00000000c1e00000 NTAMS 0x00000000c1e00000 space 1024K,   0% used [0x00000000c1e00000, 0x00000000c1f00000)
+AC   0  F    TS     0 PTAMS 0x00000000c1f00000 NTAMS 0x00000000c1f00000 space 1024K,   0% used [0x00000000c1f00000, 0x00000000c2000000)
+AC   0  F    TS     0 PTAMS 0x00000000c2000000 NTAMS 0x00000000c2000000 space 1024K,   0% used [0x00000000c2000000, 0x00000000c2100000)
+AC   0  F    TS     0 PTAMS 0x00000000c2100000 NTAMS 0x00000000c2100000 space 1024K,   0% used [0x00000000c2100000, 0x00000000c2200000)
+AC   0  F    TS     0 PTAMS 0x00000000c2200000 NTAMS 0x00000000c2200000 space 1024K,   0% used [0x00000000c2200000, 0x00000000c2300000)
+AC   0  F    TS     0 PTAMS 0x00000000c2300000 NTAMS 0x00000000c2300000 space 1024K,   0% used [0x00000000c2300000, 0x00000000c2400000)
+AC   0  F    TS     0 PTAMS 0x00000000c2400000 NTAMS 0x00000000c2400000 space 1024K,   0% used [0x00000000c2400000, 0x00000000c2500000)
+AC   0  F    TS     0 PTAMS 0x00000000c2500000 NTAMS 0x00000000c2500000 space 1024K,   0% used [0x00000000c2500000, 0x00000000c2600000)
+AC   0  F    TS     0 PTAMS 0x00000000c2600000 NTAMS 0x00000000c2600000 space 1024K,   0% used [0x00000000c2600000, 0x00000000c2700000)
+AC   0  F    TS     0 PTAMS 0x00000000c2700000 NTAMS 0x00000000c2700000 space 1024K,   0% used [0x00000000c2700000, 0x00000000c2800000)
+AC   0  F    TS     0 PTAMS 0x00000000c2800000 NTAMS 0x00000000c2800000 space 1024K,   0% used [0x00000000c2800000, 0x00000000c2900000)
+AC   0  F    TS     0 PTAMS 0x00000000c2900000 NTAMS 0x00000000c2900000 space 1024K,   0% used [0x00000000c2900000, 0x00000000c2a00000)
+AC   0  F    TS     0 PTAMS 0x00000000c2a00000 NTAMS 0x00000000c2a00000 space 1024K,   0% used [0x00000000c2a00000, 0x00000000c2b00000)
+AC   0  F    TS     0 PTAMS 0x00000000c2b00000 NTAMS 0x00000000c2b00000 space 1024K,   0% used [0x00000000c2b00000, 0x00000000c2c00000)
+AC   0  F    TS     0 PTAMS 0x00000000c2c00000 NTAMS 0x00000000c2c00000 space 1024K,   0% used [0x00000000c2c00000, 0x00000000c2d00000)
+AC   0  F    TS     0 PTAMS 0x00000000c2d00000 NTAMS 0x00000000c2d00000 space 1024K,   0% used [0x00000000c2d00000, 0x00000000c2e00000)
+AC   0  F    TS     0 PTAMS 0x00000000c2e00000 NTAMS 0x00000000c2e00000 space 1024K,   0% used [0x00000000c2e00000, 0x00000000c2f00000)
+AC   0  F    TS     0 PTAMS 0x00000000c2f00000 NTAMS 0x00000000c2f00000 space 1024K,   0% used [0x00000000c2f00000, 0x00000000c3000000)
+AC   0  E    TS     0 PTAMS 0x00000000c3000000 NTAMS 0x00000000c3000000 space 1024K, 100% used [0x00000000c3000000, 0x00000000c3100000)
+AC   0  E CS TS     0 PTAMS 0x00000000c3100000 NTAMS 0x00000000c3100000 space 1024K, 100% used [0x00000000c3100000, 0x00000000c3200000)
+AC   0  E CS TS     0 PTAMS 0x00000000c3200000 NTAMS 0x00000000c3200000 space 1024K, 100% used [0x00000000c3200000, 0x00000000c3300000)
+AC   0  E CS TS     0 PTAMS 0x00000000c3300000 NTAMS 0x00000000c3300000 space 1024K, 100% used [0x00000000c3300000, 0x00000000c3400000)
+AC   0  E CS TS     0 PTAMS 0x00000000c3400000 NTAMS 0x00000000c3400000 space 1024K, 100% used [0x00000000c3400000, 0x00000000c3500000)
+AC   0  E CS TS     0 PTAMS 0x00000000c3500000 NTAMS 0x00000000c3500000 space 1024K, 100% used [0x00000000c3500000, 0x00000000c3600000)
+AC   0  E CS TS     0 PTAMS 0x00000000c3600000 NTAMS 0x00000000c3600000 space 1024K, 100% used [0x00000000c3600000, 0x00000000c3700000)
+AC   0  E CS TS     0 PTAMS 0x00000000c3700000 NTAMS 0x00000000c3700000 space 1024K, 100% used [0x00000000c3700000, 0x00000000c3800000)
+AC   0  E CS TS     0 PTAMS 0x00000000c3800000 NTAMS 0x00000000c3800000 space 1024K, 100% used [0x00000000c3800000, 0x00000000c3900000)
+AC   0  E CS TS     0 PTAMS 0x00000000c3900000 NTAMS 0x00000000c3900000 space 1024K, 100% used [0x00000000c3900000, 0x00000000c3a00000)
+AC   0  E CS TS     0 PTAMS 0x00000000c3a00000 NTAMS 0x00000000c3a00000 space 1024K, 100% used [0x00000000c3a00000, 0x00000000c3b00000)
+AC   0  E CS TS     0 PTAMS 0x00000000c3b00000 NTAMS 0x00000000c3b00000 space 1024K, 100% used [0x00000000c3b00000, 0x00000000c3c00000)
+AC   0  E CS TS     0 PTAMS 0x00000000c3c00000 NTAMS 0x00000000c3c00000 space 1024K, 100% used [0x00000000c3c00000, 0x00000000c3d00000)
+AC   0  E CS TS     0 PTAMS 0x00000000c3d00000 NTAMS 0x00000000c3d00000 space 1024K, 100% used [0x00000000c3d00000, 0x00000000c3e00000)
+
+Card table byte_map: [0x00000000134c0000,0x00000000136c0000] byte_map_base: 0x0000000012ec0000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x0000000002ef98f8, (CMBitMap*) 0x0000000002ef9950
+ Prev Bits: [0x00000000138c0000, 0x00000000148c0000)
+ Next Bits: [0x00000000148c0000, 0x00000000158c0000)
+
+Polling page: 0x0000000000d70000
+
+CodeCache: size=245760Kb used=1074Kb max_used=1074Kb free=244685Kb
+ bounds [0x0000000002fc0000, 0x0000000003230000, 0x0000000011fc0000]
+ total_blobs=235 nmethods=5 adapters=158
+ compilation: enabled
+
+Compilation events (9 events):
+Event: 15.749 Thread 0x0000000018d44000    7       2       java.util.regex.Matcher::search (109 bytes)
+Event: 15.750 Thread 0x0000000018d44000 nmethod 7 0x00000000030c2810 code [0x00000000030c2980, 0x00000000030c2be8]
+Event: 15.750 Thread 0x0000000018d44000   29       2       java.lang.AbstractStringBuilder::append (144 bytes)
+Event: 15.752 Thread 0x0000000018d44000 nmethod 29 0x00000000030c2d10 code [0x00000000030c2f40, 0x00000000030c37e8]
+Event: 15.752 Thread 0x0000000018d44000   28       2       java.util.regex.Pattern$Start::match (90 bytes)
+Event: 15.752 Thread 0x0000000018d44000 nmethod 28 0x00000000030c3e50 code [0x00000000030c3fc0, 0x00000000030c4288]
+Event: 15.752 Thread 0x0000000018d44000    8       2       java.util.regex.Matcher::reset (83 bytes)
+Event: 15.752 Thread 0x0000000018d44000 nmethod 8 0x00000000030c4450 code [0x00000000030c45c0, 0x00000000030c4848]
+Event: 15.752 Thread 0x0000000018d44000   15       3       java.util.regex.Matcher::appendReplacement (571 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (7 events):
+Event: 5.545 Thread 0x0000000002ec3800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x00000000c3d07cb0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u171\10807\hotspot
+Event: 5.545 Thread 0x0000000002ec3800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x00000000c3d07f98) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u171\10807\hotspot\src\share\vm\prim
+Event: 9.100 Thread 0x0000000002ec3800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000c3d818e8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u171\10807\hotspot\src\share\vm\prims\jvm.cpp, line 1435]
+Event: 9.100 Thread 0x0000000002ec3800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000c3d81af8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u171\10807\hotspot\src\share\vm\prims\jvm.cpp, line 1435]
+Event: 9.102 Thread 0x0000000002ec3800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000c3d85a08) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u171\10807\hotspot\src\share\vm\prims\jvm.cpp, line 1435]
+Event: 9.102 Thread 0x0000000002ec3800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000c3d85c18) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u171\10807\hotspot\src\share\vm\prims\jvm.cpp, line 1435]
+Event: 15.550 Thread 0x0000000002ec3800 Exception <a 'java/lang/reflect/InvocationTargetException'> (0x00000000c35ddfd0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u171\10807\hotspot\src\share\vm\runtime\reflection.cpp, line 1092]
+
+Events (10 events):
+Event: 15.761 loading class java/lang/ClassValue$Identity
+Event: 15.764 loading class java/lang/ClassValue$Identity done
+Event: 15.764 loading class java/lang/ClassValue$Version
+Event: 15.767 loading class java/lang/ClassValue$Version done
+Event: 15.767 loading class java/lang/invoke/MemberName$Factory
+Event: 15.770 loading class java/lang/invoke/MemberName$Factory done
+Event: 15.770 loading class java/lang/invoke/MethodHandleStatics
+Event: 15.773 loading class java/lang/invoke/MethodHandleStatics done
+Event: 15.773 loading class java/lang/invoke/MethodHandleStatics$1
+Event: 15.777 loading class java/lang/invoke/MethodHandleStatics$1 done
+
+
+Dynamic libraries:
+0x00007ff6bd230000 - 0x00007ff6bd267000 	C:\Program Files\Java\jdk1.8.0_171\bin\java.exe
+0x00007ff8452a0000 - 0x00007ff845481000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff844640000 - 0x00007ff8446f2000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff842140000 - 0x00007ff8423b3000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff844fc0000 - 0x00007ff845061000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff845090000 - 0x00007ff84512e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff8449b0000 - 0x00007ff844a0b000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff844700000 - 0x00007ff844824000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff842730000 - 0x00007ff8428c0000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff841970000 - 0x00007ff841990000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff845190000 - 0x00007ff8451b8000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff841670000 - 0x00007ff841802000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff841990000 - 0x00007ff841a2f000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff842630000 - 0x00007ff84272a000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff832fc0000 - 0x00007ff833229000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17134.407_none_fb449d63306391e9\COMCTL32.dll
+0x00007ff844ba0000 - 0x00007ff844ec2000 	C:\WINDOWS\System32\combase.dll
+0x00007ff8425b0000 - 0x00007ff84262a000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff8428c0000 - 0x00007ff8428ed000 	C:\WINDOWS\System32\IMM32.DLL
+0x000000005e8a0000 - 0x000000005e972000 	C:\Program Files\Java\jdk1.8.0_171\jre\bin\msvcr100.dll
+0x000000005e000000 - 0x000000005e8a0000 	C:\Program Files\Java\jdk1.8.0_171\jre\bin\server\jvm.dll
+0x00007ff843120000 - 0x00007ff843128000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ff8387a0000 - 0x00007ff8387a9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff833580000 - 0x00007ff8335a3000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff844570000 - 0x00007ff8445dc000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff838950000 - 0x00007ff83895a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff833550000 - 0x00007ff83357a000 	C:\WINDOWS\SYSTEM32\winmmbase.dll
+0x00007ff841810000 - 0x00007ff841859000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x000000005dff0000 - 0x000000005dfff000 	C:\Program Files\Java\jdk1.8.0_171\jre\bin\verify.dll
+0x000000005dfc0000 - 0x000000005dfe9000 	C:\Program Files\Java\jdk1.8.0_171\jre\bin\java.dll
+0x000000005df90000 - 0x000000005dfb3000 	C:\Program Files\Java\jdk1.8.0_171\jre\bin\instrument.dll
+0x000000005df70000 - 0x000000005df86000 	C:\Program Files\Java\jdk1.8.0_171\jre\bin\zip.dll
+0x00007ff843130000 - 0x00007ff84456f000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ff844a20000 - 0x00007ff844ac9000 	C:\WINDOWS\System32\shcore.dll
+0x00007ff841a30000 - 0x00007ff84213d000 	C:\WINDOWS\System32\windows.storage.dll
+0x00007ff845130000 - 0x00007ff845181000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007ff841620000 - 0x00007ff841631000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x00007ff8415b0000 - 0x00007ff8415cf000 	C:\WINDOWS\System32\profapi.dll
+0x00007ff8415d0000 - 0x00007ff84161c000 	C:\WINDOWS\System32\powrprof.dll
+0x00007ff841640000 - 0x00007ff84164a000 	C:\WINDOWS\System32\FLTLIB.DLL
+
+VM Arguments:
+jvm_args: -Declipse.application=org.eclipse.jdt.ls.core.id1 -Dosgi.bundles.defaultStartLevel=4 -Declipse.product=org.eclipse.jdt.ls.core.product -Xverify:none -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:C:\Users\acer\.vscode\extensions\gabrielbb.vscode-lombok-0.9.6/server/lombok.jar -Xbootclasspath/a:C:\Users\acer\.vscode\extensions\gabrielbb.vscode-lombok-0.9.6/server/lombok.jar 
+java_command: C:\Users\acer\.vscode\extensions\redhat.java-0.34.0\server\plugins\org.eclipse.equinox.launcher_1.5.200.v20180922-1751.jar -configuration C:\Users\acer\.vscode\extensions\redhat.java-0.34.0\server\config_win -data c:\Users\acer\AppData\Roaming\Code\User\workspaceStorage\1aa730cc67d0a05575df80e836f6ace9\redhat.java\jdt_ws
+java_class_path (initial): C:\Users\acer\.vscode\extensions\redhat.java-0.34.0\server\plugins\org.eclipse.equinox.launcher_1.5.200.v20180922-1751.jar;C:\Users\acer\.vscode\extensions\gabrielbb.vscode-lombok-0.9.6/server/lombok.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+USERNAME=acer
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 17134 (10.0.17134.1)
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, clmul, erms, ht, tsc, tscinvbit, tscinv
+
+Memory: 4k page, physical 3984996k(376976k free), swap 16043620k(916k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.171-b11) for windows-amd64 JRE (1.8.0_171-b11), built on Mar 28 2018 16:06:12 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Sun Nov 25 23:45:34 2018
+elapsed time: 16 seconds (0d 0h 0m 16s)
+

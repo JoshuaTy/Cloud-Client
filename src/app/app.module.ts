@@ -18,7 +18,7 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { DashboardModule } from "./components/dashboard/dashboard.module";
-import { MedicalRecordComponent } from "./components/dashboard/components/doctor/components/medical-record/medical-record.component";
+//import { MedicalRecordComponent } from "./components/dashboard/components/doctor/components/medical-record/medical-record.component";
 import { NbMomentDateModule, NbMomentDateService} from "@nebular/moment";
 import { NbDateFnsDateModule} from "@nebular/date-fns";
 import { DatePipe } from "@angular/common";

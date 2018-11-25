@@ -9,6 +9,7 @@ import * as moment from 'moment';
 import { UserService } from 'src/app/_services/user.service';
 import { first } from 'rxjs/operators';
 import { AlertService } from 'src/app/_services/alert.service';
+import { DiseaseModel } from 'src/app/_models/disease.model';
 
 @Component({
   selector: 'app-medical-record',
@@ -22,16 +23,11 @@ export class MedicalRecordComponent implements OnInit {
     {value: 'Male', label: 'Male' },
     {value: 'Female', label: 'Female' },
   ]
-  diseaseModels= [{
-    diseaseName: "Fever",
-    medicines:"Paracetamol"
-  }];
+ 
   selectedOption:[];
-  
-  diseaseIDs=[
-    {"id":1},
-    {"id":2},
-    ];
+  Diseases: any;
+  selectedDisease: any;
+  diseaseModels: DiseaseModel[];
 
   constructor( 
     private formBuilder: FormBuilder,
@@ -41,7 +37,13 @@ export class MedicalRecordComponent implements OnInit {
     private datePipe: DatePipe,
     private userService: UserService,
     private alertService: AlertService,
-    ) { }
+    ) { 
+      this.http.get(`${config.apiUrl}/diseases/findAll`).subscribe(data=>{
+        this.diseaseModels= (<any>data).map(x => Object.assign({},x));
+        this.selectedDisease=this.diseaseModels[0].diseaseName;
+      });
+
+    }
 
 
   get f(){
@@ -49,7 +51,7 @@ export class MedicalRecordComponent implements OnInit {
   }
   ngOnInit() {
     //this.diseaseModels = this.datahubservice.getDiseases();
-
+   
     this.medicalRecordForm = this.formBuilder.group({
       name: ["", Validators.required],
       sex: ["", Validators.required],
@@ -58,12 +60,21 @@ export class MedicalRecordComponent implements OnInit {
       dischargeDate:["", Validators.required],
       diseaseModels:["", Validators.required],
       totalBill:["",Validators.required],
+      Medicines:["",Validators.required],
       //password: ["", Validators.required]
     });
-  }
+    this.Diseases = [{    
+      "Medicines": ""
+    },
+    ]; 
 
+   
+  }
+  addDisease(){
+    console.log("Adding disease");
+  }
   computeTotalBill(){
-    
+    console.log("Computing Bill");
   }
 
   onSubmit(){
@@ -91,7 +102,7 @@ export class MedicalRecordComponent implements OnInit {
       birthday: newBirthday,
       admissionDate: newAdmissionDate, 
       dischargeDate: newDischargeDate,
-      diseaseModels: this.diseaseIDs,
+     // diseaseModels: this.diseaseIDs,
     });
   
     console.log(this.medicalRecordForm.value);

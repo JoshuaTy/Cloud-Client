@@ -27,15 +27,19 @@
 
               <div class="form-group">
                 <label for="sex">Sex:</label>           
-                <nb-radio-group formControlName="sex">
-                    <nb-radio
-                      
+                <nb-radio-group formControlName="sex" 
+                [ngClass]="{ 'is-invalid': submitted && f.sex.errors }">
+                    <nb-radio                     
                       *ngFor="let sex of sexes"
                       [value]="sex.value">
                       {{ sex.label }}
                     </nb-radio>
                   </nb-radio-group>
-                  
+                  <div *ngIf="submitted && f.sex.errors" class="alert alert-danger">
+                    <div *ngIf="f.name.sex.required">
+                      Choose a gender
+                    </div>
+                  </div>
               </div>
 
 
@@ -49,11 +53,15 @@
                   [nbDatepicker]="formpicker"
                   formControlName="birthday"
                   [ngClass]="{ 'is-invalid': submitted && f.birthday.errors }"
-                 
                   >
                   <nb-datepicker  #formpicker ></nb-datepicker >
-                  
+                  <div *ngIf="submitted && f.birthday.errors" class="alert alert-danger">
+                    <div *ngIf="f.name.birthday.required">
+                      Birthday is required
+                    </div>
+                  </div>
               </div>
+
               <div class="form-group">
                   <label for="admissionDate">Admission Date:</label>           
                   <input 
@@ -63,11 +71,14 @@
                   placeholder="Admission Date"
                   [nbDatepicker]="formpicker2"
                   formControlName="admissionDate"
-                  [ngClass]="{ 'is-invalid': submitted && f.admissionDate.errors }"
-                
+                  [ngClass]="{ 'is-invalid': submitted && f.admissionDate.errors }"               
                   >
                   <nb-datepicker  #formpicker2  ></nb-datepicker >
-                  
+                  <div *ngIf="submitted && f.admissionDate.errors" class="alert alert-danger">
+                    <div *ngIf="f.name.admissionDate.required">
+                      Admission Date is required
+                    </div>
+                  </div>
               </div>
 
               <div class="form-group">
@@ -79,26 +90,35 @@
                   placeholder="Discharge Date"
                   [nbDatepicker]="formpicker3"
                   formControlName="dischargeDate"
-                  [ngClass]="{ 'is-invalid': submitted && f.dischargeDate.errors }"
-                  
+                  [ngClass]="{ 'is-invalid': submitted && f.dischargeDate.errors }"                
                   >
+
                   <nb-datepicker  #formpicker3></nb-datepicker >
-                  
+                  <div *ngIf="submitted && f.dischargeDate.errors" class="alert alert-danger">
+                    <div *ngIf="f.name.dischargeDate.required">
+                      Discharge Date is required
+                    </div>
+                  </div>
               </div>
+              <!-- <div *ngFor="let Disease of Diseases"> -->
+                <div class="form-group">
+                    <label for="diseases">Diseases:</label>                    
+                      <nb-select mutiple placeholder="..."
+                      formControlName="diseaseModels">  
+
+                      <nb-option  *ngFor= "let disease of diseaseModels"
+                        value="{{disease.diseaseName}}"
+                        >{{disease.diseaseName}}</nb-option>   
+
+                    </nb-select>   
+                    
+                    <button nbButton status="info" (click)="addDisease()">Add</button>
+                    <!-- <label formControlName="Medicines">{{selectedDisease}} </label>  -->
+
+                </div>
+             <!-- </div> -->
               
-              <div class="form-group">
-                  <label for="diseases">Diseases:</label>                    
-                    <nb-select multiple placeholder="..."
-                    formControlName="diseaseModels"
-                    >
-                  
-                        <nb-option  *ngFor= "let disease of diseaseModels"
-                         value="{{disease.name}}"
-                         >{{disease.name}}</nb-option>                                          
-                   </nb-select>               
-              </div>
-              
-              <div class="form-group">
+              <!-- <div class="form-group">
                   <label for="diseases">Medicines:</label>                    
                   <input 
                   nbInput 
@@ -108,13 +128,14 @@
                   
                   >  
 
-              </div>
+              </div> -->
 
           
               <div class="form-group">
                   <label for="totalBill">Total Bill:</label>       
                   <input                   
                   nbInput 
+                  min="0"
                   type="number"
                   fullWidth
                   placeholder="Total Bill"
