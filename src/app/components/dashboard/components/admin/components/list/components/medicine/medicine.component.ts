@@ -4,6 +4,7 @@ import { DeleteButtonComponent } from "../delete-button/delete-button.component"
 import { HttpClient } from "@angular/common/http";
 import { config } from "src/app/_config/config";
 import { MedicineModel } from "src/app/_models/medicine.model";
+import { EditMedicineComponent } from "../edit-medicine/edit-medicine.component";
 
 @Component({
   selector: "app-medicine",
@@ -34,7 +35,7 @@ export class MedicineComponent implements OnInit {
       },
       edit: {
         type: "custom",
-        renderComponent: EditButtonComponent,
+        renderComponent: EditMedicineComponent,
         width: "10%",
         filter: false
       },

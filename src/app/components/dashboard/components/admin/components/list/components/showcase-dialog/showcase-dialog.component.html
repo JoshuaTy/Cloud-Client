@@ -15,6 +15,12 @@
   <nb-card-body *ngIf="type == 5">
     <app-register-admin></app-register-admin>
   </nb-card-body>
+  <nb-card-body *ngIf="type == 6">
+    <app-update-doctor></app-update-doctor>
+  </nb-card-body>
+  <nb-card-body *ngIf="type == 7">
+    <app-update-medicine></app-update-medicine>
+  </nb-card-body>
   <nb-card-footer>
     <button nbButton hero status="primary" (click)="dismiss()">
       Dismiss Dialog

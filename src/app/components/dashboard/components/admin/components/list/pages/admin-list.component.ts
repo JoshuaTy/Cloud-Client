@@ -25,7 +25,9 @@ export class AdminListComponent implements OnInit {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
         title: s,
-        type: i
+        type: i,
+        id: 0,
+        data: null
       }
     });
   }
