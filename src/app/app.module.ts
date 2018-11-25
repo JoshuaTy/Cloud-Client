@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NbThemeModule, NbLayoutModule } from "@nebular/theme";
+import { NbThemeModule, NbLayoutModule, NbDialogService } from "@nebular/theme";
 import { NebularModule } from "./modules/nebular.module";
 import { UserService } from "./_services/user.service";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";

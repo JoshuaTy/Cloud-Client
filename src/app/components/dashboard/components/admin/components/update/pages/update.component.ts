@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from "@angular/core";
+import { NbDialogRef } from "@nebular/theme";
 
 @Component({
-  selector: 'app-update',
-  templateUrl: './update.component.html',
-  styleUrls: ['./update.component.scss']
+  selector: "app-update",
+  templateUrl: "./update.component.html",
+  styleUrls: ["./update.component.scss"]
 })
-export class UpdateComponent implements OnInit {
+export class UpdateComponent {
+  @Input() title: string;
 
-  constructor() { }
+  constructor(protected ref: NbDialogRef<UpdateComponent>) {}
 
-  ngOnInit() {
+  dismiss() {
+    this.ref.close();
   }
-
 }

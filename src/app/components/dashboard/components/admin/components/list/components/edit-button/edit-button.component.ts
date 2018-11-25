@@ -1,5 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
+import { NbDialogService } from "@nebular/theme";
+import { UpdateComponent } from "../../../update/pages/update.component";
 
 @Component({
   selector: "app-edit-button",
@@ -7,11 +9,20 @@ import { Router } from "@angular/router";
   styleUrls: ["./edit-button.component.scss"]
 })
 export class EditButtonComponent implements OnInit {
-  constructor(private router: Router) {}
-
-  ngOnInit() {}
-
+  constructor(private router: Router, private dialogService: NbDialogService) {}
+  @Input() rowData: any;
+  id: number;
+  ngOnInit() {
+    this.id = this.rowData.id;
+  }
+  // onClick() {
+  //   this.router.navigate(["dashboard/admin/update"]);
+  // }
   onClick() {
-    this.router.navigate(["dashboard/admin/update"]);
+    this.dialogService.open(UpdateComponent, {
+      context: {
+        title: "This is a title passed to the dialog component"
+      }
+    });
   }
 }
