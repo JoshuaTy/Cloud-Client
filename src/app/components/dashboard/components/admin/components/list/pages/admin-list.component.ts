@@ -21,10 +21,11 @@ export class AdminListComponent implements OnInit {
     this.router.navigate(["dashboard/admin/register/" + link]);
   }
 
-  open() {
+  open(i: number) {
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
         title: 'This is a title passed to the dialog component',
+        type: i
       },
     });
   }
