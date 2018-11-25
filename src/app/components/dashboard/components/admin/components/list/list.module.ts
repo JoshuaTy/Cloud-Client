@@ -17,6 +17,7 @@ import { RegisterAdminComponent } from "./components/register-admin/register-adm
 import { RegisterDiseaseComponent } from "./components/register-disease/register-disease.component";
 import { RegisterDoctorComponent } from "./components/register-doctor/register-doctor.component";
 import { RegisterMedicineComponent } from "./components/register-medicine/register-medicine.component";
+import { RegisterMRComponent } from "./components/register-mr/register-mr.component";
 import { UpdateAdminComponent } from "./components/update-admin/update-admin.component";
 
 @NgModule({
@@ -35,7 +36,8 @@ import { UpdateAdminComponent } from "./components/update-admin/update-admin.com
     RegisterDiseaseComponent,
     RegisterDoctorComponent,
     RegisterMedicineComponent,
-    UpdateAdminComponent
+    UpdateAdminComponent,
+    RegisterMRComponent
   ],
   imports: [CommonModule, FormsModule, NebularModule],
   entryComponents: [

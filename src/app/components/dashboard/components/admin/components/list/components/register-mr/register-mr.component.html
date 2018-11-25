@@ -1,0 +1,114 @@
+<div class="form-body">
+    <form [formGroup]="medicalRecordForm" (ngSubmit)="onSubmit()">
+      <div class="form-container">
+        <div class="s2"></div>
+        <div class="s8">
+          <div class="form-group">
+            <label for="patientname">Patient Name:</label>
+            <input
+              required
+              class="name"
+              minlength="4"
+              maxlength="254"
+              type="text"
+              nbInput
+              fullWidth
+              formControlName="name"
+              [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+              placeholder="Patient Name"
+            />
+            <div *ngIf="submitted && f.name.errors" class="alert alert-danger">
+              <div *ngIf="f.name.errors.required">Patient Name is required</div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="sex">Sex:</label>
+            <nb-radio-group formControlName="sex">
+              <nb-radio *ngFor="let sex of sexes" [value]="sex.value">
+                {{ sex.label }}
+              </nb-radio>
+            </nb-radio-group>
+          </div>
+  
+          <div class="form-group">
+            <label for="birthday">Birthday:</label>
+            <input
+              required
+              fullWidth
+              nbInput
+              placeholder="Birthday"
+              [nbDatepicker]="formpicker"
+              formControlName="birthday"
+              [ngClass]="{ 'is-invalid': submitted && f.birthday.errors }"
+            />
+            <nb-datepicker #formpicker></nb-datepicker>
+          </div>
+          <div class="form-group">
+            <label for="admissionDate">Admission Date:</label>
+            <input
+              required
+              fullWidth
+              nbInput
+              placeholder="Admission Date"
+              [nbDatepicker]="formpicker2"
+              formControlName="admissionDate"
+              [ngClass]="{ 'is-invalid': submitted && f.admissionDate.errors }"
+            />
+            <nb-datepicker #formpicker2></nb-datepicker>
+          </div>
+  
+          <div class="form-group">
+            <label for="dischargeDate">Discharge Date:</label>
+            <input
+              required
+              fullWidth
+              nbInput
+              placeholder="Discharge Date"
+              [nbDatepicker]="formpicker3"
+              formControlName="dischargeDate"
+              [ngClass]="{ 'is-invalid': submitted && f.dischargeDate.errors }"
+            />
+            <nb-datepicker #formpicker3></nb-datepicker>
+          </div>
+  
+          <!-- <div class="form-group">
+            <label for="diseases">Diseases:</label>
+            <nb-select multiple placeholder="..." formControlName="diseaseModels">
+              <nb-option
+                *ngFor="let disease of diseaseModels"
+                value="{{disease.name}}"
+                >{{ disease.name }}</nb-option
+              >
+            </nb-select>
+            <nb-select status="info" multiple placeholder="Diseases" formControlName="diseaseModels">
+                <nb-option *ngFor="let x of diseaseData"  value="1  " >
+                  {{x.diseaseName}}
+                </nb-option>
+              </nb-select>
+          </div> -->
+
+          <mat-form-field class="form-group">
+              <mat-select
+                multiple
+                status="info"
+                placeholder="Diseases"
+                formControlName="diseaseModels"
+              >
+                <mat-option *ngFor="let x of diseaseData" id="id" [value]="x.id">
+                  {{ x.diseaseName }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+          <div class="form-group">
+            <button class="form-submit" nbButton fullWidth status="success">
+              Register
+            </button>
+          </div>
+        </div>
+        <div class="s2"></div>
+      </div>
+    </form>
+  </div>
+  
