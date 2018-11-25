@@ -1,7 +1,7 @@
 <nb-card>
   <nb-card-header>{{ title }}</nb-card-header>
   <nb-card-body *ngIf="type == 1">
-    This is for the Medical Record
+    <app-register-mr></app-register-mr>
   </nb-card-body>
   <nb-card-body *ngIf="type == 2">
     <app-register-disease></app-register-disease>

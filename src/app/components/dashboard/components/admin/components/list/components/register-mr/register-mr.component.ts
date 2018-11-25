@@ -13,11 +13,11 @@ import { DiseaseModel } from "src/app/_models/disease.model";
 import { MedicineModel } from "src/app/_models/medicine.model";
 
 @Component({
-  selector: "app-medical-record",
-  templateUrl: "./medical-record.component.html",
-  styleUrls: ["./medical-record.component.scss"]
+  selector: "app-register-mr",
+  templateUrl: "./register-mr.component.html",
+  styleUrls: ["./register-mr.component.scss"]
 })
-export class MedicalRecordComponent implements OnInit {
+export class RegisterMRComponent implements OnInit {
   bill: number = 0;
   model: any = {
     name: String,
@@ -116,6 +116,8 @@ export class MedicalRecordComponent implements OnInit {
       )){
         window.location.reload();
         alert("Successful");
+      }else{
+        console.log("ASDA");
       }
   }
 }

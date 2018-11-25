@@ -27,6 +27,10 @@ export class DiseaseComponent implements OnInit {
   }
 
   settings = {
+    pager: {
+      display: true,
+      perPage: 6
+    },
     columns: {
       diseaseName: {
         title: "Name"

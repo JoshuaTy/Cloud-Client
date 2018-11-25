@@ -20,6 +20,7 @@ import { RegisterMedicineComponent } from "./components/register-medicine/regist
 import { UpdateDoctorComponent } from "./components/update-doctor/update-doctor.component";
 import { UpdateMedicineComponent } from "./components/update-medicine/update-medicine.component";
 import { EditMedicineComponent } from "./components/edit-medicine/edit-medicine.component";
+import { RegisterMRComponent } from "./components/register-mr/register-mr.component";
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { EditMedicineComponent } from "./components/edit-medicine/edit-medicine.
     UpdateDoctorComponent,
     UpdateMedicineComponent,
     EditMedicineComponent
+    RegisterMRComponent
   ],
   imports: [CommonModule, FormsModule, NebularModule],
   entryComponents: [

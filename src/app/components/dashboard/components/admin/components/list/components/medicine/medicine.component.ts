@@ -22,6 +22,10 @@ export class MedicineComponent implements OnInit {
   ngOnInit() {}
 
   settings = {
+    pager: {
+      display: true,
+      perPage: 6
+    },
     columns: {
       medicineName: {
         title: "Name"
