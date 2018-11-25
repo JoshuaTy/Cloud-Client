@@ -29,14 +29,12 @@ export class MedicineComponent implements OnInit {
         title: "Price"
       },
       edit: {
-        title: "Edit",
         type: "custom",
         renderComponent: EditButtonComponent,
         width: "10%",
         filter: false
       },
       delete: {
-        title: "Delete",
         type: "custom",
         renderComponent: DeleteButtonComponent,
         width: "10%",

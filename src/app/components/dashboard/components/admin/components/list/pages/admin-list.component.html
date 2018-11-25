@@ -1,6 +1,22 @@
 <nb-card>
   <nb-card-body>
     <nb-tabset fullWidth>
+        <nb-tab tabTitle="Medical Record" class="m-20">
+            <!--
+              <button
+                nbButton
+                fullWidth
+                status="success"
+                (click)="toRegister('disease')"
+              >
+                Register
+              </button>
+            -->
+            <button nbButton fullWidth status="success" (click)="open()">
+              Register
+            </button>
+            <app-medical></app-medical>
+          </nb-tab>
       <nb-tab tabTitle="Diseases" class="m-20">
         <!--
           <button
