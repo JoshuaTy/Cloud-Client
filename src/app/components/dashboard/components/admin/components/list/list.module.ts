@@ -40,7 +40,7 @@ import { RegisterMRComponent } from "./components/register-mr/register-mr.compon
     RegisterMedicineComponent,
     UpdateDoctorComponent,
     UpdateMedicineComponent,
-    EditMedicineComponent
+    EditMedicineComponent,
     RegisterMRComponent
   ],
   imports: [CommonModule, FormsModule, NebularModule],

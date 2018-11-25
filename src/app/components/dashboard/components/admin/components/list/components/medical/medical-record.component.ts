@@ -50,12 +50,12 @@ export class MedicalComponent implements OnInit {
       totalBill: {
         title: "Total Bill"
       },
-      edit: {
-        type: "custom",
-        renderComponent: EditButtonComponent,
-        width: "10%",
-        filter: false
-      },
+      // edit: {
+      //   type: "custom",
+      //   renderComponent: EditButtonComponent,
+      //   width: "10%",
+      //   filter: false
+      // },
       delete: {
         type: "custom",
         renderComponent: DeleteButtonComponent,
