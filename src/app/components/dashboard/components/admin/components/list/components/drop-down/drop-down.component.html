@@ -1,13 +1,5 @@
-<!--
-  <select id="multiselect" multiple="multiple" (click)="getValues()"  [(ngModel)]="selectedOption">
-    <option *ngFor="let prf of allProfiles">
-      {{ prf.value }}
-    </option>
-  </select>
--->
-
-<nb-select status="success" placeholder="Click to show">
-  <nb-option *ngFor="let x of medicineData" value="{{x.id}}">{{
-    x.medicineName
-  }}</nb-option>
+<nb-select status="info" placeholder="Medicines">
+  <nb-option *ngFor="let x of medicineData" value="{{x.id}}">
+    {{x.medicineName}}
+  </nb-option>
 </nb-select>

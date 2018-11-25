@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { UserService } from "src/app/_services/user.service";
 import { AlertService } from "src/app/_services/alert.service";
+import { DiseaseModel } from "src/app/_models/disease.model";
 import { first } from "rxjs/operators";
 
 @Component({
@@ -11,6 +12,7 @@ import { first } from "rxjs/operators";
   styleUrls: ["./register-disease.component.scss"]
 })
 export class RegisterDiseaseComponent implements OnInit {
+  diseaseModel: DiseaseModel;
   registerForm: FormGroup;
   loading = false;
   submitted = false;
