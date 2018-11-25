@@ -33,15 +33,10 @@ export class DeleteButtonComponent implements OnInit {
     } else {
       this.model = "mr";
     }
-
-    // this.rowData.isArchived = true;
-    // console.log(`${config.apiUrl}/${this.model}/delete?id=${this.id}`);
     console.log(`${config.apiUrl}/diseases/delete/${this.id}`);
-    this.http.post(`${config.apiUrl}/diseases/delete/${this.id}`, this.id);
-    // this.http.get(`${config.apiUrl}/${this.model}/findAll`).subscribe(data => {
-    //   this.diseaseData = (<any>data).map(x => Object.assign({}, x));
-    //   console.log(this.diseaseData)
-    // });
+    return this.http.post(`${config.apiUrl}/${this.model}/delete/${this.id}`, this.id).subscribe(data => {
+      console.log(data);
+    });
 
   }
 }
