@@ -5,12 +5,14 @@ import { NebularModule } from "src/app/modules/nebular.module";
 import { RouterModule } from "@angular/router";
 
 import { DashboardComponent } from "./pages/dashboard.component";
-import { DoctorComponent } from "./components/doctor/doctor.component";
+
 import { HeaderMenuComponent } from "./components/header-menu/header-menu.component";
+import { DoctorComponent } from "./components/doctor/pages/doctor.component";
+import { DoctorModule } from "./components/doctor/doctor.module";
 
 @NgModule({
-  declarations: [DoctorComponent, DashboardComponent, HeaderMenuComponent],
-  imports: [CommonModule, AdminModule, NebularModule, RouterModule],
-  exports: [CommonModule, AdminModule]
+  declarations: [DashboardComponent, HeaderMenuComponent],
+  imports: [CommonModule, AdminModule, DoctorModule, NebularModule, RouterModule],
+  exports: [CommonModule, AdminModule, DoctorModule]
 })
 export class DashboardModule {}

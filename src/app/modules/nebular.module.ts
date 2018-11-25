@@ -9,14 +9,19 @@ import {
   NbInputModule,
   NbButtonModule,
   NbTabsetModule,
-  NbActionsModule,
+  NbDatepickerModule,
+  NbNativeDateService,
+  NbDatepickerAdapter,
+  NbDatepickerDirective,
+  NbDateService,
+  NbDatepicker,
+  NbRadioModule,
   NbSelectModule,
+  NbActionsModule,
   NbCheckboxComponent,
   NbStepperModule,
   NbAccordionModule,
   NbMenuModule,
-  NbRadioModule,
-  NbDatepickerModule,
   NbPopoverModule,
   NbContextMenuModule,
   NbToastrModule,
@@ -32,7 +37,8 @@ import {
   NbListModule,
   NbDialogModule
 } from "@nebular/theme";
-
+import {NbDateFnsDateModule, NbDateFnsDateService} from "@nebular/date-fns";
+import{ NbMomentDateModule, NbMomentDateService } from "@nebular/moment";
 @NgModule({
   declarations: [],
   imports: [
@@ -44,6 +50,12 @@ import {
     NbButtonModule,
     NbTabsetModule,
     Ng2SmartTableModule,
+    NbDatepickerModule,
+    NbRadioModule,
+    NbSelectModule,
+    NbActionsModule,    
+   // NbDateFnsDateModule,
+  // NbMomentDateModule
     NbActionsModule,
 
     NbSelectModule,
@@ -76,6 +88,12 @@ import {
     NbButtonModule,
     NbTabsetModule,
     Ng2SmartTableModule,
+    NbDatepickerModule,
+    NbRadioModule,
+    NbSelectModule,
+    NbActionsModule,
+   // NbMomentDateModule
+   // NbDateFnsDateModule,
     NbActionsModule,
     NbSelectModule,
     NbStepperModule,
@@ -97,6 +115,6 @@ import {
     NbListModule,
     NbDialogModule
   ],
-  providers: [NbSidebarService]
+  providers: [NbSidebarService,]
 })
 export class NebularModule {}

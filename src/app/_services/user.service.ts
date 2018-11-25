@@ -19,4 +19,7 @@ export class UserService {
   addDisease(x: User) {
     return this.http.post(`${config.apiUrl}/diseases/add`, x);
   }
+  addMedicalRecord(x:User){
+    return this.http.post(`${config.apiUrl}/mr/add`,x);
+  }
 }
