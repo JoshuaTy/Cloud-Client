@@ -61,7 +61,7 @@ export class RegisterDiseaseComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.userService
+    if(this.userService
       .addDisease(this.model)
       .pipe(first())
       .subscribe(
@@ -70,7 +70,9 @@ export class RegisterDiseaseComponent implements OnInit {
           this.alertService.error(error);
           this.loading = false;
         }
-      );
-    console.log(this.model);
+      )){
+        window.location.reload();
+        alert("Successful");
+      }
   }
 }

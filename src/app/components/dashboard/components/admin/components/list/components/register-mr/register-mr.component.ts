@@ -105,7 +105,7 @@ export class RegisterMRComponent implements OnInit {
       });
     })
     this.model.totalBill +=1500;
-    this.userService
+    if(this.userService
       .addMedicalRecord(this.model)
       .pipe(first())
       .subscribe(
@@ -113,8 +113,11 @@ export class RegisterMRComponent implements OnInit {
         error => {
           this.alertService.error(error);
         }
-      );
-
-    console.log(this.model);
+      )){
+        window.location.reload();
+        alert("Successful");
+      }else{
+        console.log("ASDA");
+      }
   }
 }
