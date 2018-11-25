@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { NbDialogService } from '@nebular/theme';
-import { ShowcaseDialogComponent } from '../components/showcase-dialog/showcase-dialog.component';
+import { NbDialogService } from "@nebular/theme";
+import { RegisterUpdateModalComponent } from "../../register-update-modal/register-update-modal.component";
 
 @Component({
   selector: "app-admin-list",
@@ -22,10 +22,10 @@ export class AdminListComponent implements OnInit {
   }
 
   open() {
-    this.dialogService.open(ShowcaseDialogComponent, {
+    this.dialogService.open(RegisterUpdateModalComponent, {
       context: {
-        title: 'This is a title passed to the dialog component',
-      },
+        title: "This is a title passed to the dialog component"
+      }
     });
   }
 }

@@ -6,9 +6,10 @@ import { RouterModule } from "@angular/router";
 import { AdminListModule } from "./components/list/list.module";
 import { RegisterModule } from "./components/register/register.module";
 import { UpdateModule } from "./components/update/update.module";
+import { RegisterUpdateModalComponent } from "./components/register-update-modal/register-update-modal.component";
 
 @NgModule({
-  declarations: [AdminComponent],
+  declarations: [AdminComponent, RegisterUpdateModalComponent],
   imports: [
     CommonModule,
     NebularModule,
@@ -16,6 +17,7 @@ import { UpdateModule } from "./components/update/update.module";
     RouterModule,
     RegisterModule,
     UpdateModule
-  ]
+  ],
+  entryComponents: [RegisterUpdateModalComponent]
 })
 export class AdminModule {}
