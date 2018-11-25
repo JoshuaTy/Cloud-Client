@@ -98,12 +98,8 @@ export class RegisterMRComponent implements OnInit {
     });
 
     this.model.diseaseModels.forEach(element => {
-      // element.medicineData.forEach(element => {
-      //   console.log(element.price);
-      // })
       this.http.get(`${config.apiUrl}/diseases/${element.id}`).subscribe(data => {
-        // this.diseaseData = (<any>data).map(x => Object.assign({}, x));
-        data.medicinemodel.forEach(data=>{
+        (<any>data).medicinemodel.forEach(data=>{
           this.model.totalBill += data.price;
         })
       });
