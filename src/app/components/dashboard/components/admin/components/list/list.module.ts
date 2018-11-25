@@ -7,11 +7,10 @@ import { DiseaseComponent } from "./components/disease/disease.component";
 import { DoctorsComponent } from "./components/doctors/doctors.component";
 import { MedicineComponent } from "./components/medicine/medicine.component";
 import { EditButtonComponent } from "./components/edit-button/edit-button.component";
-import { NebularModule } from "src/app/modules/nebular.module";
 import { DataHubService } from "src/app/_services/datahub.service";
 import { DropDownComponent } from "./components/drop-down/drop-down.component";
 import { FormsModule } from "@angular/forms";
-import { NbSelectModule } from "@nebular/theme";
+import { NebularModule } from "src/app/modules/nebular.module";
 
 @NgModule({
   declarations: [
@@ -24,7 +23,7 @@ import { NbSelectModule } from "@nebular/theme";
     DeleteButtonComponent,
     DropDownComponent
   ],
-  imports: [CommonModule, NebularModule, FormsModule, NbSelectModule],
+  imports: [CommonModule, FormsModule, NebularModule],
   entryComponents: [
     EditButtonComponent,
     DeleteButtonComponent,

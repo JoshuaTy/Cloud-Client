@@ -28,7 +28,6 @@ import { DashboardModule } from "./components/dashboard/dashboard.module";
     BrowserAnimationsModule,
     ReactiveFormsModule,
     NbThemeModule.forRoot({ name: "cosmic" }),
-    NbLayoutModule,
     NebularModule,
     HttpClientModule,
     DashboardModule
