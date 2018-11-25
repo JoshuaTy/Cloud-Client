@@ -26,6 +26,10 @@ export class PatientRecordComponent implements OnInit {medicalData: MedicalRecor
   }
 
   settings = {
+    pager: {
+      display: true,
+      perPage: 6
+    },
     columns: {
       name: {
         title: "Patient Name"

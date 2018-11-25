@@ -21,6 +21,10 @@ export class DoctorsComponent implements OnInit {
   ngOnInit() {}
 
   settings = {
+    pager: {
+      display: true,
+      perPage: 6
+    },
     columns: {
       firstName: {
         title: "FirstName"
