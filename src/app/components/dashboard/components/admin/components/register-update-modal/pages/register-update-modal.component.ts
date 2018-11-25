@@ -8,6 +8,9 @@ import { NbDialogRef } from "@nebular/theme";
 })
 export class RegisterUpdateModalComponent {
   @Input() title: string;
+  @Input() url: string;
+
+  private currentForm: string = this.url;
 
   constructor(protected ref: NbDialogRef<RegisterUpdateModalComponent>) {}
 

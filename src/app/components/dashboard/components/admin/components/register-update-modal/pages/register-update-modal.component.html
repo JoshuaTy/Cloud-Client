@@ -1,6 +1,6 @@
 <nb-card [style.width.px]="600" [style.height.px]="500">
   <nb-card-header>{{ title }}</nb-card-header>
-  <nb-card-body> Modal works </nb-card-body>
+  <nb-card-body> <router-outlet></router-outlet> </nb-card-body>
   <nb-card-footer>
     <button nbButton hero status="primary" (click)="dismiss()">
       Dismiss Dialog

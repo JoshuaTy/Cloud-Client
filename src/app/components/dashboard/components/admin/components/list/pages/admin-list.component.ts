@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { NbDialogService } from "@nebular/theme";
-import { RegisterUpdateModalComponent } from "../../register-update-modal/register-update-modal.component";
+import { RegisterUpdateModalComponent } from "../../register-update-modal/pages/register-update-modal.component";
 
 @Component({
   selector: "app-admin-list",
@@ -21,10 +21,11 @@ export class AdminListComponent implements OnInit {
     this.router.navigate(["dashboard/admin/register/" + link]);
   }
 
-  open() {
+  open(regUrl: string) {
     this.dialogService.open(RegisterUpdateModalComponent, {
       context: {
-        title: "This is a title passed to the dialog component"
+        title: `Register ${regUrl}`,
+        url: `register/${regUrl}`
       }
     });
   }

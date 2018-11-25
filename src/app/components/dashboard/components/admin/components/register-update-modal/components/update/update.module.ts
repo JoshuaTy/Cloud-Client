@@ -6,6 +6,7 @@ import { UpdateAdminComponent } from "./components/update-admin/update-admin.com
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UdateDoctorComponent } from "./components/udate-doctor/udate-doctor.component";
 import { RouterModule } from "@angular/router";
+import { UPDATE_ROUTES } from "./routing";
 
 @NgModule({
   declarations: [UpdateComponent, UpdateAdminComponent, UdateDoctorComponent],
@@ -14,7 +15,7 @@ import { RouterModule } from "@angular/router";
     NebularModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule.forChild(UPDATE_ROUTES)
   ]
 })
 export class UpdateModule {}

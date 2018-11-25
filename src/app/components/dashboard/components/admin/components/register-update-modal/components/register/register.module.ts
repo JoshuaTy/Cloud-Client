@@ -13,6 +13,7 @@ import {
   FormsModule
 } from "@angular/forms";
 import { NbCheckboxComponent } from "@nebular/theme";
+import { REGISTER_ROUTES } from "./routing";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NbCheckboxComponent } from "@nebular/theme";
     RouterModule,
     NebularModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forChild(REGISTER_ROUTES)
   ],
   providers: []
 })

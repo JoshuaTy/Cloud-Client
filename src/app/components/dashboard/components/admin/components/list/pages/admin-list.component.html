@@ -2,27 +2,55 @@
   <nb-card-body>
     <nb-tabset fullWidth>
       <nb-tab tabTitle="Diseases" class="m-20">
-        <button nbButton fullWidth status="success" (click)="open()">
+        <a
+          routerLink="./modal/register/disease"
+          routerLinkActive="active"
+          nbButton
+          fullWidth
+          status="success"
+          (click)="open('disease')"
+        >
           Register
-        </button>
+        </a>
         <app-disease></app-disease>
       </nb-tab>
       <nb-tab tabTitle="Medicines" class="m-20">
-        <button nbButton fullWidth status="success" (click)="open()">
+        <a
+          routerLink="./modal/register/medicine"
+          routerLinkActive="active"
+          nbButton
+          fullWidth
+          status="success"
+          (click)="open('medicine')"
+        >
           Register
-        </button>
+        </a>
         <app-medicine></app-medicine>
       </nb-tab>
       <nb-tab tabTitle="Doctors" class="m-20">
-        <button nbButton fullWidth status="success" (click)="open()">
+        <a
+          routerLink="./modal/register/doctor"
+          routerLinkActive="active"
+          nbButton
+          fullWidth
+          status="success"
+          (click)="open('doctor')"
+        >
           Register
-        </button>
+        </a>
         <app-doctors></app-doctors>
       </nb-tab>
       <nb-tab tabTitle="Admins" class="m-20">
-        <button nbButton fullWidth status="success" (click)="open()">
+        <a
+          routerLink="./modal/register/admin"
+          routerLinkActive="active"
+          nbButton
+          fullWidth
+          status="success"
+          (click)="open('admin')"
+        >
           Register
-        </button>
+        </a>
         <app-admins></app-admins>
       </nb-tab>
     </nb-tabset>

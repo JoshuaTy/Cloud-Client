@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
 import { NbDialogService } from "@nebular/theme";
-import { RegisterUpdateModalComponent } from "../../../register-update-modal/register-update-modal.component";
+import { RegisterUpdateModalComponent } from "../../../register-update-modal/pages/register-update-modal.component";
 
 @Component({
   selector: "app-edit-button",
@@ -18,10 +18,11 @@ export class EditButtonComponent implements OnInit {
   // onClick() {
   //   this.router.navigate(["dashboard/admin/update"]);
   // }
-  onClick() {
+  onClick(updUrl: string) {
     this.dialogService.open(RegisterUpdateModalComponent, {
       context: {
-        title: "This is a title passed to the dialog component"
+        title: "Update",
+        url: `update/${updUrl}`
       }
     });
   }

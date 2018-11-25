@@ -11,6 +11,7 @@ import { DropDownComponent } from "./components/drop-down/drop-down.component";
 import { FormsModule } from "@angular/forms";
 import { NebularModule } from "src/app/modules/nebular.module";
 import { NbDialogService } from "@nebular/theme";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { NbDialogService } from "@nebular/theme";
     DeleteButtonComponent,
     DropDownComponent
   ],
-  imports: [CommonModule, FormsModule, NebularModule],
+  imports: [CommonModule, FormsModule, NebularModule, RouterModule],
   entryComponents: [
     EditButtonComponent,
     DeleteButtonComponent,
