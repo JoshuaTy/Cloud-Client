@@ -19,7 +19,8 @@ import {
   NbSelectModule,
   NbActionsModule
 } from "@nebular/theme";
-
+import {NbDateFnsDateModule, NbDateFnsDateService} from "@nebular/date-fns";
+import{ NbMomentDateModule, NbMomentDateService } from "@nebular/moment";
 @NgModule({
   declarations: [],
   imports: [
@@ -34,7 +35,9 @@ import {
     NbDatepickerModule,
     NbRadioModule,
     NbSelectModule,
-    NbActionsModule
+    NbActionsModule,    
+   // NbDateFnsDateModule,
+  // NbMomentDateModule
   ],
   exports: [
     CommonModule,
@@ -48,8 +51,10 @@ import {
     NbDatepickerModule,
     NbRadioModule,
     NbSelectModule,
-    NbActionsModule
+    NbActionsModule,
+   // NbMomentDateModule
+   // NbDateFnsDateModule,
   ],
-  providers: [NbSidebarService,NbDatepickerDirective]
+  providers: [NbSidebarService,]
 })
 export class NebularModule {}

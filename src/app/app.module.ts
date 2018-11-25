@@ -19,6 +19,11 @@ import { LoginComponent } from "./components/login/login.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { DashboardModule } from "./components/dashboard/dashboard.module";
 import { MedicalRecordComponent } from "./components/dashboard/components/doctor/components/medical-record/medical-record.component";
+import { NbMomentDateModule, NbMomentDateService} from "@nebular/moment";
+import { NbDateFnsDateModule} from "@nebular/date-fns";
+import { DatePipe } from "@angular/common";
+import { MedicalRecordService } from "./_services/medical-record.service";
+
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, NotFoundComponent],
@@ -38,10 +43,13 @@ import { MedicalRecordComponent } from "./components/dashboard/components/doctor
   providers: [
     AuthGuard,
     UserService,
+    MedicalRecordService,
     AlertService,
     AuthenticationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    ,
+    DatePipe,
   ],
   bootstrap: [AppComponent]
 })

@@ -8,18 +8,18 @@
                 <label for="patientname">Patient Name:</label>
                 <input
                   required
-                  class="patientname"
+                  class="name"
                   minlength="4"
                   maxlength="254"
                   type="text"
                   nbInput
                   fullWidth
-                  formControlName="patientName"
-                  [ngClass]="{ 'is-invalid': submitted && f.patientName.errors }"
+                  formControlName="name"
+                  [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
                   placeholder="Patient Name"
                 />
-                <div *ngIf="submitted && f.firstName.errors" class="alert alert-danger">
-                  <div *ngIf="f.patientName.errors.required">
+                <div *ngIf="submitted && f.name.errors" class="alert alert-danger">
+                  <div *ngIf="f.name.errors.required">
                     Patient Name is required
                   </div>
                 </div>
@@ -27,14 +27,14 @@
 
               <div class="form-group">
                 <label for="sex">Sex:</label>           
-                <nb-radio-group [(ngModel)]="option">
+                <nb-radio-group formControlName="sex">
                     <nb-radio
-                      *ngFor="let option of options"
-                      [value]="option.value">
-                      {{ option.label }}
+                      
+                      *ngFor="let sex of sexes"
+                      [value]="sex.value">
+                      {{ sex.label }}
                     </nb-radio>
                   </nb-radio-group>
-
                   
               </div>
 
@@ -49,8 +49,9 @@
                   [nbDatepicker]="formpicker"
                   formControlName="birthday"
                   [ngClass]="{ 'is-invalid': submitted && f.birthday.errors }"
+                 
                   >
-                  <nb-datepicker  #formpicker></nb-datepicker >
+                  <nb-datepicker  #formpicker ></nb-datepicker >
                   
               </div>
               <div class="form-group">
@@ -63,8 +64,9 @@
                   [nbDatepicker]="formpicker2"
                   formControlName="admissionDate"
                   [ngClass]="{ 'is-invalid': submitted && f.admissionDate.errors }"
+                
                   >
-                  <nb-datepicker  #formpicker2></nb-datepicker >
+                  <nb-datepicker  #formpicker2  ></nb-datepicker >
                   
               </div>
 
@@ -78,41 +80,48 @@
                   [nbDatepicker]="formpicker3"
                   formControlName="dischargeDate"
                   [ngClass]="{ 'is-invalid': submitted && f.dischargeDate.errors }"
+                  
                   >
                   <nb-datepicker  #formpicker3></nb-datepicker >
                   
               </div>
               
               <div class="form-group">
-                  <label for="diseases">Diseases:</label>           
-                  <!-- <input 
-                  required
-                  fullWidth
-                  nbInput 
-                  placeholder="Diseases"                
-                  formControlName="diseases"
-                  [ngClass]="{ 'is-invalid': submitted && f.diseases.errors }"
-                  > -->
-                  <nb-select multiple placeholder="...">
-                      <nb-option value="1">Option 1</nb-option>
-                      <nb-option value="2">Option 2</nb-option>
-                      <nb-option value="3">Option 3</nb-option>
-                      <nb-option value="4">Option 4</nb-option>
-                    </nb-select>
+                  <label for="diseases">Diseases:</label>                    
+                    <nb-select multiple placeholder="..."
+                    formControlName="diseaseModels"
+                    >
                   
+                        <nb-option  *ngFor= "let disease of diseaseModels"
+                         value="{{disease.name}}"
+                         >{{disease.name}}</nb-option>                                          
+                   </nb-select>               
               </div>
               
               <div class="form-group">
-                  <label for="totalBill">Total Bill:</label>       
+                  <label for="diseases">Medicines:</label>                    
                   <input 
-                  disabled 
+                  nbInput 
+                  type="text"
+                  fullWidth
+                  placeholder=""
+                  
+                  >  
+
+              </div>
+
+          
+              <div class="form-group">
+                  <label for="totalBill">Total Bill:</label>       
+                  <input                   
                   nbInput 
                   type="number"
                   fullWidth
                   placeholder="Total Bill"
+                  formControlName="totalBill"
                   >
                   <button nbButton status="info" (click)="computeTotalBill()">Compute</button>    
-                </div>
+              </div>
 
               <div class="form-group">
                   <button class="form-submit" nbButton fullWidth status="success">
