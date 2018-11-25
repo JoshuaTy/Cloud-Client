@@ -14,6 +14,7 @@
               medicineName: true
             }"
             placeholder="Medicine Name"
+            [value]="faceValue.medicineName"
           />
           <div
             *ngIf="submitted && f.medicineName.errors"
@@ -37,6 +38,7 @@
               price: true
             }"
             placeholder="Price"
+            [value]="faceValue.price"
           />
           <div *ngIf="submitted && f.price.errors" class="alert alert-danger">
             <div *ngIf="f.price.errors.required">Price is required</div>
