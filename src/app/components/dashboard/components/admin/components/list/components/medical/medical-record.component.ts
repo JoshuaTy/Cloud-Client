@@ -4,40 +4,46 @@ import { DeleteButtonComponent } from "../delete-button/delete-button.component"
 import { HttpClient } from "@angular/common/http";
 import { config } from "src/app/_config/config";
 import { DropDownComponent } from "../drop-down/drop-down.component";
-import { DiseaseModel } from "src/app/_models/disease.model";
+import { MedicalRecordModel } from "src/app/_models/medicalrecord.model";
 
 @Component({
-  selector: "app-disease",
-  templateUrl: "./disease.component.html",
-  styleUrls: ["./disease.component.scss"]
+  selector: "app-medical",
+  templateUrl: "./medical-record.component.html",
+  styleUrls: ["./medical-record.component.scss"]
 })
-export class DiseaseComponent implements OnInit {
-  diseaseData: DiseaseModel[];
+export class MedicalComponent implements OnInit {
+  medicalData: MedicalRecordModel[];
 
   constructor(private http: HttpClient) {
-    this.http.get(`${config.apiUrl}/diseases/findAll`).subscribe(data => {
-      this.diseaseData = (<any>data).map(x => Object.assign({}, x));
+    this.http.get(`${config.apiUrl}/mr/findAll`).subscribe(data => {
+      this.medicalData = (<any>data).map(x => Object.assign({}, x));
     });
   }
 
   ngOnInit() {}
 
   get dData() {
-    return this.diseaseData;
+    return this.medicalData;
   }
 
   settings = {
     columns: {
-      diseaseName: {
-        title: "Name"
+      name: {
+        title: "Patient Name"
       },
-      medication: {
-        title: "Medication",
-        type: "custom",
-        renderComponent: DropDownComponent,
-        width: "20%",
-        filter: false
+      birthday: {
+        title: "Birthday"
       },
+      sex: {
+        title: "Sex"
+      },
+      admissionDate: {
+        title: "Admission Date"
+      },
+      dischargeDate: {
+        title: "Discharge Date"
+      },
+      
       edit: {
         type: "custom",
         renderComponent: EditButtonComponent,
