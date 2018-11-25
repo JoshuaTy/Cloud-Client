@@ -1,0 +1,49 @@
+<div class="form-body">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-container">
+      <div class="s1"></div>
+      <div class="s5">
+        <div class="form-group">
+          <label for="diseaseName">Disease Name:</label>
+          <input
+            type="text"
+            nbInput
+            fullWidth
+            formControlName="diseaseName"
+            [ngClass]="{
+              'is-invalid': submitted && f.diseaseName.errors,
+              diseaseName: true
+            }"
+            placeholder="Medicine Name"
+          />
+          <div
+            *ngIf="submitted && f.diseaseName.errors"
+            class="alert alert-danger"
+          >
+            <div *ngIf="f.diseaseName.errors.required">
+              Medicine Name is required
+            </div>
+          </div>
+        </div>
+        <mat-form-field class="form-group">
+          <mat-select
+            multiple
+            status="info"
+            placeholder="Medicines"
+            formControlName="medicinemodel_id"
+          >
+            <mat-option *ngFor="let x of medicineData" [value]="x.id">
+              {{ x.medicineName }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="form-group">
+          <button class="form-submit" nbButton fullWidth status="success">
+            Register
+          </button>
+        </div>
+      </div>
+      <div class="s1"></div>
+    </div>
+  </form>
+</div>

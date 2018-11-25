@@ -1,16 +1,16 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, Validators, FormGroup } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { UserService } from "src/app/_services/user.service";
 import { AlertService } from "src/app/_services/alert.service";
 import { first } from "rxjs/operators";
 
 @Component({
-  selector: "app-udate-doctor",
-  templateUrl: "./udate-doctor.component.html",
-  styleUrls: ["./udate-doctor.component.scss"]
+  selector: "app-register-medicine",
+  templateUrl: "./register-medicine.component.html",
+  styleUrls: ["./register-medicine.component.scss"]
 })
-export class UdateDoctorComponent implements OnInit {
+export class RegisterMedicineComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
@@ -24,11 +24,8 @@ export class UdateDoctorComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      firstName: ["", Validators.required],
-      lastName: ["", Validators.required],
-      email: ["", [Validators.required, Validators.maxLength(30)]],
-      username: ["", Validators.required],
-      password: ["", [Validators.required, Validators.minLength(6)]]
+      medicineName: ["", Validators.required],
+      price: [parseFloat(""), Validators.required]
     });
   }
 
@@ -44,7 +41,7 @@ export class UdateDoctorComponent implements OnInit {
     }
     this.loading = true;
     this.userService
-      .addAdmin(this.registerForm.value)
+      .addMedicine(this.registerForm.value)
       .pipe(first())
       .subscribe(
         data => {},
@@ -54,6 +51,5 @@ export class UdateDoctorComponent implements OnInit {
         }
       );
     console.log("Registered", this.registerForm.value);
-    this.router.navigate(["dashboard/admin/list"]);
   }
 }

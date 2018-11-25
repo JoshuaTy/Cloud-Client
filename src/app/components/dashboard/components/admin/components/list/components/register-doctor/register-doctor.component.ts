@@ -6,11 +6,11 @@ import { AlertService } from "src/app/_services/alert.service";
 import { first } from "rxjs/operators";
 
 @Component({
-  selector: "app-register-admin",
-  templateUrl: "./register-admin.component.html",
-  styleUrls: ["./register-admin.component.scss"]
+  selector: "app-register-doctor",
+  templateUrl: "./register-doctor.component.html",
+  styleUrls: ["./register-doctor.component.scss"]
 })
-export class RegisterAdminComponent implements OnInit {
+export class RegisterDoctorComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
@@ -28,7 +28,8 @@ export class RegisterAdminComponent implements OnInit {
       lastName: ["", Validators.required],
       email: ["", [Validators.required, Validators.maxLength(30)]],
       username: ["", Validators.required],
-      password: ["", [Validators.required, Validators.minLength(6)]]
+      password: ["", [Validators.required, Validators.minLength(6)]],
+      userType: ["doctor", [Validators.required]]
     });
   }
 
@@ -44,7 +45,7 @@ export class RegisterAdminComponent implements OnInit {
     }
     this.loading = true;
     this.userService
-      .addAdmin(this.registerForm.value)
+      .addDoctor(this.registerForm.value)
       .pipe(first())
       .subscribe(
         data => {},
@@ -54,6 +55,5 @@ export class RegisterAdminComponent implements OnInit {
         }
       );
     console.log("Registered", this.registerForm.value);
-    this.router.navigate(["dashboard/admin/list"]);
   }
 }
