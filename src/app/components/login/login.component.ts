@@ -59,11 +59,7 @@ export class LoginComponent implements OnInit {
           data => {
             this.user = JSON.parse(localStorage.getItem("currentUser"));
             if (this.user) {
-              if (this.user.usertype == "Admin") {
-                this.returnUrl = "dashboard/admin/list";
-              } else {
-                this.returnUrl = "dashboard/doctor";
-              }
+              this.returnUrl = "dashboard/" + this.user.usertype;
               console.log("Redirecting to", this.returnUrl);
               this.router.navigate([this.returnUrl]);
             } else {

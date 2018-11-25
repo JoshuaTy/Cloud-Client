@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { UserService } from "src/app/_services/user.service";
 import { AlertService } from "src/app/_services/alert.service";
+import { DiseaseModel } from "src/app/_models/disease.model";
 import { first } from "rxjs/operators";
 
 @Component({
@@ -11,6 +12,7 @@ import { first } from "rxjs/operators";
   styleUrls: ["./register-disease.component.scss"]
 })
 export class RegisterDiseaseComponent implements OnInit {
+  diseaseModel: DiseaseModel;
   registerForm: FormGroup;
   loading = false;
   submitted = false;
@@ -24,11 +26,8 @@ export class RegisterDiseaseComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      firstName: ["", Validators.required],
-      lastName: ["", Validators.required],
-      email: ["", [Validators.required, Validators.maxLength(30)]],
-      username: ["", Validators.required],
-      password: ["", [Validators.required, Validators.minLength(6)]]
+      medicineName: ["", Validators.required],
+      price: [parseFloat(""), Validators.required]
     });
   }
 
@@ -43,17 +42,17 @@ export class RegisterDiseaseComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.userService
-      .register(this.registerForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.alertService.success("Registration successful", true);
-        },
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
-        }
-      );
+    // this.userService
+    //   .addDisease(this.registerForm.value)
+    //   .pipe(first())
+    //   .subscribe(
+    //     data => {},
+    //     error => {
+    //       this.alertService.error(error);
+    //       this.loading = false;
+    //     }
+    //   );
+    console.log("Registered", this.registerForm.value);
+    this.router.navigate(["dashboard/admin/list"]);
   }
 }

@@ -24,11 +24,8 @@ export class RegisterMedicineComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      firstName: ["", Validators.required],
-      lastName: ["", Validators.required],
-      email: ["", [Validators.required, Validators.maxLength(30)]],
-      username: ["", Validators.required],
-      password: ["", [Validators.required, Validators.minLength(6)]]
+      medicineName: ["", Validators.required],
+      price: [parseFloat(""), Validators.required]
     });
   }
 
@@ -44,16 +41,16 @@ export class RegisterMedicineComponent implements OnInit {
     }
     this.loading = true;
     this.userService
-      .register(this.registerForm.value)
+      .addMedicine(this.registerForm.value)
       .pipe(first())
       .subscribe(
-        data => {
-          this.alertService.success("Registration successful", true);
-        },
+        data => {},
         error => {
           this.alertService.error(error);
           this.loading = false;
         }
       );
+    console.log("Registered", this.registerForm.value);
+    this.router.navigate(["dashboard/admin/list"]);
   }
 }

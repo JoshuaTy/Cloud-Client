@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { EditButtonComponent } from "../edit-button/edit-button.component";
 import { DeleteButtonComponent } from "../delete-button/delete-button.component";
-import { DataHubService } from "src/app/_services/datahub.service";
+import { HttpClient } from "@angular/common/http";
+import { config } from "src/app/_config/config";
+import { MedicineModel } from "src/app/_models/medicine.model";
 
 @Component({
   selector: "app-medicine",
@@ -9,15 +11,18 @@ import { DataHubService } from "src/app/_services/datahub.service";
   styleUrls: ["./medicine.component.scss"]
 })
 export class MedicineComponent implements OnInit {
-  constructor(private DHS: DataHubService) {}
-
-  ngOnInit() {
-    this.data = this.DHS.getMedicines();
+  medicineData: MedicineModel[];
+  constructor(private http: HttpClient) {
+    this.http.get(`${config.apiUrl}/medicines/findAll`).subscribe(data => {
+      this.medicineData = (<any>data).map(x => Object.assign({}, x));
+    });
   }
+
+  ngOnInit() {}
 
   settings = {
     columns: {
-      name: {
+      medicineName: {
         title: "Name"
       },
       price: {
@@ -44,6 +49,4 @@ export class MedicineComponent implements OnInit {
       delete: false
     }
   };
-
-  data = [];
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { DataHubService } from 'src/app/_services/datahub.service';
 import { config } from "src/app/_config/config";
 import { HttpClient } from "@angular/common/http";
 import { DatePipe } from '@angular/common'
@@ -23,7 +22,10 @@ export class MedicalRecordComponent implements OnInit {
     {value: 'Male', label: 'Male' },
     {value: 'Female', label: 'Female' },
   ]
-  diseaseModels= [];
+  diseaseModels= [{
+    diseaseName: "Fever",
+    medicines:"Paracetamol"
+  }];
   selectedOption:[];
   
   diseaseIDs=[
@@ -35,7 +37,6 @@ export class MedicalRecordComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private datahubservice:DataHubService,
     private http: HttpClient,
     private datePipe: DatePipe,
     private userService: UserService,
@@ -47,7 +48,8 @@ export class MedicalRecordComponent implements OnInit {
     return this.medicalRecordForm.controls;
   }
   ngOnInit() {
-    this.diseaseModels = this.datahubservice.getDiseases();
+    //this.diseaseModels = this.datahubservice.getDiseases();
+
     this.medicalRecordForm = this.formBuilder.group({
       name: ["", Validators.required],
       sex: ["", Validators.required],

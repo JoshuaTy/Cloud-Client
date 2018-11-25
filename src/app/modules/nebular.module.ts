@@ -17,7 +17,25 @@ import {
   NbDatepicker,
   NbRadioModule,
   NbSelectModule,
-  NbActionsModule
+  NbActionsModule,
+  NbCheckboxComponent,
+  NbStepperModule,
+  NbAccordionModule,
+  NbMenuModule,
+  NbPopoverModule,
+  NbContextMenuModule,
+  NbToastrModule,
+  NbTooltipModule,
+  NbWindowModule,
+  NbSearchModule,
+  NbUserModule,
+  NbSpinnerModule,
+  NbProgressBarModule,
+  NbBadgeModule,
+  NbCalendarModule,
+  NbCalendarRangeModule,
+  NbListModule,
+  NbDialogModule
 } from "@nebular/theme";
 import {NbDateFnsDateModule, NbDateFnsDateService} from "@nebular/date-fns";
 import{ NbMomentDateModule, NbMomentDateService } from "@nebular/moment";
@@ -38,6 +56,28 @@ import{ NbMomentDateModule, NbMomentDateService } from "@nebular/moment";
     NbActionsModule,    
    // NbDateFnsDateModule,
   // NbMomentDateModule
+    NbActionsModule,
+
+    NbSelectModule,
+    NbStepperModule,
+    NbAccordionModule,
+    NbMenuModule,
+    NbRadioModule,
+    NbDatepickerModule,
+    NbPopoverModule,
+    NbContextMenuModule,
+    NbToastrModule,
+    NbTooltipModule,
+    NbWindowModule,
+    NbSearchModule,
+    NbUserModule,
+    NbSpinnerModule,
+    NbProgressBarModule,
+    NbBadgeModule,
+    NbCalendarModule,
+    NbCalendarRangeModule,
+    NbListModule,
+    NbDialogModule.forRoot()
   ],
   exports: [
     CommonModule,
@@ -54,6 +94,26 @@ import{ NbMomentDateModule, NbMomentDateService } from "@nebular/moment";
     NbActionsModule,
    // NbMomentDateModule
    // NbDateFnsDateModule,
+    NbActionsModule,
+    NbSelectModule,
+    NbStepperModule,
+    NbAccordionModule,
+    NbMenuModule,
+    NbRadioModule,
+    NbDatepickerModule,
+    NbPopoverModule,
+    NbContextMenuModule,
+    NbToastrModule,
+    NbTooltipModule,
+    NbWindowModule,
+    NbSearchModule,
+    NbUserModule,
+    NbSpinnerModule,
+    NbProgressBarModule,
+    NbBadgeModule,
+    NbCalendarModule,
+    NbListModule,
+    NbDialogModule
   ],
   providers: [NbSidebarService,]
 })

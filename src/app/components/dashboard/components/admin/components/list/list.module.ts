@@ -7,8 +7,11 @@ import { DiseaseComponent } from "./components/disease/disease.component";
 import { DoctorsComponent } from "./components/doctors/doctors.component";
 import { MedicineComponent } from "./components/medicine/medicine.component";
 import { EditButtonComponent } from "./components/edit-button/edit-button.component";
+import { ShowcaseDialogComponent } from "./components/showcase-dialog/showcase-dialog.component";
+import { DropDownComponent } from "./components/drop-down/drop-down.component";
+import { FormsModule } from "@angular/forms";
 import { NebularModule } from "src/app/modules/nebular.module";
-import { DataHubService } from "src/app/_services/datahub.service";
+import { NbDialogService } from "@nebular/theme";
 
 @NgModule({
   declarations: [
@@ -18,10 +21,17 @@ import { DataHubService } from "src/app/_services/datahub.service";
     DoctorsComponent,
     MedicineComponent,
     EditButtonComponent,
-    DeleteButtonComponent
+    DeleteButtonComponent,
+    DropDownComponent,
+    ShowcaseDialogComponent
   ],
-  imports: [CommonModule, NebularModule],
-  entryComponents: [EditButtonComponent, DeleteButtonComponent],
-  providers: [DataHubService]
+  imports: [CommonModule, FormsModule, NebularModule],
+  entryComponents: [
+    EditButtonComponent,
+    DeleteButtonComponent,
+    DropDownComponent,
+    ShowcaseDialogComponent
+  ],
+  providers: [NbDialogService]
 })
 export class AdminListModule {}

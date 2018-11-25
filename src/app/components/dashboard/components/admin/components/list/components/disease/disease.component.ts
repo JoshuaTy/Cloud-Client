@@ -1,7 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { EditButtonComponent } from "../edit-button/edit-button.component";
 import { DeleteButtonComponent } from "../delete-button/delete-button.component";
-import { DataHubService } from "src/app/_services/datahub.service";
+import { HttpClient } from "@angular/common/http";
+import { config } from "src/app/_config/config";
+import { DropDownComponent } from "../drop-down/drop-down.component";
+import { DiseaseModel } from "src/app/_models/disease.model";
 
 @Component({
   selector: "app-disease",
@@ -9,19 +12,31 @@ import { DataHubService } from "src/app/_services/datahub.service";
   styleUrls: ["./disease.component.scss"]
 })
 export class DiseaseComponent implements OnInit {
-  constructor(private DHS: DataHubService) {}
+  diseaseData: DiseaseModel[];
 
-  ngOnInit() {
-    this.data = this.DHS.getDiseases();
+  constructor(private http: HttpClient) {
+    this.http.get(`${config.apiUrl}/diseases/findAll`).subscribe(data => {
+      this.diseaseData = (<any>data).map(x => Object.assign({}, x));
+    });
+  }
+
+  ngOnInit() {}
+
+  get dData() {
+    return this.diseaseData;
   }
 
   settings = {
     columns: {
-      name: {
+      diseaseName: {
         title: "Name"
       },
       medication: {
-        title: "Medication"
+        title: "Medication",
+        type: "custom",
+        renderComponent: DropDownComponent,
+        width: "20%",
+        filter: false
       },
       edit: {
         title: "Edit",

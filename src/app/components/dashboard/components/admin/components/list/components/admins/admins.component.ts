@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { DataHubService } from "src/app/_services/datahub.service";
+import { AdminModel } from "src/app/_models/admin.model";
+import { HttpClient } from "@angular/common/http";
+import { config } from "src/app/_config/config";
 
 @Component({
   selector: "app-admins",
@@ -7,15 +9,18 @@ import { DataHubService } from "src/app/_services/datahub.service";
   styleUrls: ["./admins.component.scss"]
 })
 export class AdminsComponent implements OnInit {
-  constructor(private DHS: DataHubService) {}
-
-  ngOnInit() {
-    this.data = this.DHS.getAdmins();
+  adminData: AdminModel[];
+  constructor(private http: HttpClient) {
+    this.http.get(`${config.apiUrl}/users/getAll/admin`).subscribe(data => {
+      this.adminData = (<any>data).map(x => Object.assign({}, x));
+    });
   }
+
+  ngOnInit() {}
 
   settings = {
     columns: {
-      name: {
+      firstName: {
         title: "Name"
       },
       email: {
@@ -29,6 +34,4 @@ export class AdminsComponent implements OnInit {
       delete: false
     }
   };
-
-  data = [];
 }
