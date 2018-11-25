@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { EditButtonComponent } from "../edit-button/edit-button.component";
-import { DeleteButtonComponent } from "../delete-button/delete-button.component";
+import { EditButtonComponent } from "../../../admin/components/list/components/edit-button/edit-button.component";
+import { DeleteButtonComponent } from "../../../admin/components/list/components/delete-button/delete-button.component";
 import { DoctorModel } from "src/app/_models/doctor.model";
 import { HttpClient } from "@angular/common/http";
 import { config } from "src/app/_config/config";
@@ -31,18 +31,6 @@ export class DoctorsComponent implements OnInit {
       email: {
         title: "Email"
       },
-      edit: {
-        type: "custom",
-        renderComponent: EditButtonComponent,
-        width: "10%",
-        filter: false
-      },
-      delete: {
-        type: "custom",
-        renderComponent: DeleteButtonComponent,
-        width: "10%",
-        filter: false
-      }
     },
     actions: {
       add: false,

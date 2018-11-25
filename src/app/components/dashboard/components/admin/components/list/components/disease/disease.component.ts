@@ -32,7 +32,7 @@ export class DiseaseComponent implements OnInit {
         title: "Name"
       },
       medication: {
-        title: "Medication",
+        title: "Medication/s",
         type: "custom",
         renderComponent: DropDownComponent,
         width: "20%",
