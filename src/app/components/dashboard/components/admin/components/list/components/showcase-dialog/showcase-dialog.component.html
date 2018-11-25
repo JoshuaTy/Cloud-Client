@@ -4,18 +4,20 @@
     This is for the Medical Record
   </nb-card-body>
   <nb-card-body *ngIf="type == 2">
-      This is for the Diseases
+    <app-register-disease></app-register-disease>
   </nb-card-body>
   <nb-card-body *ngIf="type == 3">
-      This is for the Medicines
+    <app-register-medicine></app-register-medicine>
   </nb-card-body>
   <nb-card-body *ngIf="type == 4">
-      This is for the Doctors
+    <app-register-doctor></app-register-doctor>
   </nb-card-body>
   <nb-card-body *ngIf="type == 5">
-      This is for the Admins
+    <app-register-admin></app-register-admin>
   </nb-card-body>
   <nb-card-footer>
-    <button nbButton hero status="primary" (click)="dismiss()">Dismiss Dialog</button>
+    <button nbButton hero status="primary" (click)="dismiss()">
+      Dismiss Dialog
+    </button>
   </nb-card-footer>
 </nb-card>

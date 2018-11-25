@@ -37,8 +37,11 @@ import {
   NbListModule,
   NbDialogModule
 } from "@nebular/theme";
-import {NbDateFnsDateModule, NbDateFnsDateService} from "@nebular/date-fns";
-import{ NbMomentDateModule, NbMomentDateService } from "@nebular/moment";
+import { NbDateFnsDateModule, NbDateFnsDateService } from "@nebular/date-fns";
+import { NbMomentDateModule, NbMomentDateService } from "@nebular/moment";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MaterialModule } from "./material.module";
 @NgModule({
   declarations: [],
   imports: [
@@ -53,9 +56,9 @@ import{ NbMomentDateModule, NbMomentDateService } from "@nebular/moment";
     NbDatepickerModule,
     NbRadioModule,
     NbSelectModule,
-    NbActionsModule,    
-   // NbDateFnsDateModule,
-  // NbMomentDateModule
+    NbActionsModule,
+    // NbDateFnsDateModule,
+    // NbMomentDateModule
     NbActionsModule,
 
     NbSelectModule,
@@ -77,7 +80,11 @@ import{ NbMomentDateModule, NbMomentDateService } from "@nebular/moment";
     NbCalendarModule,
     NbCalendarRangeModule,
     NbListModule,
-    NbDialogModule.forRoot()
+    NbDialogModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   exports: [
     CommonModule,
@@ -92,8 +99,8 @@ import{ NbMomentDateModule, NbMomentDateService } from "@nebular/moment";
     NbRadioModule,
     NbSelectModule,
     NbActionsModule,
-   // NbMomentDateModule
-   // NbDateFnsDateModule,
+    // NbMomentDateModule
+    // NbDateFnsDateModule,
     NbActionsModule,
     NbSelectModule,
     NbStepperModule,
@@ -113,8 +120,11 @@ import{ NbMomentDateModule, NbMomentDateService } from "@nebular/moment";
     NbBadgeModule,
     NbCalendarModule,
     NbListModule,
-    NbDialogModule
+    NbDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule
   ],
-  providers: [NbSidebarService,]
+  providers: [NbSidebarService]
 })
 export class NebularModule {}

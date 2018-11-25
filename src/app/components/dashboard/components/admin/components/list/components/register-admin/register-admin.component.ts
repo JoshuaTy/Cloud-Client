@@ -6,11 +6,11 @@ import { AlertService } from "src/app/_services/alert.service";
 import { first } from "rxjs/operators";
 
 @Component({
-  selector: "app-register-medicine",
-  templateUrl: "./register-medicine.component.html",
-  styleUrls: ["./register-medicine.component.scss"]
+  selector: "app-register-admin",
+  templateUrl: "./register-admin.component.html",
+  styleUrls: ["./register-admin.component.scss"]
 })
-export class RegisterMedicineComponent implements OnInit {
+export class RegisterAdminComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
@@ -24,8 +24,11 @@ export class RegisterMedicineComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      medicineName: ["", Validators.required],
-      price: [parseFloat(""), Validators.required]
+      firstName: ["", Validators.required],
+      lastName: ["", Validators.required],
+      email: ["", [Validators.required, Validators.maxLength(30)]],
+      username: ["", Validators.required],
+      password: ["", [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -41,7 +44,7 @@ export class RegisterMedicineComponent implements OnInit {
     }
     this.loading = true;
     this.userService
-      .addMedicine(this.registerForm.value)
+      .addAdmin(this.registerForm.value)
       .pipe(first())
       .subscribe(
         data => {},
@@ -51,6 +54,5 @@ export class RegisterMedicineComponent implements OnInit {
         }
       );
     console.log("Registered", this.registerForm.value);
-    this.router.navigate(["dashboard/admin/list"]);
   }
 }

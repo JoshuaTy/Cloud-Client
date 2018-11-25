@@ -3,15 +3,21 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { UserService } from "src/app/_services/user.service";
 import { AlertService } from "src/app/_services/alert.service";
+import { DiseaseModel } from "src/app/_models/disease.model";
 import { first } from "rxjs/operators";
+import { config } from "src/app/_config/config";
+import { MedicineModel } from "src/app/_models/medicine.model";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
-  selector: "app-register-doctor",
-  templateUrl: "./register-doctor.component.html",
-  styleUrls: ["./register-doctor.component.scss"]
+  selector: "app-register-disease",
+  templateUrl: "./register-disease.component.html",
+  styleUrls: ["./register-disease.component.scss"]
 })
-export class RegisterDoctorComponent implements OnInit {
+export class RegisterDiseaseComponent implements OnInit {
+  diseaseModel: DiseaseModel;
   registerForm: FormGroup;
+  medicineData: MedicineModel;
   loading = false;
   submitted = false;
 
@@ -19,17 +25,18 @@ export class RegisterDoctorComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private userService: UserService,
-    private alertService: AlertService
-  ) {}
+    private alertService: AlertService,
+    private http: HttpClient
+  ) {
+    this.http.get(`${config.apiUrl}/medicines/findAll`).subscribe(data => {
+      this.medicineData = (<any>data).map(x => Object.assign({}, x));
+    });
+  }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      firstName: ["", Validators.required],
-      lastName: ["", Validators.required],
-      email: ["", [Validators.required, Validators.maxLength(30)]],
-      username: ["", Validators.required],
-      password: ["", [Validators.required, Validators.minLength(6)]],
-      userType: ["doctor", [Validators.required]]
+      diseaseName: ["", Validators.required],
+      medicinemodel_id: [{}]
     });
   }
 
@@ -45,7 +52,7 @@ export class RegisterDoctorComponent implements OnInit {
     }
     this.loading = true;
     this.userService
-      .addDoctor(this.registerForm.value)
+      .addDisease(this.registerForm.value)
       .pipe(first())
       .subscribe(
         data => {},
@@ -55,6 +62,5 @@ export class RegisterDoctorComponent implements OnInit {
         }
       );
     console.log("Registered", this.registerForm.value);
-    this.router.navigate(["dashboard/admin/list"]);
   }
 }

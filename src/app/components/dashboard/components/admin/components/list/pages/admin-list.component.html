@@ -1,28 +1,54 @@
 <nb-card>
   <nb-card-body>
     <nb-tabset fullWidth>
-        <nb-tab tabTitle="Medical Record" class="m-20">
-            <button nbButton fullWidth status="success" (click)="open(1)">
-              Register
-            </button>
-            <app-medical></app-medical>
-          </nb-tab>
+      <nb-tab tabTitle="Medical Record" class="m-20">
+        <button nbButton fullWidth status="success" (click)="open(1)">
+          Register
+        </button>
+        <app-medical></app-medical>
+      </nb-tab>
       <nb-tab tabTitle="Diseases" class="m-20">
-        <button nbButton fullWidth status="success" (click)="open(2)">
+        <button
+          nbButton
+          fullWidth
+          status="success"
+          (click)="open(2, 'Register Disease')"
+        >
           Register
         </button>
         <app-disease></app-disease>
       </nb-tab>
       <nb-tab tabTitle="Medicines" class="m-20">
-        <button nbButton fullWidth status="success" (click)="open(3)">Register</button>
+        <button
+          nbButton
+          fullWidth
+          status="success"
+          (click)="open(3, 'Register Medicine')"
+        >
+          Register
+        </button>
         <app-medicine></app-medicine>
       </nb-tab>
       <nb-tab tabTitle="Doctors" class="m-20">
-        <button nbButton fullWidth status="success" (click)="open(4)">Register</button>
+        <button
+          nbButton
+          fullWidth
+          status="success"
+          (click)="open(4, 'Register Doctor')"
+        >
+          Register
+        </button>
         <app-doctors></app-doctors>
       </nb-tab>
       <nb-tab tabTitle="Admins" class="m-20">
-        <button nbButton fullWidth status="success" (click)="open(5)">Register</button>
+        <button
+          nbButton
+          fullWidth
+          status="success"
+          (click)="open(5, 'Register Admin')"
+        >
+          Register
+        </button>
         <app-admins></app-admins>
       </nb-tab>
     </nb-tabset>
