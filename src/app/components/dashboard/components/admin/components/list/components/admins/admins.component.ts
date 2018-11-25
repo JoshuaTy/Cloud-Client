@@ -19,6 +19,10 @@ export class AdminsComponent implements OnInit {
   ngOnInit() {}
 
   settings = {
+    pager: {
+      display: true,
+      perPage: 6
+    },
     columns: {
       firstName: {
         title: "Name"

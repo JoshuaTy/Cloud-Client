@@ -27,6 +27,10 @@ export class MedicalComponent implements OnInit {
   }
 
   settings = {
+    pager: {
+      display: true,
+      perPage: 6
+    },
     columns: {
       name: {
         title: "Patient Name"
@@ -43,13 +47,15 @@ export class MedicalComponent implements OnInit {
       dischargeDate: {
         title: "Discharge Date"
       },
-
-      // edit: {
-      //   type: "custom",
-      //   renderComponent: EditButtonComponent,
-      //   width: "10%",
-      //   filter: false
-      // },
+      totalBill: {
+        title: "Total Bill"
+      },
+      edit: {
+        type: "custom",
+        renderComponent: EditButtonComponent,
+        width: "10%",
+        filter: false
+      },
       delete: {
         type: "custom",
         renderComponent: DeleteButtonComponent,

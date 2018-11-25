@@ -18,6 +18,10 @@ export class RegisterDiseaseComponent implements OnInit {
   diseaseModel: DiseaseModel;
   registerForm: FormGroup;
   medicineData: MedicineModel;
+  model: any = {
+    diseaseName: String,
+    medicinemodel:[],
+  }
   loading = false;
   submitted = false;
 
@@ -36,7 +40,7 @@ export class RegisterDiseaseComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       diseaseName: ["", Validators.required],
-      medicinemodel_id: [{}]
+      medicinemodel: [{}]
     });
   }
 
@@ -46,21 +50,29 @@ export class RegisterDiseaseComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.model.diseaseName = this.registerForm.value.diseaseName;
+    this.registerForm.value.medicinemodel.forEach(element => {
+      this.model.medicinemodel.push({
+        "id": element
+      })
+    });
 
     if (this.registerForm.invalid) {
       return;
     }
     this.loading = true;
-    // this.userService
-    //   .addDisease(this.registerForm.value)
-    //   .pipe(first())
-    //   .subscribe(
-    //     data => {},
-    //     error => {
-    //       this.alertService.error(error);
-    //       this.loading = false;
-    //     }
-    //   );
-    console.log("Registered", this.registerForm.value);
+    if(this.userService
+      .addDisease(this.model)
+      .pipe(first())
+      .subscribe(
+        data => {},
+        error => {
+          this.alertService.error(error);
+          this.loading = false;
+        }
+      )){
+        window.location.reload();
+        alert("Successful");
+      }
   }
 }

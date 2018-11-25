@@ -33,9 +33,12 @@ export class DeleteButtonComponent implements OnInit {
     } else {
       this.model = "mr";
     }
-    return this.http.post(`${config.apiUrl}/${this.model}/delete/${this.id}`, this.id).subscribe(data => {
+    if(this.http.post(`${config.apiUrl}/${this.model}/delete/${this.id}`, this.id).subscribe(data => {
       console.log(data);
-    });
+    })){
+      window.location.reload();
+      alert("Successful");
+    }
 
   }
 }

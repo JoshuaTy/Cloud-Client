@@ -44,7 +44,7 @@ export class RegisterDoctorComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.userService
+    if(this.userService
       .addDoctor(this.registerForm.value)
       .pipe(first())
       .subscribe(
@@ -53,7 +53,9 @@ export class RegisterDoctorComponent implements OnInit {
           this.alertService.error(error);
           this.loading = false;
         }
-      );
-    console.log("Registered", this.registerForm.value);
+      )){
+        window.location.reload();
+        alert("Successful");
+      }
   }
 }
