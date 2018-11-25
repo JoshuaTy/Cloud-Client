@@ -21,6 +21,9 @@
   <nb-card-body *ngIf="type == 7">
     <app-update-medicine></app-update-medicine>
   </nb-card-body>
+  <nb-card-body *ngIf="type == 8">
+    <app-update-medical-record></app-update-medical-record>
+  </nb-card-body>
   <nb-card-footer>
     <button nbButton hero status="primary" (click)="dismiss()">
       Dismiss Dialog

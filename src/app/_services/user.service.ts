@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from "../_models/user";
 import { MedicineModel } from "../_models/medicine.model";
+import { MedicalRecordModel } from "../_models/medicalrecord.model";
 
 @Injectable()
 export class UserService {
@@ -28,5 +29,8 @@ export class UserService {
   }
   editMedicine(id: number, x: MedicineModel) {
     return this.http.post(`${config.apiUrl}/medicines/update/${id}`, x);
+  }
+  editMedicalRecord(id:number, x:MedicalRecordModel){
+    return this.http.post(`${config.apiUrl}/mr/update/${id}`, x);
   }
 }

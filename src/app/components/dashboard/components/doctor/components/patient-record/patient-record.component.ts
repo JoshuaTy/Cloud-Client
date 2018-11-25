@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MedicalRecordModel } from "src/app/_models/medicalrecord.model";
 import { HttpClient } from "@angular/common/http";
 import { config } from "src/app/_config/config";
-import { EditButtonComponent } from "../../../admin/components/list/components/edit-button/edit-button.component";
 import { DeleteButtonComponent } from "../../../admin/components/list/components/delete-button/delete-button.component";
+import { EditMedicalRecordComponent } from '../../../admin/components/list/components/edit-medical-record/edit-medical-record.component';
 
 @Component({
   selector: 'app-patient-record',
@@ -49,7 +49,7 @@ export class PatientRecordComponent implements OnInit {medicalData: MedicalRecor
       
       edit: {
         type: "custom",
-        renderComponent: EditButtonComponent,
+        renderComponent: EditMedicalRecordComponent,
         width: "10%",
         filter: false
       },
