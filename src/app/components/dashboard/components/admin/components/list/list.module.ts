@@ -17,7 +17,9 @@ import { RegisterAdminComponent } from "./components/register-admin/register-adm
 import { RegisterDiseaseComponent } from "./components/register-disease/register-disease.component";
 import { RegisterDoctorComponent } from "./components/register-doctor/register-doctor.component";
 import { RegisterMedicineComponent } from "./components/register-medicine/register-medicine.component";
-import { UpdateAdminComponent } from "./components/update-admin/update-admin.component";
+import { UpdateDoctorComponent } from "./components/update-doctor/update-doctor.component";
+import { UpdateMedicineComponent } from "./components/update-medicine/update-medicine.component";
+import { EditMedicineComponent } from "./components/edit-medicine/edit-medicine.component";
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { UpdateAdminComponent } from "./components/update-admin/update-admin.com
     RegisterDiseaseComponent,
     RegisterDoctorComponent,
     RegisterMedicineComponent,
-    UpdateAdminComponent
+    UpdateDoctorComponent,
+    UpdateMedicineComponent,
+    EditMedicineComponent
   ],
   imports: [CommonModule, FormsModule, NebularModule],
   entryComponents: [
@@ -43,7 +47,8 @@ import { UpdateAdminComponent } from "./components/update-admin/update-admin.com
     DeleteButtonComponent,
     DropDownComponent,
     ShowcaseDialogComponent,
-    MedicalComponent
+    MedicalComponent,
+    EditMedicineComponent
   ],
   providers: [NbDialogService]
 })

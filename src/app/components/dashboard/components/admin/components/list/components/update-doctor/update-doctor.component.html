@@ -1,7 +1,6 @@
 <div class="form-body">
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-container">
-      <div class="s1"></div>
       <div class="s5">
         <div class="form-group">
           <label for="firstname">First Name:</label>
@@ -13,6 +12,7 @@
             formControlName="firstName"
             [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
             placeholder="First Name"
+            [value]="faceValue.firstName"
           />
           <div
             *ngIf="submitted && f.firstName.errors"
@@ -33,6 +33,7 @@
             fullWidth
             [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
             placeholder="Last Name"
+            [value]="faceValue.lastName"
           />
           <div
             *ngIf="submitted && f.lastName.errors"
@@ -51,6 +52,7 @@
             fullWidth
             [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
             placeholder="Email address"
+            [value]="faceValue.email"
           />
           <div *ngIf="submitted && f.email.errors" class="alert alert-danger">
             <div *ngIf="f.email.errors.required">Email is required</div>
@@ -66,6 +68,7 @@
             fullWidth
             [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
             placeholder="User Name"
+            [value]="faceValue.username"
           />
           <div
             *ngIf="submitted && f.username.errors"
@@ -84,6 +87,7 @@
             fullWidth
             [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
             placeholder="Password"
+            [value]="faceValue.password"
           />
           <div
             class="alert alert-danger"
@@ -97,11 +101,10 @@
         </div>
         <div class="form-group">
           <button class="form-submit" nbButton fullWidth status="success">
-            Register
+            Update
           </button>
         </div>
       </div>
-      <div class="s1"></div>
     </div>
   </form>
 </div>
