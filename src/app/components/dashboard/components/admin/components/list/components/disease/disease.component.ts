@@ -4,7 +4,6 @@ import { DeleteButtonComponent } from "../delete-button/delete-button.component"
 import { HttpClient } from "@angular/common/http";
 import { config } from "src/app/_config/config";
 import { DropDownComponent } from "../drop-down/drop-down.component";
-import { DataHubService } from "src/app/_services/datahub.service";
 import { DiseaseModel } from "src/app/_models/disease.model";
 
 @Component({
@@ -15,17 +14,15 @@ import { DiseaseModel } from "src/app/_models/disease.model";
 export class DiseaseComponent implements OnInit {
   diseaseData: DiseaseModel[];
 
-  constructor(private DHS: DataHubService, private http: HttpClient) {
+  constructor(private http: HttpClient) {
     this.http.get(`${config.apiUrl}/diseases/findAll`).subscribe(data => {
       this.diseaseData = (<any>data).map(x => Object.assign({}, x));
     });
   }
 
-  ngOnInit() {
-    this.data = this.DHS.getDiseases();
-  }
+  ngOnInit() {}
 
-  get dData(){
+  get dData() {
     return this.diseaseData;
   }
 

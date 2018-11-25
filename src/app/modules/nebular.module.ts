@@ -29,7 +29,8 @@ import {
   NbBadgeModule,
   NbCalendarModule,
   NbCalendarRangeModule,
-  NbListModule
+  NbListModule,
+  NbDialogModule
 } from "@nebular/theme";
 
 @NgModule({
@@ -63,7 +64,8 @@ import {
     NbBadgeModule,
     NbCalendarModule,
     NbCalendarRangeModule,
-    NbListModule
+    NbListModule,
+    NbDialogModule.forRoot()
   ],
   exports: [
     CommonModule,
@@ -92,7 +94,8 @@ import {
     NbProgressBarModule,
     NbBadgeModule,
     NbCalendarModule,
-    NbListModule
+    NbListModule,
+    NbDialogModule
   ],
   providers: [NbSidebarService]
 })
