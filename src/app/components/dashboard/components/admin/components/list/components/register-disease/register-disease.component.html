@@ -30,9 +30,9 @@
             multiple
             status="info"
             placeholder="Medicines"
-            formControlName="medicinemodel_id"
+            formControlName="medicinemodel"
           >
-            <mat-option *ngFor="let x of medicineData" [value]="x.id">
+            <mat-option *ngFor="let x of medicineData" id="id" [value]="x.id">
               {{ x.medicineName }}
             </mat-option>
           </mat-select>

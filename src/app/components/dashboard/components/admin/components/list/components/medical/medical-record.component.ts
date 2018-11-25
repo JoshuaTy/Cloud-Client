@@ -43,7 +43,9 @@ export class MedicalComponent implements OnInit {
       dischargeDate: {
         title: "Discharge Date"
       },
-      
+      totalBill: {
+        title: "Total Bill"
+      },
       edit: {
         type: "custom",
         renderComponent: EditButtonComponent,
