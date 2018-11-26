@@ -51,7 +51,7 @@ export class UpdateMedicineComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.userService
+    if(this.userService
       .editMedicine(this.id, this.registerForm.value)
       .pipe(first())
       .subscribe(
@@ -60,7 +60,10 @@ export class UpdateMedicineComponent implements OnInit {
           this.alertService.error(error);
           this.loading = false;
         }
-      );
+      )){
+        window.location.reload();
+        alert("Successful");
+      }
     console.log("Updated", this.registerForm.value);
   }
 }
