@@ -26,7 +26,7 @@
         <div class="form-group">
           <label for="sex">Sex:</label>
           <nb-radio-group formControlName="sex" >
-            <nb-radio *ngFor="let sex of sexes" [value]="faceValue.sex">
+            <nb-radio *ngFor="let sex of sexes" [value]="sex.value" selected="faceValue.sex">
               {{ sex.label }}
             </nb-radio>
           </nb-radio-group>
@@ -99,7 +99,7 @@
               placeholder="Diseases"
               formControlName="diseaseModels"
             >
-              <mat-option *ngFor="let x of diseaseData" id="id" [value]="x.id">
+              <mat-option *ngFor="let x of diseaseData" id="id" [value]="faceValue.id">
                 {{ x.diseaseName }}
               </mat-option>
             </mat-select>
@@ -107,7 +107,7 @@
 
         <div class="form-group">
           <button class="form-submit" nbButton fullWidth status="success">
-            Register
+            Update
           </button>
         </div>
       </div>

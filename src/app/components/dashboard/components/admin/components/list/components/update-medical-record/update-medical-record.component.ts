@@ -100,7 +100,7 @@ export class UpdateMedicalRecordComponent implements OnInit {
     );
     this.medicalRecordForm.value.diseaseModels.forEach(element => {
       this.model.diseaseModels.push({
-        id: element
+        "id": element
       });
     });
 
