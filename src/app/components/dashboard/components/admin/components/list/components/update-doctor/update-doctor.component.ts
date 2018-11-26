@@ -53,7 +53,7 @@ export class UpdateDoctorComponent implements OnInit {
       return;
     }
     this.loading = true;
-    this.userService
+    if(this.userService
       .editDoctor(this.id, this.registerForm.value)
       .pipe(first())
       .subscribe(
@@ -62,7 +62,10 @@ export class UpdateDoctorComponent implements OnInit {
           this.alertService.error(error);
           this.loading = false;
         }
-      );
+      )){
+        window.location.reload();
+        alert("Successful");
+      }
     console.log("Updated", this.registerForm.value);
   }
 }
